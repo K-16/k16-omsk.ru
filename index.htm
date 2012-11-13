@@ -1,26 +1,74 @@
 <HTML>
   <HEAD>
     <LINK rel="stylesheet" type="text/css" href="css/main.css">
-    <TITLE>K16</TITLE>
+    <SCRIPT type="text/javascript" src="./js/prefixfree.min.js"></SCRIPT> 
+    <SCRIPT type="text/javascript" src="./js/jquery-1.8.2.min.js"></SCRIPT>
+    <SCRIPT type="text/javascript" src="./js/jquery.scrollTo-1.4.3.1-min.js"></SCRIPT> 
+    <SCRIPT type="text/javascript">
+$(document).ready(function(){
+
+ $('#logo').click(function() {$.scrollTo(0, 500);});
+ $('#control-1').click(function() {$.scrollTo('#panel-1', 500);});
+ $('#control-2').click(function() {$.scrollTo('#panel-2', 500);});
+ $('#control-3').click(function() {$.scrollTo('#panel-3', 500);});
+ $('#control-4').click(function() {$.scrollTo('#panel-4', 500);});
+ $('#control-5').click(function() {$.scrollTo('#panel-5', 500);});
+
+});
+    </SCRIPT>    
+    <TITLE>K16</TITLE>  
   </HEAD>
   <BODY>
     <DIV id="left">
-      <A href="#" id="logo"></A>
+      <A id="logo"></A>
       <DIV id="menu">
-      
+			  <INPUT type="radio" name="radio-set" id="control-1" checked="checked">
+				<A href="#panel-1">Синий</a>
+				<INPUT type="radio" name="radio-set" id="control-2">
+				<A href="#panel-2">Лиловый</A>
+				<INPUT type="radio" name="radio-set" id="control-3">
+				<A href="#panel-3">Голубой</A>
+				<INPUT type="radio" name="radio-set" id="control-4">
+				<A href="#panel-4">Сиреневый</A>
+				<INPUT type="radio" name="radio-set" id="control-5">
+				<A href="#panel-5">Фиолетовый</A>
       </DIV>
-  
   
     </DIV>
   
     <DIV id="right">
     
+      <DIV class="panel" id="panel-1">
+<h2>Синий</h2>
+<p>Некий, чтобы текст заполнить пространство рандомный.</p>
+      </DIV>
+      
+      <DIV class="panel" id="panel-2">
+<h2>Лиловый</h2>
+<p>Рандомный заполнить текст, чтобы некий пространство.</p>
+      </DIV>
+      
+      <DIV class="panel" id="panel-3">
+<h2>Голубой</h2>
+<p>Некий рандомный текст чтобы, пространство заполнить.</p>
+      </DIV>
+      
+      <DIV class="panel" id="panel-4">
+<h2>Сиреневый</h2>
+<p>Некий текст, чтобы рандомный пространство заполнить.</p>
+      </DIV>
+      
+      <DIV class="panel" id="panel-5">
+<h2>Фиолетовый</h2>
+<p>Рандомный некий чтобы текст, заполнить пространство.</p>
+      </DIV>
+      
     </DIV> 
   
     <DIV id="footer">
     
     </DIV>
- 
+         
   
   </BODY>
 </HTML>
