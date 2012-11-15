@@ -7,7 +7,7 @@
     <SCRIPT type="text/javascript">
 $(document).ready(function(){
 
- $('#logo').click(function() {$.scrollTo(0, 500);});
+ $('#logo').click(function()      {$.scrollTo(0, 500);});
  $('#control-1').click(function() {$.scrollTo('#panel-1', 500);});
  $('#control-2').click(function() {$.scrollTo('#panel-2', 500);});
  $('#control-3').click(function() {$.scrollTo('#panel-3', 500);});
@@ -19,24 +19,26 @@ $(document).ready(function(){
     <TITLE>K16</TITLE>  
   </HEAD>
   <BODY>
-    <DIV id="left">
-      <A id="logo"></A>
+    <DIV id="left">        
+      <INPUT type="radio" name="radio-set" id="logo">
+      <A href=# id="gototop"></A>
+      
       <DIV id="menu">
-			  <INPUT type="radio" name="radio-set" id="control-1" checked="checked">
-				<A href="#panel-1">Синий</a>
-				<INPUT type="radio" name="radio-set" id="control-2">
-				<A href="#panel-2">Лиловый</A>
-				<INPUT type="radio" name="radio-set" id="control-3">
-				<A href="#panel-3">Голубой</A>
-				<INPUT type="radio" name="radio-set" id="control-4">
-				<A href="#panel-4">Сиреневый</A>
-				<INPUT type="radio" name="radio-set" id="control-5">
-				<A href="#panel-5">Фиолетовый</A>
+      	<INPUT type="radio" name="radio-set" id="control-1" checked="checked">
+  			<A href="#panel-1">Синий</a>
+  			<INPUT type="radio" name="radio-set" id="control-2">
+	  		<A href="#panel-2">Лиловый</A>  
+		  	<INPUT type="radio" name="radio-set" id="control-3">
+			  <A href="#panel-3">Голубой</A>
+   			<INPUT type="radio" name="radio-set" id="control-4">
+		  	<A href="#panel-4">Сиреневый</A>
+	  		<INPUT type="radio" name="radio-set" id="control-5">
+		  	<A href="#panel-5">Фиолетовый</A>  
       </DIV>
-  
+      
     </DIV>
   
-    <DIV id="right">
+    <DIV id="content">
     
       <DIV class="panel" id="panel-1">
 <h2>Синий</h2>
