@@ -1,9 +1,68 @@
 /* If you want to delete any strings, say about this me, please */
+@font-face                               /* PT Sans Regular*/
+{
+  font-family: 'PT Sans'; 
+	src: url('../fonts/PT/sans/regular/pts55f_w.eot'); 
+	src: local('PT Sans'), 
+  url('../fonts/PT/sans/regular/PTS55F_W.woff') format('woff'), 
+  url('../fonts/PT/sans/regular/PTS55F_W.ttf') format('truetype'), 
+  url('../fonts/PT/sans/regular/PTS55F_W.svg#PTSans-Regular') format('svg');
+}
+
+@font-face                               /* PT Sans Bold*/
+{
+  font-family: 'PT Sans';
+	src: url('../fonts/PT/sans/bold/pts75f_w.eot');
+	font-style: normal;
+	font-weight: bold; 
+	src: local('PT Sans Bold'), 
+  url('../fonts/PT/sans/bold/PTS75F_W.woff') format('woff'), 
+  url('../fonts/PT/sans/bold/PTS75F_W.ttf') format('truetype'), 
+  url('../fonts/PT/sans/bold/PTS75F_W.svg#PTSans-Bold') format('svg');
+}
+
+
+@font-face                               /* PT Serif Regular*/
+{
+  font-family: 'PT Serif'; 
+	src: url('../fonts/PT/serif/regular/ptf55f_w.eot'); 
+	src: local('PT Serif'), 
+  url('../fonts/PT/serif/regular/ptf55f_w.woff') format('woff'), 
+  url('../fonts/PT/serif/regular/ptf55f_w.ttf') format('truetype'), 
+  url('../fonts/PT/serif/regular/ptf55f_w.svg#PTSerif-Regular') format('svg');
+}
+  
+@font-face                               /* PT Serif Italic*/
+{
+  font-family: 'PT Serif'; 
+	font-style: italic;
+	src: url('../fonts/PT/serif/italic/ptf56f_w.eot'); 
+	src: local('PT Serif Italic'), 
+  url('../fonts/PT/serif/italic/ptf56f_w.woff') format('woff'), 
+  url('../fonts/PT/serif/italic/ptf56f_w.ttf') format('truetype'), 
+  url('../fonts/PT/serif/italic/ptf56f_w.svg#PTSerif-Italic') format('svg');
+}
+  
+@font-face                               /* PT Serif Bold*/
+{
+  font-family: 'PT Serif';
+	src: url('../fonts/PT/serif/bold/ptf75f_w.eot');
+	font-style: normal;
+	font-weight: bold; 
+	src: local('PT Serif Bold'), 
+  url('../fonts/PT/serif/bold/ptf75f_w.woff') format('woff'), 
+  url('../fonts/PT/serif/bold/ptf75f_w.ttf') format('truetype'), 
+  url('../fonts/PT/serif/bold/ptf75f_w.svg#PTSerif-Bold') format('svg');
+}
+  
+
+    
+
 BODY
 {        
   margin: 0;
   padding: 0;
-  font-family: 'Lucida Grande Regular', 'Calibri', 'Helvetica', sans-serif;
+  font-family: 'PT Serif';
   overflow: hidden;  
 }
                                
@@ -56,7 +115,7 @@ BODY
 #menu > A 
 {
 	opacity: 1;
-  line-height: 200%;
+  line-height: 250%;
 }
 
 #control-1, #control-1 + A {top: 30%;}
@@ -156,7 +215,7 @@ BODY
 
 
 /* Content */
-#content
+#right
 {
   position: relative;   /* It works -- i have no idea why */
   left: 20%;
@@ -171,7 +230,9 @@ BODY
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%;     
+  height: 100%;
+  outline: none;
+  overflow: auto;    
 }
 
 #panel-1 {top: 0%;}
@@ -179,6 +240,24 @@ BODY
 #panel-3 {top: 200%;}
 #panel-4 {top: 300%;}
 #panel-5 {top: 400%;}
+
+
+.content
+{
+  padding: 1% 60px;
+}
+
+H2
+{
+  font-size: 500%;
+  font-family: 'PT Sans';
+  font-weight: bold;
+}
+
+P
+{
+  font-size: 200%;
+}
 
 A
 {
@@ -190,26 +269,6 @@ A
 
 
 /* testmodeon */
-.panel h2 {
-	color: #4682b4;
-	position: absolute;
-	font-size: 500%;
-	width: 100%;
-	left: 0%;
-	text-align: center;
-	line-height: 50px;
-	padding: 0;
-	top: 30%;
-  text-shadow: 1px 1px 1px #777;   
-}
-.panel p {
-	position: absolute;
-	text-align: center;
-	font-size: 200%;
-	color: #1a4780;
-	padding: 0;
-	width: 50%;
-	left: 25%;
-	top: 50%;
-}
+
+
 /* testmodeoff*/               
