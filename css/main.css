@@ -97,7 +97,8 @@ BODY
 	font-size: 250%;
   text-align: center;
 	height: 10%;
-  background: #7fc7ff;  
+  background: #7fc7ff; 
+  font-family: 'PT Sans';
 }
 
 #menu > A
@@ -115,14 +116,13 @@ BODY
 #menu > A 
 {
 	opacity: 1;
-  line-height: 250%;
 }
 
-#control-1, #control-1 + A {top: 30%;}
-#control-2, #control-2 + A {top: 40%;}
-#control-3, #control-3 + A {top: 50%;}
-#control-4, #control-4 + A {top: 60%;}
-#control-5, #control-5 + A {top: 70%;}
+.control-1, .control-1 + A {top: 30%;}
+.control-2, .control-2 + A {top: 40%;}
+.control-3, .control-3 + A {top: 50%;}
+.control-4, .control-4 + A {top: 60%;}
+.control-5, .control-5 + A {top: 70%;}
 
 #menu > INPUT:checked + A,
 #menu > INPUT:checked:hover + A
@@ -210,7 +210,7 @@ BODY
 	border-top-color: none;
 }
 
-#logo:checked ~ #menu > #control-1 + A {background: #4682b4}
+#logo:checked ~ #menu > .control-1 + A {background: #4682b4}
 
 
 

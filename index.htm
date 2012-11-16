@@ -1,23 +1,25 @@
-<HTML>
+<HTML>           <!-- In version for IE write "display: none;" for inputs  -->
   <HEAD>
-    <LINK rel="stylesheet" type="text/css" href="css/main.css">
-    <LINK rel="stylesheet" type="text/css" href="css/jquery.jscrollpane.css">    
+    <LINK rel="stylesheet" type="text/css" href="./css/main.css">
+    <LINK rel="stylesheet" type="text/css" href="./css/jquery/jquery.sbscroller.css">    
     <SCRIPT type="text/javascript" src="./js/prefixfree.min.js"></SCRIPT> 
     <SCRIPT type="text/javascript" src="./js/jquery/jquery-1.8.2.min.js"></SCRIPT>
-    <SCRIPT type="text/javascript" src="./js/jquery/jquery.jscrollpane.js"></SCRIPT>
+    <SCRIPT type="text/javascript" src="./js/jquery/jquery.sbscroller.js"></SCRIPT>
     <SCRIPT type="text/javascript" src="./js/jquery/jquery.mousewheel-3.js"></SCRIPT>
-    <SCRIPT type="text/javascript" src="./js/jquery/jquery.scrollTo-1.4.3.1-min.js"></SCRIPT> 
+    <SCRIPT type="text/javascript" src="./js/jquery/jquery-ui-1.9.1.custom.min.js"></SCRIPT>
+    <SCRIPT type="text/javascript" src="./js/jquery/jquery.scrollTo-1.4.3.1-min.js"></SCRIPT>    
     <SCRIPT type="text/javascript">
-$(document).ready(function(){
+$(document).ready(function()
+{
 
  $('#logo').click(function()      {$.scrollTo(0, 500);});
- $('#control-1').click(function() {$.scrollTo('#panel-1', 500);});
- $('#control-2').click(function() {$.scrollTo('#panel-2', 500);});
- $('#control-3').click(function() {$.scrollTo('#panel-3', 500);});
- $('#control-4').click(function() {$.scrollTo('#panel-4', 500);});
- $('#control-5').click(function() {$.scrollTo('#panel-5', 500);});
+ $('.control-1').click(function() {$.scrollTo('#panel-1', 500);});
+ $('.control-2').click(function() {$.scrollTo('#panel-2', 500);});
+ $('.control-3').click(function() {$.scrollTo('#panel-3', 500);});
+ $('.control-4').click(function() {$.scrollTo('#panel-4', 500);});
+ $('.control-5').click(function() {$.scrollTo('#panel-5', 500);});
 
- $('.panel1').jScrollPane();
+ $('.panel').sbscroller();
  
 });
     </SCRIPT>    
@@ -29,16 +31,16 @@ $(document).ready(function(){
       <A href=# id="gototop"></A>
       
       <DIV id="menu">
-      	<INPUT type="radio" name="radio-set" id="control-1" checked="checked">
-  			<A href="#panel-1">Пластичность</a>
-  			<INPUT type="radio" name="radio-set" id="control-2">
-	  		<A href="#panel-2">Секстант</A>  
-		  	<INPUT type="radio" name="radio-set" id="control-3">
-			  <A href="#panel-3">Конфликт</A>
-   			<INPUT type="radio" name="radio-set" id="control-4">
-		  	<A href="#panel-4">Поясность</A>
-	  		<INPUT type="radio" name="radio-set" id="control-5">
-		  	<A href="#panel-5">Разрыв</A>  
+      	<INPUT type="radio" name="radio-set" class="control-1" checked="checked">
+  			<A href="#panel-1" class="control-1">Пластичность</a>
+  			<INPUT type="radio" name="radio-set" class="control-2">
+	  		<A href="#panel-2" class="control-2">Секстант</A>  
+		  	<INPUT type="radio" name="radio-set" class="control-3">
+			  <A href="#panel-3" class="control-3">Конфликт</A>
+   			<INPUT type="radio" name="radio-set" class="control-4">
+		  	<A href="#panel-4" class="control-4">Поясность</A>
+	  		<INPUT type="radio" name="radio-set" class="control-5">
+		  	<A href="#panel-5" class="control-5">Разрыв</A>  
       </DIV>
       
     </DIV>
