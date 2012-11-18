@@ -62,8 +62,8 @@ BODY
 {        
   margin: 0;
   padding: 0;
-  font-family: 'PT Serif';
-  overflow: hidden;  
+  font-family: 'PT Serif', 'Georgia', serif;
+  /*overflow: hidden;*/
 }
                                
 /* Logo + Menu */              
@@ -83,7 +83,7 @@ BODY
   width: 20%;           /* Text-shadow for <h1> just for luzl with big screens*/
   height: 100%;                                                      /* (me?) */
   background: #7FC7FF;
-	z-index: 100;
+	z-index: 99;
 }
 
 #menu > INPUT,
@@ -131,7 +131,7 @@ BODY
   cursor: default;
 }
 
-#menu > INPUT:checked + A:before,
+/*#menu > INPUT:checked + A:before,
 #menu > INPUT:checked:hover + A:before
 {
 	top: 50%;
@@ -146,7 +146,7 @@ BODY
 	left: 100%;
 	margin-top: -49px;
   z-index: 101;  
-}
+}*/
 
 #menu > INPUT:hover + A
 {
@@ -182,7 +182,7 @@ BODY
   background-size: 100% 100%;
 }
 
-#logo:checked + #gototop:before,
+/*#logo:checked + #gototop:before,
 #logo:checked:hover + #gototop:before
 {
 	top: 116.5%;
@@ -197,7 +197,7 @@ BODY
 	left: 100%;
 	margin-top: -49px;
   z-index: 101;  
-}
+}*/
 
 #logo:hover + #gototop
 {
@@ -221,7 +221,8 @@ BODY
   left: 20%;
   width: 80%;
   height: 100%;
-  z-index: 99; 
+  z-index: 100; 
+  background: white;    
 }
 
 .panel
@@ -232,7 +233,8 @@ BODY
   width: 100%;
   height: 100%;
   outline: none;
-  overflow: auto;    
+  overflow: auto;
+  background: white;    
 }
 
 #panel-1 {top: 0%;}
@@ -247,20 +249,75 @@ BODY
   padding: 1% 60px;
 }
 
+.g
+{
+  position: absolute;   /* Position is very strange, don't touch its :D  */
+  top: 400%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 100;
+  outline: none;
+  overflow: auto;   
+  background: white;
+}
+
+.g H2
+{
+  padding: 0 1%;
+}
+
+#f {left: 100%;}
+#v {left: 200%;}
+
+#g-1 {left: 300%;}
+
+
+.gpa
+{
+  display: inline-block;
+  position: relative;
+  margin: 1%;
+  padding: 10px;
+  text-decoration: none;
+  float: left;
+}
+
+.gpa:hover
+{
+  background: #7fc7ff;
+  color: #ff0000;
+  border-radius: 5px;
+}
+
+.gpa > P
+{
+  text-align: center;
+}
+
+
+
+
+
+
+
+
+
 H2
 {
-  font-size: 500%;
-  font-family: 'PT Sans';
+  font-size: 400%;
+  font-family: 'PT Sans', 'Calibri', sans-serif;
   font-weight: bold;
 }
 
 P
 {
-  font-size: 200%;
+  font-size: 150%;
 }
 
 A
 {
+  color: #0000ff;
   outline: none;
 }  
 
