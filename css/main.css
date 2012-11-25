@@ -1,4 +1,4 @@
-/* If you want to delete any strings, say about this me, please */
+/* If you want to delete any strings, tell  about this me, please */
 
 BODY
 {        
@@ -25,7 +25,7 @@ BODY
   left: 0;
   width: 20%;           /* Text-shadow for <h1> just for luzl with big screens*/
   height: 100%;                                                      /* (me?) */
-  background: #7FC7FF;
+  background: #4682b4;
 }
 
 #menu > INPUT,
@@ -39,25 +39,22 @@ BODY
 	font-size: 250%;
   text-align: center;
 	height: 10%;
-  background: #7fc7ff; 
+  background: #4682b4; 
   font-family: 'PT Sans', 'Helvetica', sans-serif;
 }
 
 #menu > A
 {
 	text-decoration: none;
-  color: #003684;
+  color: #1a4780;
+ 	opacity: 1;
+  text-shadow:0px 0px 1.5px #1a4780; 
 }  
 
 #menu > INPUT 
 {
 	opacity: 0;
 	z-index: 6; 
-}
-
-#menu > A 
-{
-	opacity: 1;
 }
 
 .control-1, .control-1 + A {top: 30%;}
@@ -69,40 +66,18 @@ BODY
 #menu > INPUT:checked + A,
 #menu > INPUT:checked:hover + A
 {
-	background: #4682b4;
-  cursor: default;
+	background: #FFFFFF;
 }
-
-/*#menu > INPUT:checked + A:before,
-#menu > INPUT:checked:hover + A:before
-{
-	top: 50%;
-	border: solid transparent;
-	content: '';
-	height: 0;
-	width: 0;
-	position: absolute;
-	pointer-events: none;
-	border-left-color: #4682b4;
-	border-width: 49px;
-	left: 100%;
-	margin-top: -49px;
-  z-index: 101;  
-}*/
 
 #menu > INPUT:hover + A
 {
-	background: #79a0c1;
+	background: #C2E0FF;
 }
 
-#menu > INPUT:hover + A:after 
-{
-	border-top-color: #AD244F;
-}
 
 #logo, #gototop
 {
-  display: block;         /* Link is block */ 
+  display: block;         /* Link is block */  
   position: fixed; 
   top: 0;
   left: 0;
@@ -123,35 +98,13 @@ BODY
   background-size: 100% 100%;
 }
 
-/*#logo:checked + #gototop:before,
-#logo:checked:hover + #gototop:before
-{
-	top: 116.5%;
-	border: solid transparent;
-	content: '';
-	height: 0;
-	width: 0;
-	position: absolute;
-	pointer-events: none;
-	border-left-color: #4682b4;
-	border-width: 49px;
-	left: 100%;
-	margin-top: -49px;
-  z-index: 101;  
-}*/
-
 #logo:hover + #gototop
 {
   background: url(../pic/logo.png) no-repeat;
   background-size: 100% 100%;
 }
 
-#logo:hover + #gototop:after 
-{
-	border-top-color: none;
-}
-
-#logo:checked ~ #menu > .control-1 + A {background: #4682b4}
+#logo:checked ~ #menu > .control-1 + A {background: #FFFFFF}
 
 
 
@@ -176,7 +129,8 @@ BODY
   z-index: 10; 
   outline: none;
   overflow: auto;
-  background: white;    
+  background: white;
+  text-shadow: 0px 0px 1px #808080;                /* Smoothing */
 }
 
 #panel-1 {top: 0%;}
@@ -191,12 +145,14 @@ BODY
   padding: 1% 60px;
 }
 
+
+/* Gallery */
 .gp {top: 400%;}
 
 .g 
 {
   top: 300%; 
-  z-index: 8;
+  z-index: 3;
 }
 
 .g H2
@@ -219,7 +175,7 @@ BODY
   height: 35px;
   border-radius: 5px;
   line-height: 35px;
-  z-index: 100;
+  z-index: 4;
   font-size: 20px;
   text-align: center;
   text-decoration: none;
@@ -240,8 +196,9 @@ BODY
 
 .gpa:hover
 {
-  background: #7fc7ff;
+  background: #4682b4;
   color: #ff0000;
+  text-shadow: 0px 0px 1px #ff0000;    /* Smoothing */
   border-radius: 5px;
 }
 
@@ -250,18 +207,13 @@ BODY
   text-align: center;
 }
 
-
-
-
-
-
-
-
+/* Gallery */
 
 H1, H2, H3, H4, H5, H6
 {
   font-family: 'PT Sans', 'Helvetica', sans-serif;
   font-weight: bold;
+  text-shadow: 0px 0px 1px #000;    /* Smoothing */
 }
 
 H1 {font-size: 500%;}
@@ -285,6 +237,7 @@ A
 CODE
 {
   font-family: 'PT Mono', 'Courier', monospace;
+  text-shadow: 0px 0px 1px #000;   /* Smoothing */
 }
 
 CITE
@@ -297,11 +250,95 @@ CITE
   border-left: 5px solid #08457e;
 }  
 
+EM
+{
+  font-family: 'PT Serif', 'Georgia', serif;
+  font-style: italic;
+}
 
+BLOCKQUOTE
+{
+  display: block;
+  margin: 30px;
+  font-size: 125%;
+  position: relative;
+}
+BLOCKQUOTE:before
+{
+  content: '«';
+  font-size: 400%;
+  position: absolute;
+  line-height: 0.1;
+  left: -45px;
+}
 
+BLOCKQUOTE:after
+{
+  content: '»';
+  font-size: 400%;
+  position: absolute;
+  line-height: 0.1;
+  right: -45px;
+}  
 
+OL, UL
+{
+ counter-reset: li;       /* New counter */
+ list-style: none;        /* Delete default markers */
+ *list-style: decimal;    /* Default markers for IE with love */
+ padding: 0;
+ margin-bottom: 80px;
+}
 
-/* testmodeon */
+UL
+{
+ counter-reset: none;       /* New counter */
+ *list-style: square;       /* Default markers for IE with love */
+}
 
+OL OL,
+UL UL
+{
+ margin: 0 0 0 40px; 
+}  
 
-/* testmodeoff*/               
+LI
+{
+ position: relative;
+ display: block;
+ padding: .4em .4em .4em .8em;
+ *padding: .4em;                /* For IE with love */
+ margin: .5em 0 .5em 2.5em;
+ background: #ddd;
+ color: #444;
+ font-family: 'PT Sans', 'Helvetica', sans-serif;
+}       
+
+OL LI:before                /* Counter */
+{
+ content: counter(li);
+ counter-increment: li;
+ position: absolute;
+ left: -2.5em;
+ top: 50%;
+ margin-top: -1em;
+ background: #08457E;
+ height: 2em;
+ width: 2em;
+ color: #ddd;
+ line-height: 2em;
+ text-align: center;
+ font-weight: bold;
+} 
+
+UL LI:before 
+{
+ content: '';
+ position: absolute;
+ left: -2.5em;
+ top: 50%;
+ margin-top: -1em;
+ background: #08457E;
+ height: 2em;
+ width: 2em; 
+}  

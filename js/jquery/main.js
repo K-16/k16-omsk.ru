@@ -33,18 +33,18 @@ $(document).ready(function()
  
 $(document).ready(function()
 {
-	$('#fback').hide();
+//	$('#left').hide();
 		$(function () 
     {
 			$(window).scroll(function () 
       {
-				if ($(this).scrollLeft() > 300 ) 
+				if ($(this).scrollLeft() > 500 ) 
         {
-					$('#fback').fadeIn('fast');
+					$('#left').fadeOut('fast');
 				} 
         else 
         {
-					$('#fback').fadeOut('fast');
+					$('#left').fadeIn('fast');
 				}
 		});  
     });
