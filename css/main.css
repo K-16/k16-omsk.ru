@@ -1,69 +1,11 @@
 /* If you want to delete any strings, say about this me, please */
-@font-face                               /* PT Sans Regular*/
-{
-  font-family: 'PT Sans'; 
-	src: url('../fonts/PT/sans/regular/pts55f_w.eot'); 
-	src: local('PT Sans'), 
-  url('../fonts/PT/sans/regular/PTS55F_W.woff') format('woff'), 
-  url('../fonts/PT/sans/regular/PTS55F_W.ttf') format('truetype'), 
-  url('../fonts/PT/sans/regular/PTS55F_W.svg#PTSans-Regular') format('svg');
-}
-
-@font-face                               /* PT Sans Bold*/
-{
-  font-family: 'PT Sans';
-	src: url('../fonts/PT/sans/bold/pts75f_w.eot');
-	font-style: normal;
-	font-weight: bold; 
-	src: local('PT Sans Bold'), 
-  url('../fonts/PT/sans/bold/PTS75F_W.woff') format('woff'), 
-  url('../fonts/PT/sans/bold/PTS75F_W.ttf') format('truetype'), 
-  url('../fonts/PT/sans/bold/PTS75F_W.svg#PTSans-Bold') format('svg');
-}
-
-
-@font-face                               /* PT Serif Regular*/
-{
-  font-family: 'PT Serif'; 
-	src: url('../fonts/PT/serif/regular/ptf55f_w.eot'); 
-	src: local('PT Serif'), 
-  url('../fonts/PT/serif/regular/ptf55f_w.woff') format('woff'), 
-  url('../fonts/PT/serif/regular/ptf55f_w.ttf') format('truetype'), 
-  url('../fonts/PT/serif/regular/ptf55f_w.svg#PTSerif-Regular') format('svg');
-}
-  
-@font-face                               /* PT Serif Italic*/
-{
-  font-family: 'PT Serif'; 
-	font-style: italic;
-	src: url('../fonts/PT/serif/italic/ptf56f_w.eot'); 
-	src: local('PT Serif Italic'), 
-  url('../fonts/PT/serif/italic/ptf56f_w.woff') format('woff'), 
-  url('../fonts/PT/serif/italic/ptf56f_w.ttf') format('truetype'), 
-  url('../fonts/PT/serif/italic/ptf56f_w.svg#PTSerif-Italic') format('svg');
-}
-  
-@font-face                               /* PT Serif Bold*/
-{
-  font-family: 'PT Serif';
-	src: url('../fonts/PT/serif/bold/ptf75f_w.eot');
-	font-style: normal;
-	font-weight: bold; 
-	src: local('PT Serif Bold'), 
-  url('../fonts/PT/serif/bold/ptf75f_w.woff') format('woff'), 
-  url('../fonts/PT/serif/bold/ptf75f_w.ttf') format('truetype'), 
-  url('../fonts/PT/serif/bold/ptf75f_w.svg#PTSerif-Bold') format('svg');
-}
-  
-
-    
 
 BODY
 {        
   margin: 0;
   padding: 0;
   font-family: 'PT Serif', 'Georgia', serif;
-  /*overflow: hidden;*/
+  overflow: hidden;
 }
                                
 /* Logo + Menu */              
@@ -73,6 +15,7 @@ BODY
   top: 0;
   width: 20%;
   height: 100%;
+	z-index: 5;
 }
 
 #menu
@@ -83,7 +26,6 @@ BODY
   width: 20%;           /* Text-shadow for <h1> just for luzl with big screens*/
   height: 100%;                                                      /* (me?) */
   background: #7FC7FF;
-	z-index: 99;
 }
 
 #menu > INPUT,
@@ -98,7 +40,7 @@ BODY
   text-align: center;
 	height: 10%;
   background: #7fc7ff; 
-  font-family: 'PT Sans';
+  font-family: 'PT Sans', 'Helvetica', sans-serif;
 }
 
 #menu > A
@@ -110,7 +52,7 @@ BODY
 #menu > INPUT 
 {
 	opacity: 0;
-	z-index: 101; 
+	z-index: 6; 
 }
 
 #menu > A 
@@ -164,7 +106,6 @@ BODY
   position: fixed; 
   top: 0;
   left: 0;
-  opacity: 1;
   width: 20%;
   height: 30%;
   cursor: pointer;
@@ -172,8 +113,8 @@ BODY
   background-size: 100% 100%;
 }
 
-#logo {opacity: 0; z-index: 100;}
-#gototop {opacity: 1; z-index: 99;}
+#logo {opacity: 0; z-index: 6;}
+#gototop {opacity: 1; z-index: 5;}
 
 #logo:checked + #gototop,
 #logo:checked:hover + #gototop
@@ -221,17 +162,18 @@ BODY
   left: 20%;
   width: 80%;
   height: 100%;
-  z-index: 100; 
+  z-index: 10; 
   background: white;    
 }
 
-.panel
+.panel, .g, .gp
 {
   position: absolute;   /* Position is very strange, don't touch its :D  */
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
+  z-index: 10; 
   outline: none;
   overflow: auto;
   background: white;    
@@ -249,17 +191,12 @@ BODY
   padding: 1% 60px;
 }
 
-.g
+.gp {top: 400%;}
+
+.g 
 {
-  position: absolute;   /* Position is very strange, don't touch its :D  */
-  top: 400%;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 100;
-  outline: none;
-  overflow: auto;   
-  background: white;
+  top: 300%; 
+  z-index: 8;
 }
 
 .g H2
@@ -272,6 +209,24 @@ BODY
 
 #g-1 {left: 300%;}
 
+#fback
+{
+  display: block;
+  position: fixed;
+  top: 3%;
+  left: 2%;
+  width: 80px;
+  height: 35px;
+  border-radius: 5px;
+  line-height: 35px;
+  z-index: 100;
+  font-size: 20px;
+  text-align: center;
+  text-decoration: none;
+  font-family: 'PT Sans', 'Helvetica', sans-serif;
+  background: blue;
+  color: white;
+}
 
 .gpa
 {
@@ -303,12 +258,18 @@ BODY
 
 
 
-H2
+H1, H2, H3, H4, H5, H6
 {
-  font-size: 400%;
-  font-family: 'PT Sans', 'Calibri', sans-serif;
+  font-family: 'PT Sans', 'Helvetica', sans-serif;
   font-weight: bold;
 }
+
+H1 {font-size: 500%;}
+H2 {font-size: 400%;}
+H3 {font-size: 300%;}
+H4 {font-size: 200%;}
+H5 {font-size: 150%;}
+H6 {font-size: 100%;}
 
 P
 {
@@ -319,6 +280,21 @@ A
 {
   color: #0000ff;
   outline: none;
+}
+
+CODE
+{
+  font-family: 'PT Mono', 'Courier', monospace;
+}
+
+CITE
+{
+  display: block;
+  font-family: 'PT Sans', 'Helvetica', sans-serif;
+  font-style: normal;
+  margin: 30px 0px;  
+  padding-left: 20px;
+  border-left: 5px solid #08457e;
 }  
 
 
