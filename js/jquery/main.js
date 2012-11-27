@@ -15,8 +15,10 @@ $(document).ready(function()
 
  $('#gc-1').click(function() {$.scrollTo('#g-1', 500, {axis:'x'});});
  
+ $('.gback').click(function() {$.scrollTo(0, 500, {axis:'x'});});
+ 
  $('#fback').click(function() {$.scrollTo('#f', 500, {axis:'x'});});
-
+ 
  
   
  $('.g').fotorama();
@@ -31,20 +33,19 @@ $(document).ready(function()
     maxHeight: 900
  }
  
-$(document).ready(function()
+$(document).ready(function()   //Hide menu for button "Back" in galleries
 {
-//	$('#left').hide();
 		$(function () 
     {
 			$(window).scroll(function () 
       {
 				if ($(this).scrollLeft() > 500 ) 
         {
-					$('#left').fadeOut('fast');
+					$('#left').fadeOut(1);
 				} 
         else 
         {
-					$('#left').fadeIn('fast');
+					$('#left').fadeIn(1);
 				}
 		});  
     });

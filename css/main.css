@@ -4,7 +4,7 @@ BODY
 {        
   margin: 0;
   padding: 0;
-  font-family: 'PT Serif', 'Georgia', serif;
+  font-family: 'PT Serif', 'Georgia', serif; 
   overflow: hidden;
 }
                                
@@ -34,11 +34,11 @@ BODY
 	position: fixed;
 	width: 20%;
   margin-left: 0;      /* Don't touch this line!*/
-  padding: 0; 
+  padding-top: 1%; 
 	cursor: pointer;
 	font-size: 250%;
   text-align: center;
-	height: 10%;
+	height: 10%;    
   background: #4682b4; 
   font-family: 'PT Sans', 'Helvetica', sans-serif;
 }
@@ -48,6 +48,7 @@ BODY
 	text-decoration: none;
   color: #1a4780;
  	opacity: 1;
+  -webkit-transition: all 0.2s ease;
   text-shadow:0px 0px 1.5px #1a4780; 
 }  
 
@@ -71,7 +72,7 @@ BODY
 
 #menu > INPUT:hover + A
 {
-	background: #C2E0FF;
+	background: #B6CEE2; 
 }
 
 
@@ -149,28 +150,35 @@ BODY
 /* Gallery */
 .gp {top: 400%;}
 
+.gp H2
+{
+  padding: 0 1%;
+}
+
 .g 
 {
   top: 300%; 
   z-index: 3;
 }
 
-.g H2
-{
-  padding: 0 1%;
-}
+
 
 #f {left: 100%;}
 #v {left: 200%;}
 
 #g-1 {left: 300%;}
 
+.gback
+{
+  text-decoration: none;
+}
+
 #fback
 {
   display: block;
   position: fixed;
   top: 3%;
-  left: 2%;
+  left: 1.5%;
   width: 80px;
   height: 35px;
   border-radius: 5px;
@@ -180,8 +188,15 @@ BODY
   text-align: center;
   text-decoration: none;
   font-family: 'PT Sans', 'Helvetica', sans-serif;
-  background: blue;
+  background: #4682b4;
+  -webkit-transition: all 0.2s ease;
   color: white;
+}
+
+#fback:hover
+{
+  color: #4682b4;
+  background: #fff;
 }
 
 .gpa
@@ -192,14 +207,18 @@ BODY
   padding: 10px;
   text-decoration: none;
   float: left;
+  border-radius: 5px;
+  -webkit-transition: all 0.2s ease;
+  font-family: 'PT Sans', 'Helvetica', sans-serif;
+  text-shadow: none;   /* Smoothing none */
 }
 
 .gpa:hover
 {
   background: #4682b4;
-  color: #ff0000;
-  text-shadow: 0px 0px 1px #ff0000;    /* Smoothing */
-  border-radius: 5px;
+  color: #fff;
+  border-radius: 5px;  
+  text-shadow: none;   /* Smoothing none */
 }
 
 .gpa > P
@@ -213,6 +232,7 @@ H1, H2, H3, H4, H5, H6
 {
   font-family: 'PT Sans', 'Helvetica', sans-serif;
   font-weight: bold;
+  -webkit-transition: all 0.2s ease;
   text-shadow: 0px 0px 1px #000;    /* Smoothing */
 }
 
@@ -226,12 +246,19 @@ H6 {font-size: 100%;}
 P
 {
   font-size: 150%;
+  -webkit-transition: all 0.2s ease;
 }
 
 A
 {
-  color: #0000ff;
+  color: #4682b4;       /* #0000ff */
   outline: none;
+  -webkit-transition: all 0.2s ease;
+}
+
+A:hover
+{
+  color: #ff2400;
 }
 
 CODE
@@ -292,8 +319,8 @@ OL, UL
 
 UL
 {
- counter-reset: none;       /* New counter */
- *list-style: square;       /* Default markers for IE with love */
+ counter-reset: none;      /* New counter */
+ *list-style: square;      /* Default markers for IE with love */
 }
 
 OL OL,
@@ -342,3 +369,83 @@ UL LI:before
  height: 2em;
  width: 2em; 
 }  
+
+
+/* Auto font zoom */
+
+/* Height */
+
+@media screen and (max-height: 800px)
+{
+  #menu > A {font-size: 200%;}
+  H1        {font-size: 450%;}
+  H2        {font-size: 350%;}
+  H3        {font-size: 250%;}
+  H4        {font-size: 150%;}
+  H5        {font-size: 100%;}
+  H6        {font-size: 80%;}
+  P         {font-size: 130%;} 
+}
+
+@media screen and (max-height: 600px)
+{
+  #menu > A {font-size: 150%;}
+  H1        {font-size: 400%;}
+  H2        {font-size: 300%;}
+  H3        {font-size: 200%;}
+  H4        {font-size: 100%;}
+  H5        {font-size: 80%;}
+  H6        {font-size: 60%;}
+  P         {font-size: 120%;} 
+}
+
+@media screen and (max-height: 400px)
+{
+  #menu > A {font-size: 100%;}
+  H1        {font-size: 350%;}
+  H2        {font-size: 250%;}
+  H3        {font-size: 150%;}
+  H4        {font-size: 700%;}
+  H5        {font-size: 60%;}
+  H6        {font-size: 50%;}
+  P         {font-size: 110%;} 
+}
+
+
+/* Width */
+
+@media screen and (max-width: 1200px)
+{
+  #menu > A {font-size: 200%;}
+  H1        {font-size: 450%;}
+  H2        {font-size: 350%;}
+  H3        {font-size: 250%;}
+  H4        {font-size: 150%;}
+  H5        {font-size: 100%;}
+  H6        {font-size: 80%;}
+  P         {font-size: 130%;} 
+}
+
+@media screen and (max-width: 900px)
+{
+  #menu > A {font-size: 150%;}
+  H1        {font-size: 400%;}
+  H2        {font-size: 300%;}
+  H3        {font-size: 200%;}
+  H4        {font-size: 100%;}
+  H5        {font-size: 80%;}
+  H6        {font-size: 60%;}
+  P         {font-size: 120%;} 
+}
+
+@media screen and (max-width: 650px)
+{
+  #menu > A {font-size: 100%;}
+  H1        {font-size: 350%;}
+  H2        {font-size: 250%;}
+  H3        {font-size: 150%;}
+  H4        {font-size: 700%;}
+  H5        {font-size: 60%;}
+  H6        {font-size: 50%;}
+  P         {font-size: 110%;} 
+}

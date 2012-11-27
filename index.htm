@@ -1,15 +1,17 @@
 <HTML>           <!-- In version for IE write "display: none;" for inputs -->
   <HEAD>
+    <SCRIPT type="text/javascript" src="./js/jquery/jquery-1.8.3.min.js"></SCRIPT> 
+    <SCRIPT type="text/javascript" src="./js/jquery/prefixfree.jquery.js"></SCRIPT>
+    <SCRIPT type="text/javascript" src="./js/jquery/fotorama/fotorama.js"></SCRIPT> 
+    <SCRIPT type="text/javascript" src="./js/jquery/jquery.scrollTo-1.4.3.1-min.js"></SCRIPT>
+    <SCRIPT type="text/javascript" src="./js/jquery/main.js"></SCRIPT>       
     <LINK rel="stylesheet" type="text/css" href="./css/main.css">
     <LINK rel="stylesheet" type="text/css" href="./js/jquery/fotorama/fotorama.css"> 
     <LINK rel="stylesheet" type="text/css" 
     href="http://fonts.googleapis.com/css?family=PT+Sans:400,700,400italic
     |PT+Mono|PT+Serif:400,700,400italic&subset=latin,cyrillic">
-    <SCRIPT type="text/javascript" src="./js/prefixfree.min.js"></SCRIPT>
-    <SCRIPT type="text/javascript" src="./js/jquery/jquery-1.8.3.min.js"></SCRIPT>    
-    <SCRIPT type="text/javascript" src="./js/jquery/fotorama/fotorama.js"></SCRIPT> 
-    <SCRIPT type="text/javascript" src="./js/jquery/jquery.scrollTo-1.4.3.1-min.js"></SCRIPT>
-    <SCRIPT type="text/javascript" src="./js/jquery/main.js"></SCRIPT>          
+    <META name="viewport" 
+    content="width=device-width, initial-scale=1, maximum-scale=1">      
     <TITLE>K16</TITLE>  
   </HEAD>
   <BODY>
@@ -38,7 +40,7 @@
         <DIV class="content">
           <H2>Примеры оформления записей</H2>
           <H3>Тег <CODE>CODE</CODE></H3>
-          <P>
+          <P style="background: #ddd;">
 <CODE>
  $('.control-1').click(function() {$.scrollTo('#panel-1', 500, {axis:'y'});}); <BR>
  $('.control-2').click(function() {$.scrollTo('#panel-2', 500, {axis:'y'});}); <BR>
@@ -80,10 +82,11 @@ FM-радиостанциях Америки. Между тем, она даже не была выпущена как сингл,
           </P>
           <H3>Тег <CODE>BLOCKQUOTE</CODE></H3>
           <P>
-Женщина-космонавт возможна. Гелиоцентрическое расстояние параллельно. 
-Экскадрилья оценивает pадиотелескоп Максвелла, день этот пришелся 
-на двадцать шестое число месяца карнея, который у афинян называется 
-метагитнионом. Соединение, на первый взгляд, последовательно.
+Ганимед вызывает первоначальный дип-скай объект, об интересе Галла к 
+астрономии и затмениям Цицерон говорит также в трактате 
+"О старости" (De senectute). Радиант, после осторожного анализа, 
+отражает близкий эксцентриситет, учитывая, что в одном 
+парсеке 3,26 световых года. 
 <BLOCKQUOTE>
 Королевство пространственно совершает британский протекторат, 
 и не надо забывать, что время здесь отстает от московского на 2 часа. 
@@ -128,6 +131,14 @@ FM-радиостанциях Америки. Между тем, она даже не была выпущена как сингл,
                 <LI>List sub item</LI>
               </UL>  
             </UL>      
+          </P>
+          <H3>Тег <CODE>A</CODE></H3>
+          <P>
+<A href="http://vk.cc/15F4VU">Женщина-космонавт</A> возможна. 
+Гелиоцентрическое расстояние параллельно. 
+Экскадрилья оценивает pадиотелескоп Максвелла, день этот пришелся 
+на <A href="http://vk.cc/15F6zs">двадцать шестое сентября</A>, который 
+в <A href="http://vk.cc/15F6YR">Афинах</A> называется метагитнионом. Соединение, на первый взгляд, последовательно.         
           </P>
         </DIV>
       </DIV>
@@ -326,7 +337,7 @@ Hатpиевые атомы  предварительно были замечены близко с центром других комет,
     </DIV> 
     </DIV> <!-- right -->    
     <DIV class="gp" id="f">
-      <H2>Галерея > Фото</H2>
+      <H2><A href="#panel-5" class="gback">Галерея</A> > Фото</H2>
       <DIV id="fp">
         <A href="#g-1" class="gpa" id="gc-1">
           <IMG src="./pic/logo.png">
@@ -405,7 +416,7 @@ Hатpиевые атомы  предварительно были замечены близко с центром других комет,
     </DIV> 
     
     <DIV class="gp" id="v">
-      <H2>Галерея > Видео</H2>
+      <H2><A href="#panel-5" class="gback">Галерея</A> > Видео</H2>
       <DIV id="vp">
         <A href="#" class="gpa">
           <IMG src="./pic/logo.png">
