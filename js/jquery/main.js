@@ -14,6 +14,8 @@ $(document).ready(function()
  $('#vpc').click(function() {$.scrollTo('#vp', 500, {axis:'x'});});
 
  $('#gc-1').click(function() {$.scrollTo('#g-1', 500, {axis:'x'});});
+ $('#gc-2').click(function() {$.scrollTo('#g-2', 500, {axis:'x'});});
+ $('#gc-3').click(function() {$.scrollTo('#g-3', 500, {axis:'x'});});
  
  $('.gback').click(function() {$.scrollTo(0, 500, {axis:'x'});});
  
@@ -26,12 +28,11 @@ $(document).ready(function()
 });
 
 
- fotoramaDefaults = 
- {
-    width: '100%',
-    minHeight: 400,
-    maxHeight: 900
- }
+fotoramaDefaults = 
+{
+  fullscreen: true,
+  preload: 1
+}
  
 $(document).ready(function()   //Hide menu for button "Back" in galleries
 {
