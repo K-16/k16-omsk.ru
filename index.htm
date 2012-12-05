@@ -40,7 +40,10 @@
         <DIV class="content">
           <H2>Типографика</H2>
           
-          <H3>Тег <CODE>P</CODE></H3>
+          
+          
+          <H3>Тег <CODE class="tag">P</CODE></H3>
+          
           <P>
 Интеграл от функции, обращающейся в бесконечность в изолированной точке 
 ускоряет натуральный логарифм, что и требовалось доказать. Подмножество, 
@@ -48,6 +51,7 @@
 как и предполагалось. Начало координат непосредственно создает многомерный 
 полином, откуда следует доказываемое равенство.
           </P>
+          
           <P> 
 Рассмотрим непрерывную функцию y = f ( x ), заданную на отрезке [ a, b ], 
 собственное подмножество недоказуемо. Нормальное распределение традиционно 
@@ -55,8 +59,12 @@
 к логическому противоречию. Тройной интеграл изменяет комплексный 
 ротор векторного поля, в итоге приходим к логическому противоречию.
           </P>
+<BR>          
+<BR>          
           
-          <H3>Тег <CODE>H*</CODE></H3>
+          
+          <H3>Тег <CODE class="tag">H*</CODE></H3>
+          
           <P>
 <H1>Заголовок, H1</H1>
 <H2>Заголовок, H2</H2>
@@ -65,9 +73,74 @@
 <H5>Заголовок, H5</H5>
 <H6>Заголовок, H6</H6>
           </P>  
-                  
-          <H3>Тег <CODE>CODE</CODE></H3>
-          <P style="background: #ddd;">
+<BR>          
+<BR>
+         
+               
+          <H3>Тег <CODE class="tag">INPUT</CODE></H3>
+          
+          <P>
+<INPUT placeholder="Введи любой текст">
+</INPUT>
+          </P>  
+<BR>          
+<BR>                      
+       
+                 
+          <H3>Тег <CODE class="tag">TEXTAREA</CODE></H3>
+          
+          <P>
+<TEXTAREA placeholder="Введи любой текст">
+</TEXTAREA>
+          </P>  
+<BR>          
+<BR>                
+               
+                                             
+          <H3>Тег <CODE class="tag">SELECT</CODE></H3>
+          
+          <P>
+<SELECT>
+  <OPTGROUP>
+    <OPTION disabled>Выберите нужное свойство CSS</OPTION>
+    <OPTION disabled></OPTION>
+    <OPTION>font-family</OPTION>
+    <OPTION>width</OPTION>
+    <OPTION>height</OPTION>
+    <OPTION>border</OPTION>
+    <OPTION>outline</OPTION>
+    <OPTION>overflow</OPTION>
+    <OPTION>content</OPTION>
+    <OPTION>text-align</OPTION>
+    <OPTION>line-height</OPTION>
+    <OPTION>color</OPTION>
+    <OPTION>background</OPTION>
+    <OPTION>margin</OPTION>
+    <OPTION>top</OPTION>
+    <OPTION>left</OPTION>
+    <OPTION>position</OPTION>
+    <OPTION>padding</OPTION>
+    <OPTION>display</OPTION>
+  </OPTGROUP>
+  
+  <OPTGROUP>
+    <OPTION disabled>Или HTML</OPTION>
+    <OPTION disabled></OPTION>
+    <OPTION>SELECT</OPTION>
+    <OPTION>P</OPTION>
+    <OPTION>OPTGROUP</OPTION>
+    <OPTION>OPTION</OPTION>
+    <OPTION>CODE</OPTION>
+  </OPTGROUP>
+</SELECT>
+          </P>  
+<BR>          
+<BR>                
+               
+                     
+          <H3>Тег <CODE class="tag">CODE</CODE></H3>
+          
+          <P>
 <CODE>
  $('.control-1').click(function() {$.scrollTo('#panel-1', 500, {axis:'y'});}); <BR>
  $('.control-2').click(function() {$.scrollTo('#panel-2', 500, {axis:'y'});}); <BR>
@@ -80,9 +153,36 @@
 
  $('#gc-1').click(function() {$.scrollTo('#g-1', 500, {axis:'x'});}); <BR>
 </CODE>
+<BR>           
+
+
+            <H4>Тег <CODE class="tag">CODE</CODE> c <CODE>.tag</CODE></H4>
+            
+            <P>
+Это яркий пример того, как <EM>не надо</EM> делать. Использовать лесенку нужно.<BR><BR>
+<CODE style="display: inline;">
+  <CODE class="tag">html</CODE><BR>  
+  <CODE class="tag">head</CODE><BR>   
+  <CODE class="tag">/head</CODE><BR>    
+  <CODE class="tag">body</CODE><BR>       
+  <CODE class="tag">div</CODE><BR>
+  <CODE class="tag">p</CODE><BR>
+  Текст<BR>
+  <CODE class="tag">p</CODE><BR>
+  <CODE class="tag">/div</CODE><BR>       
+  <CODE class="tag">/body</CODE><BR>  
+  <CODE class="tag">/html</CODE><BR>  
+</CODE>          
+  
+            </P>
+            
           </P>
+<BR>          
+<BR>           
           
-          <H3>Тег <CODE>CITE</CODE></H3>
+          
+          <H3>Тег <CODE class="tag">CITE</CODE></H3>
+          
           <P>
 <CITE>
 «Stairway to Heaven» (рус. Лестница на небеса) — песня британской рок-группы 
@@ -100,14 +200,36 @@ FM-радиостанциях Америки. Между тем, она даже не была выпущена как сингл,
 композицию 1968 года «Taurus» группы Spirit. <BR><BR>
 
 Материал из Википедии — свободной энциклопедии.
-</CITE>                                                      
+</CITE>        
+                                              
           </P>
-          <H3>Тег <CODE>EM</CODE></H3>
+<BR>          
+<BR> 
+          
+          
+          <H3>Тег <CODE class="tag">EM</CODE></H3>
+          
           <P>
+            <P>
 После всего увиденного он сказал:
- - Я больше никогда сюда не приду, вы слышите? <EM>Никогда</EM>, не дождётесь.                                                     
+ - Я больше никогда сюда не приду, вы слышите? <EM>Никогда</EM>, не дождётесь.
+            </P>
+
+
+            <H4>Тег <CODE class="tag">EM</CODE> c <CODE>.bold</CODE></H4>
+            
+            <P>
+После всего увиденного он сказал:
+ - Я больше никогда сюда не приду, вы слышите? <EM class="bold">Никогда</EM>, не дождётесь.
+            </P>
+                                                      
           </P>
-          <H3>Тег <CODE>BLOCKQUOTE</CODE></H3>
+<BR>          
+<BR> 
+          
+          
+          <H3>Тег <CODE class="tag">BLOCKQUOTE</CODE></H3>
+          
           <P>
 Ганимед вызывает первоначальный дип-скай объект, об интересе Галла к 
 астрономии и затмениям Цицерон говорит также в трактате 
@@ -125,30 +247,48 @@ FM-радиостанциях Америки. Между тем, она даже не была выпущена как сингл,
 Круговорот машин вокруг статуи Эроса жизненно дегустирует расовый состав, 
 здесь сохранились остатки построек древнего римского поселения 
 Аквинка - "Аквинкум".                                                
-</BLOCKQUOTE>         
+</BLOCKQUOTE> 
+        
           </P>
-          <H3>Тег <CODE>OL</CODE></H3>
+<BR>          
+<BR> 
+          
+          
+          <H3>Тег <CODE class="tag">OL</CODE></H3>
           <P>
             <OL>
+            
               <LI>List item</LI>
               <LI>List item</LI>
               <LI>List item</LI>
+              
               <OL>
+              
                 <LI>List sub item</LI>
                 <LI>List sub item</LI>
                 <LI>List sub item</LI>
                 <LI>List sub item</LI>
                 <LI>List sub item</LI>
                 <LI>List sub item</LI>
-              </OL>  
-            </OL>      
+                
+              </OL> 
+               
+            </OL> 
+             
           </P>
+<BR>          
+<BR> 
+          
+          
          <H3>Тег <CODE>UL</CODE></H3>
+         
           <P>
             <UL>
+            
               <LI>List item</LI>
               <LI>List item</LI>
               <LI>List item</LI>
+              
               <UL>
                 <LI>List sub item</LI>
                 <LI>List sub item</LI>
@@ -156,10 +296,18 @@ FM-радиостанциях Америки. Между тем, она даже не была выпущена как сингл,
                 <LI>List sub item</LI>
                 <LI>List sub item</LI>
                 <LI>List sub item</LI>
-              </UL>  
-            </UL>      
+                
+              </UL>
+                
+            </UL> 
+                 
           </P>
-          <H3>Тег <CODE>A</CODE></H3>
+<BR>          
+<BR> 
+          
+          
+          <H3>Тег <CODE class="tag">A</CODE></H3>
+          
           <P>
 <A href="http://vk.cc/15F4VU">Женщина-космонавт</A> возможна. 
 Гелиоцентрическое расстояние параллельно. 
@@ -168,7 +316,12 @@ FM-радиостанциях Америки. Между тем, она даже не была выпущена как сингл,
 в <A href="http://vk.cc/15F6YR">Афинах</A> называется метагитнионом. 
 Соединение, на первый взгляд, последовательно.         
           </P>
-          <H3>Тег <CODE>TABLE</CODE></H3>
+<BR>          
+<BR> 
+         
+          
+          <H3>Тег <CODE class="tag">TABLE</CODE></H3>
+          
           <P>
 <TABLE>
   <TR>
@@ -237,7 +390,9 @@ FGSHF
   </TR>
 </TABLE>     
           </P>
+          
         </DIV>
+        
       </DIV>
       
       <DIV class="panel" id="panel-2">
