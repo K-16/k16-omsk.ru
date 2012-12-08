@@ -1,1 +1,1 @@
-This is new site for K16. All.
+<h1>This is new site for K16 with galleries, information and more "pluhi".</h1>
