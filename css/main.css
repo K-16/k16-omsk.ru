@@ -5,7 +5,7 @@ BODY
   margin: 0;
   padding: 0;
   font-family: 'PT Serif', 'Georgia', serif; 
-  overflow: hidden; !important;
+  overflow: hidden !important;
   background: #fff;
 }
                                
