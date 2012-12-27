@@ -22,7 +22,7 @@ $(document).ready(function()
  {
    'background-color' : '#4682b4',
    'color' : '#fff',
-   'text-shadow' : '0px 0px 2px #fff',
+   'text-shadow' : '0px 0px 1px #fff',
  }
 
  $('#fpc').click(function() {$.scrollTo('#fp', 500, {axis:'x'});});
@@ -63,5 +63,4 @@ fotoramaDefaults =
 {
   fullscreen: true,
   preload: 1,
-//  nav: 'dots'
 }

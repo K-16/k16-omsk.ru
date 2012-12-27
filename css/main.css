@@ -109,6 +109,8 @@ BODY
   z-index: 2147483630 !important;
 }
 
+@-moz-document url-prefix() { .g {top: 400% !important;} }  /* Hack for Firefox */
+
 #g-1 {left: 300% !important;}
 #g-2 {left: 400% !important;}
 #g-3 {left: 500% !important;}
