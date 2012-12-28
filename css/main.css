@@ -291,7 +291,6 @@ OL, UL
 {
   counter-reset: li;       /* New counter */
   list-style: none;        /* Delete default markers */
-  *list-style: decimal;    /* Default markers for IE with love */            /* In styles for IE */
   padding: 0;
   margin-bottom: 80px;
 }
@@ -299,7 +298,6 @@ OL, UL
 UL
 {
   counter-reset: none;      /* New counter */
-  *list-style: square;      /* Default markers for IE with love */
 }
 
 OL OL,
@@ -313,7 +311,6 @@ LI
   position: relative;
   display: block;
   padding: .4em .4em .4em .8em;
-  *padding: .4em;                /* For IE with love */
   margin: .5em 0 .5em 2.5em;
   color: #444;
 }       
