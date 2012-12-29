@@ -51,6 +51,8 @@ BODY
 #ctrl-3 {top: 50%;}
 #ctrl-4 {top: 60%;}
 #ctrl-5 {top: 70%;}
+#ctrl-6 {top: 80%;}
+#ctrl-7 {top: 90%;}
 
 #gototop
 {
@@ -75,7 +77,7 @@ BODY
   z-index: 2147483645 !important;     
 }
 
-.panel, .g, .gp
+.panel, .g, .gp, .u, .m, .l
 {
   position: absolute;   /* Position is very strange, don't touch its :D  */
   top: 0;
@@ -93,19 +95,40 @@ BODY
 #panel-3 {top: 200%;}
 #panel-4 {top: 300%;}
 #panel-5 {top: 400%;}
+#panel-6 {top: 500%;}
+#panel-7 {top: 600%;}
+
+#panel-8 {top: 800%;}
 
 
 .content {padding: 1% 60px;}
 
+.u {top: 200%;}
+.m {top: 300%;}
+.l {top: 400%;}
+
+
+#u-1, #m-1, #l-1 {left: 100%;}
+#u-2, #m-2, #l-2 {left: 200%;}
+#u-3, #m-3, #l-3 {left: 300%;}
+#u-4, #m-4, #l-4 {left: 400%;}
+      #m-5       {left: 500%;}
+
 /* Gallery */
 
-.gp {top: 400%;}
+.gp {top: 600%;}
 
-.gp H2 {padding: 0 1%;}
+.gp H2,
+.u H2,
+.m H2,
+.l H2 
+{
+  padding: 0 1%;
+}
 
 .g 
 {
-  top: 800% !important; 
+  top: 1200% !important; 
   z-index: 2147483630 !important;
 }
 
@@ -118,7 +141,7 @@ BODY
 #f {left: 100%;}
 #v {left: 200%;}
 
-.gback {text-decoration: none;}
+.back {text-decoration: none;}
 
 #fback
 {

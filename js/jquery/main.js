@@ -3,13 +3,15 @@ $(document).ready(function()
 
 // Menu array
 
- $('#gototop').click(function()   {$('.ctrl').css(ctrlUnCheck); $('#ctrl-1').css(ctrlCheck); $('title').text('Типографика | К16'); $.scrollTo(0, 500);});
+ $('#gototop').click(function()   {$('.ctrl').css(ctrlUnCheck); $('#ctrl-1').css(ctrlCheck); $('title').text('Главная | К16'); $.scrollTo(0, 500);});
  
- $('#ctrl-1').click(function() {$('.ctrl').css(ctrlUnCheck); $('#ctrl-1').css(ctrlCheck); $.scrollTo('#panel-1', 500, {axis:'y'}); $('title').text('Типографика | К16');});
- $('#ctrl-2').click(function() {$('.ctrl').css(ctrlUnCheck); $('#ctrl-2').css(ctrlCheck); $.scrollTo('#panel-2', 500, {axis:'y'}); $('title').text('Секстант | К16');});
- $('#ctrl-3').click(function() {$('.ctrl').css(ctrlUnCheck); $('#ctrl-3').css(ctrlCheck); $.scrollTo('#panel-3', 500, {axis:'y'}); $('title').text('Конфликт | К16');});
- $('#ctrl-4').click(function() {$('.ctrl').css(ctrlUnCheck); $('#ctrl-4').css(ctrlCheck); $.scrollTo('#panel-4', 500, {axis:'y'}); $('title').text('Поясность | К16');});
- $('#ctrl-5').click(function() {$('.ctrl').css(ctrlUnCheck); $('#ctrl-5').css(ctrlCheck); $.scrollTo('#panel-5', 500, {axis:'y'}); $('title').text('Галерея | К16');});
+ $('#ctrl-1').click(function() {$('.ctrl').css(ctrlUnCheck); $('#ctrl-1').css(ctrlCheck); $.scrollTo('#panel-1', 500, {axis:'y'}); $('title').text('Главная | К16');});
+ $('#ctrl-2').click(function() {$('.ctrl').css(ctrlUnCheck); $('#ctrl-2').css(ctrlCheck); $.scrollTo('#panel-2', 500, {axis:'y'}); $('title').text('История | К16');});
+ $('#ctrl-3').click(function() {$('.ctrl').css(ctrlUnCheck); $('#ctrl-3').css(ctrlCheck); $.scrollTo('#panel-3', 500, {axis:'y'}); $('title').text('Учёба | К16');});
+ $('#ctrl-4').click(function() {$('.ctrl').css(ctrlUnCheck); $('#ctrl-4').css(ctrlCheck); $.scrollTo('#panel-4', 500, {axis:'y'}); $('title').text('Мероприятия | К16');});
+ $('#ctrl-5').click(function() {$('.ctrl').css(ctrlUnCheck); $('#ctrl-5').css(ctrlCheck); $.scrollTo('#panel-5', 500, {axis:'y'}); $('title').text('Люди | К16');});
+ $('#ctrl-6').click(function() {$('.ctrl').css(ctrlUnCheck); $('#ctrl-6').css(ctrlCheck); $.scrollTo('#panel-6', 500, {axis:'y'}); $('title').text('Ссылки | К16');});
+ $('#ctrl-7').click(function() {$('.ctrl').css(ctrlUnCheck); $('#ctrl-7').css(ctrlCheck); $.scrollTo('#panel-7', 500, {axis:'y'}); $('title').text('Галерея | К16');});
  
  var ctrlCheck = 
  {
@@ -28,7 +30,7 @@ $(document).ready(function()
  $('#fpc').click(function() {$.scrollTo('#fp', 500, {axis:'x'});});
  $('#vpc').click(function() {$.scrollTo('#vp', 500, {axis:'x'});});
  
- $('.gback').click(function() {$.scrollTo(0, 500, {axis:'x'});});
+ $('.back').click(function() {$.scrollTo(0, 500, {axis:'x'});});
  
  $('#fback').click(function() {$.scrollTo('#f', 500, {axis:'x'});});
   
@@ -37,7 +39,7 @@ $(document).ready(function()
 
 // Smoothly animate array
 
- $('.gpa, .gback, #fback, #logo, .ctrl, #gototop').removeAttr('href');
+ $('.gpa, .back, #fback, .ctrl, #gototop').removeAttr('href');
  
 //Hide menu for button 'Back' in galleries
  $(function () 
