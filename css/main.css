@@ -367,6 +367,35 @@ UL LI:before
   width: 2em; 
 } 
 
+.down
+{
+  display: inline-block;
+  position: absolute;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-top: none;
+  padding: 10px; 
+}
+
+.down A
+{
+  display: block;
+  text-decoration: none;
+}
+
+.downHover
+{
+  color: #4682b4;
+  text-shadow: 0px 0px 1px #4682b4;   /* Smoothing */ 
+}
+
+.downHover:hover
+{
+  cursor: pointer;
+  color: #ff2400;
+  text-shadow: 0px 0px 1px #ff2400;   /* Smoothing */
+}
+
 INPUT
 {
   height: 30px;

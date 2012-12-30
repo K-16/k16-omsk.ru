@@ -37,9 +37,17 @@ $(document).ready(function()
  $('.g').fotorama();
 
 
+// Dropdown
+
+ $('.down').hide();
+
+ $('.downHover').mouseenter(function() {$('.down').slideDown('fast').show('fast');});
+ $('.down').mouseleave     (function() {$('.down').slideUp('fast').hide('fast');});
+
+
 // Smoothly animate array
 
- $('.gpa, .back, #fback, .ctrl, #gototop').removeAttr('href');
+ $('.gpa, .back, #fback, .ctrl, #gototop, .down A').removeAttr('href');
  
 //Hide menu for button 'Back' in galleries
  $(function () 
