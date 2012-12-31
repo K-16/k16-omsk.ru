@@ -42,7 +42,7 @@ $(document).ready(function()
  $('.down').hide();
 
  $('.downHover').mouseenter(function() {$('.down').slideDown('fast').show('fast');});
- $('.down').mouseleave     (function() {$('.down').slideUp('fast').hide('fast');});
+ $('.down').mouseleave(function()      {$('.down').slideUp('fast').hide('fast');});
 
 
 // Smoothly animate array
