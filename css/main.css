@@ -98,8 +98,6 @@ BODY
 #panel-6 {top: 500%;}
 #panel-7 {top: 600%;}
 
-#panel-8 {top: 800%;}
-
 
 .content {padding: 1% 60px;}
 
@@ -163,18 +161,30 @@ BODY
   z-index: 2147483630 !important;
 }
 
-@-moz-document url-prefix() { .g {top: 400% !important;} }  /* Hack for Firefox */
+@-moz-document url-prefix() { .g {top: 600% !important;} }  /* Hack for Firefox */
 
-#g-1 {left: 300% !important;}
-#g-2 {left: 400% !important;}
-#g-3 {left: 500% !important;}
 
-#f {left: 100%;}
-#v {left: 200%;}
+#gp-1  {left: 100%;}
+#gp-2  {left: 200%;}
+#gp-3  {left: 300%;}
+#gp-4  {left: 400%;}
+#gp-5  {left: 500%;}
+#gp-6  {left: 600%;}
+#gp-7  {left: 700%;}
+#gp-8  {left: 800%;}
+#gp-9  {left: 900%;}
+#gp-10 {left: 1000%;}
+#gp-11 {left: 1100%;}
+#gp-12 {left: 1200%;}
 
-.back {text-decoration: none;}
 
-#fback
+#g-1 {left: 1500%;}
+#g-2 {left: 1600%;}
+#g-3 {left: 1700%;}
+
+.back, .fback {text-decoration: none;}
+
+#gback
 {
   display: block;
   position: fixed;
@@ -193,7 +203,7 @@ BODY
   text-shadow: 0px 0px 1px #fff;   /* Smoothing */
 }
 
-#fback:hover
+#gback:hover
 {
   color: #4682b4;
   background: #fff;
@@ -204,6 +214,7 @@ BODY
 {
   display: inline-block;
   position: relative;
+  width: 100%;
   margin: 1%;
   padding: 10px;
   text-decoration: none;
@@ -231,7 +242,12 @@ BODY
 
 .gpa IMG
 {
-  width: 500px;
+  width: 100%;
+}
+
+.gp .gpa
+{
+  width: 97%;
 }
                            
 /* /Gallery */
@@ -437,12 +453,12 @@ INPUT, TEXTAREA, SELECT
 INPUT:hover, TEXTAREA:hover, SELECT:hover {box-shadow: 0px 0px 2px #4682b4;}
 INPUT:focus, TEXTAREA:focus, SELECT:focus {box-shadow: 0px 0px 5px #4682b4;}
 
-H1, H2, H3, H4, H5, H6, #menu A, #fback, .gpa, CITE, LI, TEXTAREA, SELECT 
+H1, H2, H3, H4, H5, H6, #menu A, #gback, .gpa, CITE, LI, TEXTAREA, SELECT 
 {
   font-family: 'PT Sans', 'Helvetica', sans-serif;
 }
 
-H1, H2, H3, H4, H5, H6, #menu A, #fback, .gpa, P, A, TEXTAREA, SELECT, .downHover
+H1, H2, H3, H4, H5, H6, #menu A, #gback, .gpa, P, A, TEXTAREA, SELECT, .downHover
 {
   -webkit-transition: all 0.1s ease;
   -ms-transition: all 0.1s ease;
