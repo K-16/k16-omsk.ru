@@ -41,8 +41,6 @@ $(document).ready(function()
  $('.downHover').mouseenter(function() {$('.down').slideDown('fast').show('fast');});
  $('.down').mouseleave(function()      {$('.down').slideUp('fast').hide('fast');});
 
-
-
 // Dropdown array
 
  $('#uc-1').click(function() {$.scrollTo('#u-1', 500, {axis:'x'});});
@@ -89,16 +87,14 @@ $(document).ready(function()
   {
 	 if ($(this).scrollLeft() > 500 ) 
    {
-		$('#left').fadeOut(1);
+		$('#left').fadeOut(0);
 	 } 
    else 
     {
-		 $('#left').fadeIn(1);
+		 $('#left').fadeIn(0);
 		}
 	});  
  });
-
- $('body').scrollTo(0, 500);
 
 });
 
