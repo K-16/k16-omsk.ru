@@ -116,7 +116,7 @@ BODY
 
 .down
 {
-  display: inline-block;
+  display: block;
   position: absolute;
   background: #fff;
   border: 1px solid #ddd;
