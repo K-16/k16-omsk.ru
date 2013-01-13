@@ -30,6 +30,8 @@ $(document).ready(function()
  $('#ctrl-1').css(ctrlCheck);
  
  $('#gback, .back').click(function() {$.scrollTo(0, 500, {axis:'x'});});
+ 
+ $('.dback').click(function() {$.scrollTo('#l-4', 500, {axis:'x'});});
   
  $('.g').fotorama();
 
@@ -58,6 +60,13 @@ $(document).ready(function()
  $('#lc-2').click(function() {$.scrollTo('#l-2', 500, {axis:'x'});});
  $('#lc-3').click(function() {$.scrollTo('#l-3', 500, {axis:'x'});});
  $('#lc-4').click(function() {$.scrollTo('#l-4', 500, {axis:'x'});});
+ 
+ 
+ $('#ldc-1').click(function() {$.scrollTo('#ld-1', 500, {axis:'x'});});
+ $('#ldc-2').click(function() {$.scrollTo('#ld-2', 500, {axis:'x'});});
+ $('#ldc-3').click(function() {$.scrollTo('#ld-3', 500, {axis:'x'});});
+ $('#ldc-4').click(function() {$.scrollTo('#ld-4', 500, {axis:'x'});});
+ $('#ldc-5').click(function() {$.scrollTo('#ld-5', 500, {axis:'x'});});
 
 
 // Gallery preview array
@@ -77,7 +86,7 @@ $(document).ready(function()
 
 // Smoothly animate array
 
- $('.gpa, .back, #gback, .fback, .ctrl, #gototop, .down A').removeAttr('href');
+ $('.gpa, .back, #gback, .fback, .ctrl, #gototop, .down A, .dback').removeAttr('href');
  
 //Hide menu for button 'Back' in galleries
 
