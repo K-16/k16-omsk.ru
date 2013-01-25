@@ -98,6 +98,8 @@ BODY
 
 .content {padding: 1% 60px;}    /* Блок "контент" нужен только для отступов, не более */
 
+.contentNoMenu {padding: 0 2%;}
+
 .u {top: 200%;}
 .m {top: 300%;}
 .l {top: 400%;}
@@ -125,6 +127,7 @@ BODY
   border: 1px solid #ddd;
   border-top: none;
   padding: 10px; 
+  z-index: 2147483630 !important;
 }
 
 .down A
@@ -135,7 +138,7 @@ BODY
 .downHover
 {
   color: #4682b4;                        
-  text-shadow: 0px 0px 1px #4682b4;   /* Smoothing */ 
+  text-shadow: 0px 0px 1px #4682b4;   /* Сглаживание */ 
 }
 
 .downHover:hover
@@ -326,12 +329,17 @@ BLOCKQUOTE
   position: relative;
 }
 
-.author
+.author, .authorCite
 {
   display: block;
   text-align: right;
   font-size: 125%;
 }
+
+.authorCite
+{
+  font-size: 100%;
+} 
 
 BLOCKQUOTE:before
 {
@@ -373,7 +381,6 @@ OL, UL
   counter-reset: li;       /* Новые маркеры */
   list-style: none;        /* Удаляем старые маркеры */
   padding: 0;
-  margin-bottom: 80px;
 }
 
 UL
@@ -393,7 +400,8 @@ LI
   display: block;
   padding: .4em .4em .4em .8em;
   margin: .5em 0 .5em 2.5em;
-  color: #444;
+  color: #000;
+  font-size: 100%;
 }       
 
 OL LI:before                /* Счётчик */
