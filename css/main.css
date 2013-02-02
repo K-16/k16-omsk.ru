@@ -283,6 +283,7 @@ A
   color: #4682b4;      
   outline: none;
   cursor: pointer;
+  text-decoration: none;
   text-shadow: 0px 0px 1px #4682b4;   /* —глаживание */
 }
 

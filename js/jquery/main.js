@@ -3,7 +3,7 @@ $(document).ready(function()
 
 // Menu array
 
- $('#gototop').click(function()   {$('.ctrl').css(ctrlUnCheck); $('#ctrl-1').css(ctrlCheck); $('title').text('Главная | К16'); $.scrollTo(0, 500);});
+ $('#gototop').click(function() {$('.ctrl').css(ctrlUnCheck); $('#ctrl-1').css(ctrlCheck); $('title').text('Главная | К16'); $.scrollTo(0, 500);});
  
  $('#ctrl-1').click(function() {$('.ctrl').css(ctrlUnCheck); $('#ctrl-1').css(ctrlCheck); $.scrollTo('#panel-1', 500, {axis:'y'}); $('title').text('Главная | К16');});
  $('#ctrl-2').click(function() {$('.ctrl').css(ctrlUnCheck); $('#ctrl-2').css(ctrlCheck); $.scrollTo('#panel-2', 500, {axis:'y'}); $('title').text('История | К16');});
