@@ -1,4 +1,4 @@
-/* If you want to delete any strings, tell  about this me, please */
+/* Если хочешь изменить что-то, то скажи мне: upisfree@outlook.com */
 
 BODY
 {        
@@ -74,7 +74,7 @@ BODY
   z-index: 2147483645 !important;     
 }
 
-.panel, .g, .gp, .u, .m, .l
+.panel, .g, .gp, .u, .m, .l, .s
 {
   position: absolute;   /* Его не надо ни в коем случае трогать  */
   top: 0;
@@ -100,10 +100,13 @@ BODY
 
 .contentNoMenu {padding: 0 2%;}
 
+.s {top: 0%;}
+
 .u {top: 200%;}
 .m {top: 300%;}
 .l {top: 400%;}
 
+#s-404 {left: 100%;}
 
 #u-1, #m-1, #l-1 {left: 100%;}
 #u-2, #m-2, #l-2 {left: 200%;}
@@ -147,6 +150,26 @@ BODY
   color: #ff2400;
   text-shadow: 0px 0px 1px #ff2400;   /* Сглаживание */
 }
+
+/* 404 */
+
+
+
+#smile
+{
+  position: absolute;
+  top: -5%;
+  left: 40%;
+  font-size: 2000%;
+  text-shadow: 0px 0px 1px #000;   /* Сглаживание */
+  -webkit-transform: rotate(90deg);
+  -moz-transform: rotate(90deg);
+  -ms-transform: rotate(90deg);
+  -o-transform: rotate(90deg);
+  transform: rotate(90deg);
+}
+
+/* /404 */
 
 /* Галерея */
 
@@ -240,8 +263,8 @@ BODY
 {
   text-align: center;
   -webkit-transition: none;
+  -moz-transition: none;  
   -ms-transition: none;
-  -moz-transition: none;
   -o-transition: none;
   transition: none;
 }
@@ -469,8 +492,8 @@ INPUT:focus, TEXTAREA:focus {box-shadow: 0px 0px 5px #4682b4;}
 H1, H2, H3, H4, H5, H6, #menu A, #gback, .gpa, P, A, TEXTAREA, SELECT, .downHover
 {
   -webkit-transition: all 0.1s ease;
-  -ms-transition: all 0.1s ease;
-  -moz-transition: all 0.1s ease;  
+  -moz-transition: all 0.1s ease;   
+  -ms-transition: all 0.1s ease; 
   -o-transition: all 0.1s ease;
   transition: all 0.1s ease;
 }
