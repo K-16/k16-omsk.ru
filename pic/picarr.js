@@ -51,12 +51,24 @@ $(document).ready(function()
   ({
     data: 
     [
-      {img: 'http://cs317931.userapi.com/v317931374/5163/VaC9lnz_F5U.jpg'},
-      {img: 'http://cs317931.userapi.com/v317931374/5190/uitQGMv1Gjk.jpg'},
-      {img: 'http://cs317931.userapi.com/v317931374/5187/NIC_mPkDxCM.jpg'},
-      {img: 'http://cs317931.userapi.com/v317931374/517e/N8Imvi-KquU.jpg'},
-      {img: 'http://cs317931.userapi.com/v317931374/5175/fPzuQa49h_U.jpg'},
-      {img: 'http://cs317931.userapi.com/v317931374/516c/CH4E0gX5Zls.jpg'},
+      {img: 'http://cs5327.vk.me/u18057640/143389102/x_dd5c4341.jpg'},
+      {img: 'http://cs5327.vk.me/u18057640/143389102/x_8a9677a9.jpg'},
+      {img: 'http://cs5327.vk.me/u18057640/143389102/x_e11d30f1.jpg'},
+      {img: 'http://cs5327.vk.me/u18057640/143389102/x_a3d14bee.jpg'},
+      {img: 'http://cs5327.vk.me/u18057640/143389102/x_9027b288.jpg'},
+      {img: 'http://cs5327.vk.me/u18057640/143389102/x_ff722c6d.jpg'},
+      {img: 'http://cs5327.vk.me/u18057640/143389102/x_db1b3f03.jpg'},
+      {img: 'http://cs5327.vk.me/u18057640/143389102/x_1e52b9e0.jpg'},
+      {img: 'http://cs10547.vk.me/u95108555/143389102/x_9413d101.jpg'},
+      {img: 'http://cs5327.vk.me/u18057640/143389102/x_ec88671b.jpg'},
+      {img: 'http://cs5327.vk.me/u18057640/143389102/x_3b11318d.jpg'},
+      {img: 'http://cs5327.vk.me/u18057640/143389102/x_bac87f2f.jpg'},
+      {img: 'http://cs5327.vk.me/u18057640/143389102/x_a5adc91f.jpg'},
+      {img: 'http://cs5327.vk.me/u18057640/143389102/x_178e0f40.jpg'},
+      {img: 'http://cs5327.vk.me/u18057640/143389102/x_11cf7915.jpg'},
+      {img: 'http://cs5327.vk.me/u18057640/143389102/x_6f0d7ba1.jpg'},
+      {img: 'http://cs10547.vk.me/u95108555/143389102/x_e78c77ff.jpg'},
+
     ]
   });
   $.scrollTo('#g-3', 500);
