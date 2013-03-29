@@ -51,7 +51,6 @@ $(document).ready(function()
   ({
     data: 
     [
-      {img: 'http://cs5327.vk.me/u18057640/143389102/x_dd5c4341.jpg'},
       {img: 'http://cs5327.vk.me/u18057640/143389102/x_8a9677a9.jpg'},
       {img: 'http://cs5327.vk.me/u18057640/143389102/x_e11d30f1.jpg'},
       {img: 'http://cs5327.vk.me/u18057640/143389102/x_a3d14bee.jpg'},
@@ -65,7 +64,6 @@ $(document).ready(function()
       {img: 'http://cs5327.vk.me/u18057640/143389102/x_bac87f2f.jpg'},
       {img: 'http://cs5327.vk.me/u18057640/143389102/x_a5adc91f.jpg'},
       {img: 'http://cs5327.vk.me/u18057640/143389102/x_178e0f40.jpg'},
-      {img: 'http://cs5327.vk.me/u18057640/143389102/x_11cf7915.jpg'},
       {img: 'http://cs5327.vk.me/u18057640/143389102/x_6f0d7ba1.jpg'},
       {img: 'http://cs10547.vk.me/u95108555/143389102/x_e78c77ff.jpg'},
 
