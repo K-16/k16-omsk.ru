@@ -1,4 +1,5 @@
 /* Если хочешь изменить что-то, то скажи мне: upisfree@outlook.com */
+/* Такие большие z-index из-за Фоторамы */
 
 BODY
 {        
@@ -153,8 +154,6 @@ BODY
 
 /* 404 */
 
-
-
 #smile
 {
   position: absolute;
@@ -240,21 +239,35 @@ BODY
   text-shadow: 0px 0px 1px #4682b4;   /* Сглаживание */
 }
 
+.columnGallery
+{
+  display: inline-block;
+  position: relative;
+  float: left;
+  top: 0%;
+  width: 50%;
+  height: 100%;
+/*  border-top: 10px solid red;*/
+}
+
 .gpa
 {
   display: inline-block;
   position: relative;
   width: 100%;
+  height: 500px;               /* Точно 500? */
   margin: 1%;
   padding: 10px;
   float: left;
+  z-index: 2147483646 !important;
   border-radius: 5px;
 }
 
 .gpa:hover
 {
-  background: #4682b4;
+  background: #4682b4 !important;
   color: #fff;
+  z-index: 2147483647 !important;
   border-radius: 5px; 
   box-shadow: 0px 0px 1px #4682b4;   /* Сглаживание */ 
 }
@@ -272,13 +285,14 @@ BODY
 .gpa IMG
 {
   width: 100%;
+  height: 85%;
 }
 
 .gp .gpa
 {
-  width: 97%;
-}
-                           
+  width: 96%;
+}                                                                                             /* Все галлереи в columnGallery запрячь */
+
 /* /Галерея */
 
 /* Элементы */
