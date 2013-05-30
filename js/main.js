@@ -9,7 +9,8 @@ $(document).ready(function()
 
 // Динамическое добавление
 
-  $('.panel + *').prepend('<DIV class="content"></DIV>');  
+//  $('.panel + *').prepend('<DIV class="content"></DIV>'); 
+  $('.panel').append('<DIV class="content"></DIV>'); 
   $('.u, .m, .l, .s').append('<DIV class="contentNoMenu"></DIV>'); 
 
 // Объявление кнопок "Назад"
@@ -28,6 +29,29 @@ $(document).ready(function()
 
   $('.downHover').mouseenter(function() {$('.down').slideDown('fast').show('fast');});
   $('.down').mouseleave(function()      {$('.down').slideUp('fast').hide('fast');});
+
+// Вращение смайлика
+
+  $('#smile').mouseenter(function() {$('#smile').css(beginRotate);});
+  $('#smile').mouseleave(function() {$('#smile').css(endRotate);});  
+  
+  var beginRotate = 
+  {
+    '-webkit-transform' : 'rotate(36000deg)',
+    '-moz-transform' : 'rotate(36000deg)',
+    '-ms-transform' : 'rotate(36000deg)',
+    '-o-transform' : 'rotate(36000deg)',
+    'transform' : 'rotate(36000deg)'
+  }
+
+  var endRotate = 
+  {
+    '-webkit-transform' : 'rotate(-36000deg)',
+    '-moz-transform' : 'rotate(-36000deg)',
+    '-ms-transform' : 'rotate(-36000deg)',
+    '-o-transform' : 'rotate(-36000deg)',
+    'transform' : 'rotate(-36000deg)'
+  }
 
 /* for (var i = 1; i < 13; i++)
  {
