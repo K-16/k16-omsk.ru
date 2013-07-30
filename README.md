@@ -1,1 +1,1 @@
-<h1>This is new site for K16 with galleries, information and more "pluhi".</h1>
+This is old version of K16 site. I did not using php and scss/less here.
