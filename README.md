@@ -1,1 +1,1 @@
-This is old version of K16 site. I did not using php and scss/less here.
+This is old version of K16 site. I did not using php and scss/less here. Developing are stopping.
