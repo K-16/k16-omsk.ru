@@ -1,14 +1,10 @@
-@COLOR_BLACK: #000000;
-@COLOR_WHITE: #ffffff;
-@COLOR_GREY: #dddddd;
-@COLOR_BLUE: #4682b4;
-@COLOR_RED: #ff2400;
-
-@TRANSITION_SPEED: 0.1s;
-
-.sansFont { font-family: 'PT Sans', 'Calibri', 'Helvetica', sans-serif; }
-.serifFont { font-family: 'PT Serif', 'Cambria', 'Georgia', serif; }
-.monoFont { font-family: 'PT Mono', 'Lucida Console','Courier', monospace; }
+/*
+ * 
+ * elements.less
+ * =============
+ *  - Стили для всех элементов.
+ *
+*/
 
 .smoothing(@color) 
 {
@@ -33,7 +29,6 @@
   -o-transition: all @speed ease;
   transition: all @speed ease;
 }
-
 
 
 
@@ -73,18 +68,18 @@ a
 em
 {
   font-style: normal;
+  &.italic 
+  {
+    font-style: italic;
+  };
+  &.bold
+  {
+    font-weight: bold;
+    font-style: normal;
+  };
 }
 
-.italic 
-{
-  font-style: italic; /* Это специально, чисто для логики */
-}
 
-.bold
-{
-  font-weight: bold;
-  font-style: normal;
-}
 
 code
 {
@@ -100,6 +95,7 @@ cite
   font-style: normal;
   margin: 30px 0px;  
   padding-left: 20px;
+  font-size: 105%;
   border-left: 5px solid @COLOR_BLUE;
 }  
 
@@ -135,12 +131,6 @@ blockquote:after
   text-align: right;
   font-size: 125%;
 }
-
-.authorCite
-{
-  .author;
-  font-size: 100%;
-} 
 
 table, tr
 {
@@ -224,7 +214,8 @@ textarea
 {
   resize: none;
   width: 50%;
-  height: 30%; 
+  height: 200px; 
+  font-size: 85%;  
   padding: 5px; 
 }
 
@@ -232,6 +223,7 @@ input, textarea
 {
   .appearance(e(none));
   .transition(@TRANSITION_SPEED);
+  .sansFont;
   border: 1px solid @COLOR_BLUE;
   border-radius: 2px;
   outline: none;
