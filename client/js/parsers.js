@@ -12,7 +12,7 @@ $(function()
 
   (function insertAuthorTag()
   {
-    $('*').each(function(i)
+    $('*').each(function(index)
     {
       var author = $(this).attr('data-author');
       if (author) 

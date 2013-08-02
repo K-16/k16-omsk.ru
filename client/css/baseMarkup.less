@@ -8,11 +8,41 @@
 
 // Для отладки в LESS кода пропиши после адреса сайта /#!watch.
 
-@import 'elements.less';
-
 body
 {
   position: relative;
-  padding: 10px;
+  .insets(0, 0);
   .sansFont;
+
+  nav
+  {
+    .movingBlock(fixed);
+    top: 0;
+    left: 0;
+    width: 20%;
+    height: 100%;
+    background: yellow;  	// debug
+  }
+
+  .panel
+  {
+    .movingBlock(fixed);
+    top: 0;
+    left: 20%;
+    width: 80%;
+    height: 100%;
+    margin: 0;
+    padding: 1% 60px; // overflow?
+    overflow: auto;
+    background: @COLOR_WHITE;
+/*  
+    h2
+    {
+      .movingBlock(relative);      
+      margin-top: -100px;
+      padding-bottom: 0px !important;
+    }
+*/
+  }
+
 }
