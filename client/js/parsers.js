@@ -1,24 +1,23 @@
 /*
  * 
- * parser.js
+ * parsers.js
  * =========
  * Различные парсеры
- *  - insertAuthorTag(). Преобразование автора из атрибута в тег. Вызывается при загрузке страницы
+ *  - insertTag(). Вставка различных тегов при загрузке страницы.
  *
 */
 
 $(function()
 {
 
-  (function insertAuthorTag()
+  (function onLoadParser() 
   {
     $('*').each(function(index)
     {
       var author = $(this).attr('data-author');
-      if (author) 
-      {
-      	$(this).after('<em class="author italic">' + author + '</em>');
-      };
+      var panel = $(this.panel);
+      if (author) insert('<em class="author italic">' + author + '</em>', this, 'after'); 
+//      insert('<div class="content"></div>', panel, 'append');
     });
   })();
 
