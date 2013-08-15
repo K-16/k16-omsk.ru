@@ -8,6 +8,5 @@
 
 js.include('lib/jquery-2-0-3-min');
 
-js.include('debug');
 js.include('tools');
 js.include('parsers');
