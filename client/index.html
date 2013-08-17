@@ -12,6 +12,7 @@
     <link rel="stylesheet/less" type="text/css" href="<?php echo CLIENT_URL ?>css/main.less">
 
     <script type="text/javascript" src="<?php echo CLIENT_URL ?>js/lib/jquery-2-0-3-min.js"></script>
+    <script type="text/javascript" src="<?php echo CLIENT_URL ?>js/lib/normRand.js"></script>
 
     <script type="text/javascript" src="<?php echo CLIENT_URL ?>js/tools.js"></script>
     <script type="text/javascript" src="<?php echo CLIENT_URL ?>js/parsers.js"></script>
@@ -22,17 +23,18 @@
 
   <body>
 
-    <nav>
-      <a class="menu logo"></a>
-      <a class="menu item">Главная</a>
-      <a class="menu item">История</a>  
-      <a class="menu item">Учёба</a>
-      <a class="menu item">Мероприятия</a>
-      <a class="menu item">Люди</a> 
-      <a class="menu item">Ссылки</a> 
-      <a class="menu item">Фото</a>  
+    <nav class="menu">
+      <a class="logo"></a>
+      <a class="item">Главная</a>
+      <a class="item">История</a>  
+      <a class="item">Учёба</a>
+      <a class="item">Мероприятия</a>
+      <a class="item">Люди</a> 
+      <a class="item">Ссылки</a> 
+      <a class="item">Фото</a>  
     </nav>
 
+    <section class="panel"><div class="content"><?php echo View::ShowPage('0101.html', '01/') ?></div></section>
     <section class="panel"><div class="content"><?php echo View::ShowPage('0101.html', '01/') ?></div></section>
 
   </body>

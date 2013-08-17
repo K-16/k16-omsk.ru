@@ -13,15 +13,6 @@
 
 var Parser = 
 {
-  content: (function()
-  {
-    $(function()
-    {
-      $('.panel').prepend('<div class="content"></div>');
-      console.log('[K16] ' + 'Panel' +  ' : ' + 'append OK');
-    });
-  })(),
-
   author: (function()
   {
     $(function()

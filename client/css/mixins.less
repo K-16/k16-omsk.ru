@@ -30,14 +30,20 @@
   transition: all @speed ease;
 }
 
-.movingBlock(@type)
+.base(@type1, @type2)
 {
-  display: block;
-  position: @type;
+  display: @type1;
+  position: @type2;
 }
 
 .insets(@value1, @value2)
 {
   margin: @value1;
   padding: @value2;
+}
+
+.size(@value1, @value2)
+{
+  width: @value1;
+  height: @value2;
 }

@@ -9,7 +9,7 @@ class View
 
   public function ShowPage($file, $subDir = false) 
   {  
-    ob_start(); 
+    ob_start();
     
     include self::GetURL($file, $subDir, $dir = 'txt/');
 
