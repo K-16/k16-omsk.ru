@@ -9,23 +9,32 @@
  *
 */
 
-Parser = function()
-{
-  this.afterLoad = $(function(code)
-  {
-    $('*').each(function(i)
-    {
-      code;
-    });
-  });
-};
+'use strict'; // Включаем строгий режим
 
-insertAuthor = new Parser;
-insertAuthor.afterLoad = Parser.afterLoad(function() 
+var Parser = 
 {
-  var author = $(this).attr('data-author');
-  if (author) insert('<em class="author italic">' + author + '</em>', this, 'after'); 
-});
+  content: (function()
+  {
+    $(function()
+    {
+      $('.panel').prepend('<div class="content"></div>');
+      console.log('[K16] ' + 'Panel' +  ' : ' + 'append OK');
+    });
+  })(),
+
+  author: (function()
+  {
+    $(function()
+    {
+      $('cite, blockquote').each(function(i)
+      {
+        var author = $(this).attr('data-author');
+        $(this).after('<em class="author italic">' + author + '</em>');
+        console.log('[K16] ' + this + ' : ' + author);
+      });
+    });
+  })()
+};
 
 /*
 $(function()
