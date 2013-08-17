@@ -1,6 +1,6 @@
 <?php
 
-$config = array(
+$config = array (
   'site_name' => 'К16',
 );
 

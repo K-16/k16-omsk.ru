@@ -1,8 +1,6 @@
 <?php
 
-require_once('config.php');
-
-require_once('view.class.php');
+//require_once('./config.php');
 
 define('BASE_URL', './');
 define('CLIENT_URL', BASE_URL.'client/');

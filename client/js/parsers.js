@@ -9,32 +9,23 @@
  *
 */
 
-'use strict'; // Включаем строгий режим
-
-var Parser = 
+Parser = function()
 {
-  content: (function()
+  this.afterLoad = $(function(code)
   {
-    $(function()
+    $('*').each(function(i)
     {
-      $('.panel').prepend('<div class="content"></div>');
-      console.log('[K16] ' + 'Panel' +  ' : ' + 'append OK');
+      code;
     });
-  })(),
-
-  author: (function()
-  {
-    $(function()
-    {
-      $('cite, blockquote').each(function(i)
-      {
-        var author = $(this).attr('data-author');
-        $(this).after('<em class="author italic">' + author + '</em>');
-        console.log('[K16] ' + this + ' : ' + author);
-      });
-    });
-  })()
+  });
 };
+
+insertAuthor = new Parser;
+insertAuthor.afterLoad = Parser.afterLoad(function() 
+{
+  var author = $(this).attr('data-author');
+  if (author) insert('<em class="author italic">' + author + '</em>', this, 'after'); 
+});
 
 /*
 $(function()
