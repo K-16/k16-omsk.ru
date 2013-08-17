@@ -3,6 +3,8 @@ TODO
  * Вёрстка
  * Базовые классы
    * Парсеры
+     * Нормальный конструктор парсеров (beforLoad, afterLoad)
+     * В author любые теги (кроме cite и blockquote)
    * include JavaScript файлов (есть!)
    * Добавление пунктов меню и панелей
  * include страниц
