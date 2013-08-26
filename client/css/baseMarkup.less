@@ -55,8 +55,9 @@ body
     {
       .base(block, relative);
       top: 30%;
-      .size(100%, 10%);       
+      .size(100%, 10%);     
       padding-top: 1%;             /* Делаем надпись посередине по вертикали */
+      line-height: 1.9;
       cursor: pointer;
       font-size: 200%;
       text-align: center;
@@ -64,9 +65,14 @@ body
       .smoothing(@COLOR_WHITE);
       &:hover
       {
-        background: @COLOR_WHITE;
-        color: @COLOR_BLUE; // test: интертртация цвета?
-      }
+        background: darken(@COLOR_BLUE, 20%);
+        .smoothing(@COLOR_WHITE);
+      };
+      &:active
+      {
+        background: lighten(@COLOR_BLUE, 100%);
+        .smoothing(lighten(@COLOR_BLUE, 0%));
+      };
     };
   };
 
