@@ -53,8 +53,6 @@ em
   };
 }
 
-
-
 code
 {
   .monoFont;
@@ -104,6 +102,19 @@ blockquote:after
   display: block;
   text-align: right;
   font-size: 125%;
+}
+
+.author img
+{
+  width: 100px;
+  height: 100px;
+  .border-radius(100px);
+  .transition(2s);
+
+  &:hover
+  {
+    .rotate(360deg)
+  }
 }
 
 table, tr

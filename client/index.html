@@ -10,36 +10,42 @@
     <meta name="copyright" content="<?php echo $config['site_name'] ?>">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"> 
 
-    <link rel="stylesheet/less" type="text/css" href="<?php echo CLIENT_URL ?>css/main.less">
+    <link rel="stylesheet" type="text/css" href="<?php echo CLIENT_URL ?>css/main.css">
 
     <link href='http://fonts.googleapis.com/css?family=PT+Sans:400,700,400italic,700italic
     |PT+Mono&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
 
     <script type="text/javascript" src="<?php echo CLIENT_URL ?>js/lib/jquery-2-0-3-min.js"></script>
+    <script type="text/javascript" src="<?php echo CLIENT_URL ?>js/lib/less-1.5.0.min.js"></script>
     <script type="text/javascript" src="<?php echo CLIENT_URL ?>js/lib/normRand.js"></script>
 
     <script type="text/javascript" src="<?php echo CLIENT_URL ?>js/tools.js"></script>
+
+    <script type="text/javascript" src="<?php echo CLIENT_URL ?>js/ajax.js"></script>
     <script type="text/javascript" src="<?php echo CLIENT_URL ?>js/parsers.js"></script>
 
-    <script type="text/javascript" src="<?php echo CLIENT_URL ?>js/lib/less-1.4.1.min.js"></script>
+    <script type="text/javascript" src="<?php echo CLIENT_URL ?>js/names.js"></script>
 
   </head>
 
   <body>
 
     <nav class="menu">
-      <a class="logo"></a>
-      <a class="item">Главная</a>
-      <a class="item">История</a>  
-      <a class="item">Учёба</a>
-      <a class="item">Мероприятия</a>
-      <a class="item">Люди</a> 
-      <a class="item">Ссылки</a> 
-      <a class="item">Фото</a>  
+      <a href="/" class="logo"></a>
+      <?php echo Menu::Show(); ?>
     </nav>
-
-    <section class="panel"><div class="content"><?php echo View::ShowPage('0101.html', '01/') ?></div></section>
-    <section class="panel"><div class="content"><?php echo View::ShowPage('0101.html', '01/') ?></div></section>
+    <section class="panel">
+      <div class="content">
+<!--
+        <a href="?to=05" onclick="page(05);">Люди</a><br>
+        <a href="?to=02" onclick="page(02);">История</a><br>
+        <a href="?to=03" onclick="page(03);">Учёба</a><br>
+        <a href="?to=04" onclick="page(04);">Мероприятия</a><br>
+        <script type="text/javascript">alert(names[1]);</script>
+-->
+        <?php echo $content ?>
+      </div>
+    </section>
 
   </body>
 

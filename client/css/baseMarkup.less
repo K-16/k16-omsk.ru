@@ -20,7 +20,6 @@ body
     top: 0;
     left: 0;
     .size(20%, 100%);
-    background: @COLOR_BLUE;
   };
 
   .panel
@@ -48,7 +47,16 @@ body
       .size(20%, 30%);
       background: url('../img/logo.png') no-repeat;
       background-color: @COLOR_WHITE;
-      background-size: 100% 100%;      
+      background-size: 100% 100%;
+      
+      &:hover
+      {
+        .filter(hue-rotate(180deg));
+      };
+      &:active
+      {
+        .resize(0.9);
+      };   
     };
 
     .item
@@ -63,6 +71,8 @@ body
       text-align: center;
       background: @COLOR_BLUE;
       .smoothing(@COLOR_WHITE);
+      .text-select(none);
+      
       &:hover
       {
         background: darken(@COLOR_BLUE, 20%);
@@ -70,8 +80,7 @@ body
       };
       &:active
       {
-        background: lighten(@COLOR_BLUE, 100%);
-        .smoothing(lighten(@COLOR_BLUE, 0%));
+        .resize(0.9);
       };
     };
   };

@@ -3,7 +3,7 @@
  * parsers.js
  * =========
  * Парсеры
- *  - insertTag(). Вставка различных тегов при загрузке страницы.
+ *  - author. Обработка и вставка авторов цитат и их лиц.
  *
 */
 
@@ -17,8 +17,21 @@ var Parser =
     {
       $('cite, blockquote').each(function(i)
       {
-        var author = $(this).attr('data-author');
-        $(this).after('<em class="author italic">' + author + '</em>');
+        var author = $(this).attr('data-author'),
+            authorImg = $(this).attr('data-author-img');
+
+        var result;
+
+        if (authorImg) 
+        {
+          result = '<em class="author italic">' + author + '<img src="../client/img/author/' + authorImg + '.png">' + '</em>';
+        } 
+        else {
+          result = '<em class="author italic">' + author + '</em>';
+        };
+
+        $(this).after(result);
+        
         console.log('[K16] ' + this + ' : ' + author);
       });
     });

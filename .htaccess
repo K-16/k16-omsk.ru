@@ -1,2 +1,14 @@
 AddDefaultCharset UTF-8
 DefaultLanguage ru-RU
+
+<IfModule mod_rewrite.c>
+
+    SetEnv HTTP_MOD_REWRITE On
+
+RewriteEngine on
+
+RewriteBase /
+
+#RewriteRule ^to/(.*)$ index.php?to=$1
+
+</IfModule>

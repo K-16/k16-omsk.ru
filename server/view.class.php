@@ -2,16 +2,21 @@
 
 class View
 {
-  public function GetURL($file, $subDir = false, $dir = 'txt/')
+
+  /* Полчуение адреса файла */
+
+  public function GetURL($file, $dir)
   {
-    return CLIENT_URL.$dir.$subDir.$file;
+    return CLIENT_URL.$dir.$file;
   }  
 
-  public function ShowPage($file, $subDir = false) 
+  /* Показ файла на странице */
+
+  public function ShowPage($file, $dir = 'txt/') 
   {  
     ob_start();
     
-    include self::GetURL($file, $subDir, $dir = 'txt/');
+    include self::GetURL($file, $dir);
 
     return ob_get_clean();   
   }
