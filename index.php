@@ -3,27 +3,20 @@
 /* Отправление заголовка */
 
 header('Content-Type: text/html; charset=UTF-8');
+header("Cache-Control: no-store, no-cache, must-revalidate");
 
-require_once('./server/system.php');
+require_once './server/system.php';
 
 /* Компилирование *.less файлов в *.css */
 
-require_once(SERVER_URL.'lib/lessc.inc.php');
-autoCompileLess(CLIENT_URL.'css/main.less', CLIENT_URL.'css/main.css');
+require_once SERVER_URL.'lib/lessc.inc.php';
+compileLess(CLIENT_URL.'css/main.less', CLIENT_URL.'css/main.css');
 
-/* Массив имён */
+/* */
 
-$names = array(
-  'main' => '01',
-  'history' => '02',
-  'education' => '03',
-  'activity' => '04',
-  'people' => '05',
-  'link' => '06',
-  'photo' => '07'
-);
+$firstPage = true;
 
-/* Проверяем введенны ли данные и, если успешно возвращаем результат */   
+/* Смотри на адрес и отдаём нужную страницу */
 
 $page = $_GET['to'];
 
@@ -35,10 +28,12 @@ else {
   $content = View::ShowPage($names[$page].'/'.$names[$page].'01.html', 'txt/');
 }
 
-//elseif (isset($_POST['page'])) $page = $_POST['page']; 
-
 /* Подключение главного файла и запуск приложения */
 
 include CLIENT_URL.'index.html';
+
+require_once 'ajax.php';
+
+$firstPage = false;
 
 ?>

@@ -8,6 +8,7 @@
 
     <meta name="author" content="upisfree / Сеня Пугач">
     <meta name="copyright" content="<?php echo $config['site_name'] ?>">
+    <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"> 
 
     <link rel="stylesheet" type="text/css" href="<?php echo CLIENT_URL ?>css/main.css">
@@ -16,15 +17,18 @@
     |PT+Mono&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
 
     <script type="text/javascript" src="<?php echo CLIENT_URL ?>js/lib/jquery-2-0-3-min.js"></script>
-    <script type="text/javascript" src="<?php echo CLIENT_URL ?>js/lib/less-1.5.0.min.js"></script>
     <script type="text/javascript" src="<?php echo CLIENT_URL ?>js/lib/normRand.js"></script>
 
+    <script type="text/javascript" src="<?php echo CLIENT_URL ?>js/config.js"></script>
+    <script type="text/javascript" src="<?php echo CLIENT_URL ?>js/names.js"></script>
+
     <script type="text/javascript" src="<?php echo CLIENT_URL ?>js/tools.js"></script>
+    <script type="text/javascript" src="<?php echo CLIENT_URL ?>js/debug.js"></script>
 
     <script type="text/javascript" src="<?php echo CLIENT_URL ?>js/ajax.js"></script>
     <script type="text/javascript" src="<?php echo CLIENT_URL ?>js/parsers.js"></script>
 
-    <script type="text/javascript" src="<?php echo CLIENT_URL ?>js/names.js"></script>
+    <script type="text/javascript" src="<?php echo CLIENT_URL ?>js/main.js"></script>
 
   </head>
 
@@ -32,18 +36,15 @@
 
     <nav class="menu">
       <a href="/" class="logo"></a>
-      <?php echo Menu::Show(); ?>
+      <?php echo Menu::Show() ?>
     </nav>
     <section class="panel">
       <div class="content">
-<!--
-        <a href="?to=05" onclick="page(05);">Люди</a><br>
-        <a href="?to=02" onclick="page(02);">История</a><br>
-        <a href="?to=03" onclick="page(03);">Учёба</a><br>
-        <a href="?to=04" onclick="page(04);">Мероприятия</a><br>
-        <script type="text/javascript">alert(names[1]);</script>
--->
         <?php echo $content ?>
+      </div>
+
+      <div class="load">
+<img src="<?php echo CLIENT_URL ?>img/load.gif">
       </div>
     </section>
 

@@ -263,9 +263,28 @@ body .panel {
 }
 body .panel .content {
   padding: 1% 60px;
+  -webkit-transition: all 0.2s ease;
+  -moz-transition: all 0.2s ease;
+  -ms-transition: all 0.2s ease;
+  -o-transition: all 0.2s ease;
+  transition: all 0.2s ease;
 }
 body .panel .content noMenu {
   padding: 0 2%;
+}
+body .panel .load {
+  display: none;
+  position: absolute;
+  top: 40%;
+  bottom: 25%;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  -webkit-transition: all 0.2s ease;
+  -moz-transition: all 0.2s ease;
+  -ms-transition: all 0.2s ease;
+  -o-transition: all 0.2s ease;
+  transition: all 0.2s ease;
 }
 body .menu .logo {
   display: block;
@@ -324,4 +343,21 @@ body .menu .item:active {
   -ms-transform: scale(0.9);
   -o-transform: scale(0.9);
   transform: scale(0.9);
+}
+body .menu .item.active {
+  background: #ffffff;
+  color: #4682b4;
+  text-shadow: 0px 0px 1px #4682b4;
+}
+body .menu .item.active:hover {
+  background: inherit;
+  color: #4682b4;
+  text-shadow: 0px 0px 1px #4682b4;
+}
+body .menu .item.active:active {
+  -webkit-transform: scale(1);
+  -moz-transform: scale(1);
+  -ms-transform: scale(1);
+  -o-transform: scale(1);
+  transform: scale(1);
 }

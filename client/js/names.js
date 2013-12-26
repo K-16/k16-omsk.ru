@@ -7,5 +7,3 @@ names = {
   '06': 'link',
   '07': 'photo'
 };
-
-//alert(names['02']);

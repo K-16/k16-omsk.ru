@@ -1,54 +1,38 @@
-var xmlHttp = null;
-
-function getXmlHttp() 
-{
-  if (window.ActiveXObject)
-  {
-    return new ActiveXObject('Microsoft.XMLHTTP');
-  } 
-  else if (window.XMLHttpRequest) {
-    return new XMLHttpRequest(); 
-  } 
-  else {
-    alert('Ajax не поддерживается');
-    return null;
-  }
-}
-
 function nav(way)
 {
-  xmlHttp = getXmlHttp();
+  var result = 'to=' + way;
+  var state = '?to=' + way;
+  
+  var template = 4;
 
-  if (xmlHttp != null)
+  var animationSpeed = 'fast';
+
+//  $('.content').css('opacity', '0.5');
+//  $('.load').css('display', 'block');
+
+  $.ajax(
   {
-    /* Открываем соединение */
-
-    xmlHttp.open('POST', 'ajax.php', true);
-    
-    /* Подготавливаем данные для передачи */
-
-    result = 'to=' + way;
-
-    /* Говорим, что все данные в UTF-8 */
-    
-    xmlHttp.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded; charset=utf-8');
-    xmlHttp.setRequestHeader('Content-length', result.length);
-    xmlHttp.setRequestHeader('Connection', 'close');
-    
-    /* Возвращаем результат */
-    
-    xmlHttp.onreadystatechange = function() 
+    type: 'GET',
+    cache: false,
+    url: 'ajax.php',
+    data: result,
+    dataType: 'html',
+    success: function(msg)
     {
-      if (xmlHttp.readyState == 4 && xmlHttp.status == 200)
+      if (parseInt(msg) != 0)
       {
-        document.getElementsByClassName('content').innerHTML = xmlHttp.responseText;
-      } 
+        $('.content').html(msg);
+        history.pushState(null, null, state);
+        Parser.init();
+
+//        $('.content').css('opacity', '1');
+//        $('.load').css('display', 'none');
+        
+        log('[K16] Ajax request to ' + state + ' : success');
+      }
       else {
-        console.log('[K16] Ajax request : true');
+        log('[K16] Ajax request to : error');
       }
     }
-    
-    /* Посылаем запрос на сервер */
-    xmlHttp.send(result);
-  }
+  });
 }

@@ -1,12 +1,10 @@
 /*
  * 
- * baseMarkup.less
+ * markup.less
  * ===============
  *  - Базовая вёрстка страницы
  *
 */
-
-// Для отладки в LESS кода пропиши после адреса сайта /#!watch.
 
 body
 {
@@ -32,8 +30,24 @@ body
     overflow: auto;
     background: @COLOR_WHITE;
 
-    .content { padding: 1% 60px; };
+    .content 
+    { 
+      padding: 1% 60px; 
+      .transition(@TRANSITION_SPEED);
+    };
+
     .content noMenu { padding: 0 2%; };
+
+    .load
+    {
+      .base(none, absolute);
+      top: 40%;
+      bottom: 25%;
+      left: 0;
+      width: 100%;
+      text-align: center;
+      .transition(@TRANSITION_SPEED);
+    };
 
   };
 
@@ -81,6 +95,22 @@ body
       &:active
       {
         .resize(0.9);
+      };
+
+      &.active
+      {
+        background: @COLOR_WHITE;
+        .smoothing(@COLOR_BLUE);
+
+        &:hover
+        {
+          background: inherit;
+          .smoothing(@COLOR_BLUE);        
+        };
+        &:active
+        {
+          .resize(1);
+        };
       };
     };
   };

@@ -2,7 +2,7 @@
 
 /* Компилирование .less в .css */
 
-function autoCompileLess($inputFile, $outputFile) 
+function compileLess($inputFile, $outputFile) 
 {
   // Загрузка кэша
   $cacheFile = $inputFile.".cache";
