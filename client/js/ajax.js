@@ -28,10 +28,10 @@ function nav(way)
 //        $('.content').css('opacity', '1');
 //        $('.load').css('display', 'none');
         
-        log('[K16] Ajax request to ' + state + ' : success');
+        log('Ajax request to ' + state + ' : success');
       }
       else {
-        log('[K16] Ajax request to : error');
+        log('Ajax request to : error');
       }
     }
   });

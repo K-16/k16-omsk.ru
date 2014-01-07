@@ -21,7 +21,7 @@ function log(text)
 {
   if (config['debug'] == true) 
   {
-    console.log(text);
+    console.log('[K16] ' + text);
   }
   else {
     return;

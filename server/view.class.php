@@ -5,7 +5,7 @@ class View
 
   /* Полчуение адреса файла */
 
-  public function GetURL($file, $dir)
+  public function GetURL($file, $dir = false)
   {
     return CLIENT_URL.$dir.$file;
   }  

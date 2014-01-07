@@ -9,8 +9,9 @@ class Menu
     foreach ($menuItems as $i) 
     {
       $name = $i['name'];
-//      include CLIENT_URL.'menuItem.html';
-      echo '<a href="'.$i['url'].'" class="item">'.$i['name'].'</a>';
+      $url  = $i['url'];
+      
+      include CLIENT_URL.'html/menu/item.html';
     }
   }
 } 
