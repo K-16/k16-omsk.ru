@@ -17,11 +17,11 @@ function nav(way)
     url: 'ajax.php',
     data: result,
     dataType: 'html',
-    success: function(msg)
+    success: function(data)
     {
-      if (parseInt(msg) != 0)
+      if (parseInt(data) != 0)
       {
-        $('.content').html(msg);
+        $('.content').html(data);
         history.pushState(null, null, state);
         Parser.init();
 
