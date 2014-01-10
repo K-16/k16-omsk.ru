@@ -3,7 +3,7 @@
 /* Отправление заголовка */
 
 header('Content-Type: text/html; charset=UTF-8');
-header("Cache-Control: no-store, no-cache, must-revalidate");
+header('Cache-control: public');
 
 require_once './server/system.php';
 

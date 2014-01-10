@@ -6,6 +6,9 @@
  *
 */
 
+var startTime = (new Date()).getTime(),
+    stopTime;
+
 $(function() 
 {
   Parser.init();

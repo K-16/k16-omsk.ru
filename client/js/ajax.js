@@ -13,7 +13,7 @@ function nav(way)
   $.ajax(
   {
     type: 'GET',
-    cache: false,
+    cache: true,
     url: 'ajax.php',
     data: result,
     dataType: 'html',

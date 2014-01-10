@@ -6,6 +6,8 @@
  *
 */
 
-var config = {
+var config = 
+{
   'debug': true, 
+  'debugTime': 'ms', 
 };

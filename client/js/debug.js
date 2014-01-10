@@ -21,7 +21,19 @@ function log(text)
 {
   if (config['debug'] == true) 
   {
-    console.log('[K16] ' + text);
+    stopTime = (new Date()).getTime() - startTime;
+
+    switch (config['debugTime'])
+    {
+      case 'ms':
+        stopTime = '[' + stopTime + ' ms] ';
+        break;
+      case 's':
+        stopTime = '[' + stopTime / 1000 + ' s] ';
+        break;
+    };
+
+    console.log('[K16] ' + stopTime + text);
   }
   else {
     return;
