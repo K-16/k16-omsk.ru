@@ -28,7 +28,7 @@ var Parser =
 
       $(this).after(result);
       
-      log('<' + this.nodeName.toLowerCase() + '> : ' + author);
+      log('<' + this.nodeName.toLowerCase() + '>: ' + author);
     });
   },
   
@@ -43,7 +43,7 @@ var Parser =
       {
         $(this).removeAttr('href').attr('onclick', 'nav(\'' + link.substr(template) + '\');');
 
-        log('<' + this.nodeName.toLowerCase() + '> attr href : convert \'' + link + '\' to \'' + link.substr(template) + '\'');        
+        log('<' + this.nodeName.toLowerCase() + '> attr href: convert \'' + link + '\' to \'' + link.substr(template) + '\'');        
       };
     });
   },
@@ -68,7 +68,7 @@ var Parser =
       {
         $(this).addClass('active');
 
-        log('Menu item \'' + itemLink + '\' state : active');
+        log('Menu item \'' + itemLink + '\' state: active');
       }
       else {
         $(this).removeClass('active');      
@@ -80,7 +80,7 @@ var Parser =
   {
     $('title').text($('h2').html() + ' | К16');
 
-    log('Replace page\'s title on : ' + $('h2').html());
+    log('Replace page\'s title on: ' + $('h2').html());
   },
 
   init: function()

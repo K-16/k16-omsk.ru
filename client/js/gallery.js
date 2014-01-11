@@ -15,10 +15,12 @@ function getAlbumsList(parameters)
     dataType: 'jsonp',
     success: function(data)
     {
-      for (var i = data.response.length - 1; i >= 0; i--) 
+      for (var i in data.response) 
       {
         $('h2').after('<a onclick="getPhotosByAlbum({\'id\': ' + data.response[i]['aid'] + '});">' + data.response[i]['title'] + '</a>, фотографий: <b>' + data.response[i]['size'] + '</b><br>');
       };
+
+      log('Albums loaded: ' + i);
     }
   });
 };
@@ -26,7 +28,7 @@ function getAlbumsList(parameters)
 function getPhotosByAlbum(parameters) 
 {
   var id  = parameters.id,
-      rev = parameters.rev || 1;
+      rev = parameters.rev || 0;
 
   $.ajax(
   { 
@@ -34,16 +36,35 @@ function getPhotosByAlbum(parameters)
     dataType: 'jsonp',
     success: function(data)
     {
-      for (var i = data.response.length - 1; i >= 0; i--) 
+      $('body').append('<div id="gallery"></div>');
+
+      for (var i in data.response)
       {
-        $('#gallery').append('<img src="' + data.response[i]['src_xxbig'] + '">');
+        var src = data.response[i]['src_xxbig']; // есть идеи, как по другому эту проверку реализовать?
+        if (!data.response[i]['src_xxbig'])
+        {
+          var src = data.response[i]['src_xbig'];
+          if (!data.response[i]['src_xbig']) 
+          {
+            var src = data.response[i]['src_big'];
+            if (!data.response[i]['src_big']) 
+            {
+              var src = data.response[i]['src'];
+            };
+          };
+        };
+
+        $('#gallery').append('<img src="' + src + '">');
       };
 
       $('#gallery').fotorama(
       {
         'nav': 'thumbs',
         'keyboard': true,
+        'shadows': false,
       });
+
+      log('Photos in album-' + id + ' loaded: ' + ++i);
     }
   });
 };
