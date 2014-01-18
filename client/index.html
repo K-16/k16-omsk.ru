@@ -4,17 +4,16 @@
 
   <head>
 
-    <title><?php echo $config['site_name'] ?></title>
-
     <meta name="author" content="upisfree / Сеня Пугач">
     <meta name="copyright" content="<?php echo $config['site_name'] ?>">
     <meta http-equiv="Pragma" content="cache">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"> 
+    
+    <title><?php echo $config['site_name'] ?></title>
 
-    <link rel="stylesheet" type="text/css" href="<?php echo CLIENT_URL ?>style/css/main.css">
+    <link rel="stylesheet" href="<?php echo CLIENT_URL ?>style/css/main.css">
 
-    <link href='http://fonts.googleapis.com/css?family=PT+Sans:400,700,400italic,700italic
-    |PT+Mono&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Sans:400,700,400italic,700italic|PT+Mono&subset=latin,cyrillic">
 
     <script src="<?php echo CLIENT_URL ?>js/lib/jquery-2-0-3-min.js"></script>
     <script src="<?php echo CLIENT_URL ?>js/lib/normRand.js"></script>
@@ -25,12 +24,11 @@
     <script src="<?php echo CLIENT_URL ?>js/debug.js"></script>
 
     <script src="<?php echo CLIENT_URL ?>js/ajax.js"></script>
-    <script src="<?php echo CLIENT_URL ?>js/parsers.js"></script>
+    <script src="<?php echo CLIENT_URL ?>js/parser.js"></script>
 
     <script src="<?php echo CLIENT_URL ?>js/menu.js"></script>
 
 <!--    <script src="<?php echo CLIENT_URL ?>js/gallery.js"></script>--> <!-- Пока перенёс в html файл раздела Фото -->
-
 <!--    <script src="<?php echo CLIENT_URL ?>js/news.js"></script>--> <!-- Пока перенёс в html файл раздела Новости -->
 
     <script src="<?php echo CLIENT_URL ?>js/main.js"></script>
