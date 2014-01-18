@@ -6,6 +6,8 @@
  *
 */
 
+'use strict';
+
 var startTime = (new Date()).getTime(),
     stopTime;
 

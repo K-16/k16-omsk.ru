@@ -117,7 +117,8 @@ body
 
 
   .gallery.close,
-  .gallery.background
+  .gallery.background,
+  .gallery.title
   {
     position: absolute;
     top: 0;
@@ -155,6 +156,15 @@ body
     background-image: url('../../img/noise.png'); // шум: нужен ли?
   };
 
+  .gallery.title
+  {
+    margin: auto;
+    padding: 10px;
+    font-size: 200%;
+    color: @COLOR_WHITE;
+//    background: @COLOR_BLUE;
+    z-index: 10;
+  };
 
 
   #news article

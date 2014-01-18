@@ -1,6 +1,6 @@
-var news = 
+var news =
 {
-  getNews: function(parameters) 
+  getNews: function(parameters)
   {
     var filter = parameters.filter || 'owner',
         offset = parameters.offset || 0,
@@ -10,58 +10,55 @@ var news =
     { 
       url: 'https://api.vk.com/method/wall.get?owner_id=' + config['groupId'] + '&filter=' + filter + '&offset=' + offset + '&count=' + count, 
       dataType: 'jsonp',
-      success: function(data)
+      success: function(a)
       {
         var time,
-            likes,
-            reposts,
-            comments,
-            author,
-            text,
-            images,
+            data,
             result;
 
-        for (var i in data.response) 
+        var authors = [];
+
+        for (var i in a.response)
         {
-          if (data.response[i]['text']) 
+          if (a.response[i]['text'])
           {
-            time = new Date(data.response[i]['date']);
-            time.setTime(data.response[i]['date'] * 1000);
+            time = new Date(a.response[i]['date']);
+            time.setTime(a.response[i]['date'] * 1000);
 
-            time.day   = time.getDate();
-            time.month = time.getMonth() + 1;
-            time.year  = time.getFullYear();
+            authors.push((a.response[i]['signer_id']) ? a.response[i]['signer_id'] : 1);
 
-            likes    = data.response[i]['likes']['count'];
-            reposts  = data.response[i]['reposts']['count'];
-            comments = data.response[i]['comments']['count'];
-            
-            author = (data.response[i]['signer_id']) ? getVkUserNameById(data.response[i]['signer_id'], '#id' + i + ' address') : config['defaultAdmin'];
-            
-            (!author) ? author = '' : '';
-/*
-            for (var a in data.response[i]['attachments']) 
+            data = 
             {
-              images = '<img style="float: left;" src="' + data.response[i]['attachments'][a]['photo']['src'] + '">';
+              'id': i - 1,
+              'day': time.getDate(),
+              'month': time.getMonth() + 1,
+              'year': time.getFullYear(),
+              'likes': a.response[i]['likes']['count'],
+              'reposts': a.response[i]['reposts']['count'],
+              'comments': a.response[i]['comments']['count'],
+              'text': a.response[i]['text']
             };
-*/
-            text = data.response[i]['text'];
 
-            var result = '<article id="id' + i + '">' +
-                         '<time>Дата: ' + time.day + '.' + time.month + '.' + time.year + '</time> ' + 
-                         '<address>Автор: ' + author + '</address>' +
-                         '<span>Лайков: ' + likes + '</span>' + 
-                         '<span>Репостов: ' + reposts + '</span>' + 
-                         '<span>Комментов: ' + comments + '</span>' + 
-                         '<br>' + text + 
-//                         '<br>' + convertTextToLinks(text) + 
-//                         '<br>' + images +
-//                         '<br>' + data.response[i]['signer_id'] + ', ' + data.response[i]['to_id'] + 
-                         '</article>';
+            result = compileText(templates['news'], data);
 
-            $('#news').append(result);              
+            $('#news').append(result);
           };
         };
+
+        for (var b = 0; b <= authors.length - 1; b++) 
+        {
+          if (authors[b] == 1)
+          {
+            $('#news #id' + b).append(config['defaultAdmin']);
+          }
+          else
+          {
+            getVkUserNameById(authors[b], '#id' + b);
+          };
+
+          $('#news address:last').html('<i class="icon author"></i> ' + config['defaultAdmin']); // временное решение
+        };
+
 
         log('News loaded: ' + i);
       }

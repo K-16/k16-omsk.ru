@@ -3,7 +3,11 @@
  * parsers.js
  * =========
  * Парсеры
- *  - author. Обработка и вставка авторов цитат и их лиц.
+ *  - createQuoteAuthor(). Обработка и вставка авторов цитат и их лиц.
+ *  - convertLinksToAjax(). Конвертирует ссылки для навигации по сайту (на Ajax'е).
+ *  - setMenuItemActive(). Устанавливает активный пункт меню, в зависимости от адреса.
+ *  - setTitle(). Устанавливает title страницы.
+ *  - init(). Активирует все парсеры.
  *
 */
 
@@ -39,7 +43,7 @@ var Parser =
       var link     = $(this).attr('href'),
           template = 4;
 
-      if (link) 
+      if (link && !link.match(regExp['link'])) 
       {
         $(this).removeAttr('href').attr('onclick', 'nav(\'' + link.substr(template) + '\');');
 
@@ -52,23 +56,19 @@ var Parser =
   {
     $('.menu .item').each(function(i)
     {
-      var itemLink = $(this).attr('onclick'),
-          pageLink = location.search; // После перевода на mod_rewrite исправить
-      
-      var itemLinkCharBefore = 5,
-          itemLinkCharAfter  = 3,
-          pageLinkCharBefore = 4;
+      var link = $(this).attr('onclick');
 
-      itemLink = itemLink.substr(itemLinkCharBefore);
-      itemLink = itemLink.substr(0, itemLink.length - itemLinkCharAfter);
-      
-      pageLink = pageLink.substr(pageLinkCharBefore);
+      var charBefore = 5,
+          charAfter  = 3;
 
-      if (itemLink == pageLink) 
+      link = link.substr(charBefore);
+      link = link.substr(0, link.length - charAfter);
+
+      if (link == getCurrentPage()) 
       {
         $(this).addClass('active');
 
-        log('Menu item \'' + itemLink + '\' state: active');
+        log('Menu item \'' + link + '\' state: active');
       }
       else {
         $(this).removeClass('active');      

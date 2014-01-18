@@ -2,9 +2,13 @@
  * 
  * tools.js
  * ========
- * Различные штуки, не вписывающиеся в другие файлы. Название не окончательное.
+ * Различные вспомогательные (и не только) штуки.
  *  - names. Массив преобразований имён для упрощения url адреса.
+ *  - templates. html исходники для шаблонизатора.
  *  - regExp. Массив регулярных выражений.
+ *  - compileText(). Компилирование текста шаблонизатором.
+ *  - getCurrentPage(). Возвращает текущую страницу.
+ *  - getVkUserNameById(). Возвращает имя юзера ВК по id.
  *
 */
 
@@ -20,11 +24,39 @@ var names =
   '08': 'photo'
 };
 
+var templates =
+{
+  'news': '<article>\
+             <time><i class="icon date"></i> {{day}}.{{month}}.{{year}}</time>\
+             <address id="id{{id}}"><i class="icon author"></i> </address>\
+             <span><i class="icon like"></i> {{likes}}</span>\
+             <span><i class="icon repost"></i> {{reposts}}</span>\
+             <span><i class="icon comment"></i> {{comments}}</span>\
+             <br> {{{text}}}\
+           </article>',
+  'gallery': '<div class="gallery background"></div>\
+              <div class="gallery title">{{title}}</div>\
+              <div class="gallery close" onclick="gallery.closeGallery();">{{closeSymbol}}</div>\
+              <div class="gallery photo"></div>',
+  'galleryLink': '<a onclick="gallery.getPhotosByAlbum({\'id\': {{id}}, \'title\': \'{{title}}\' });">{{title}}</a>, фотографий: <b>{{size}}</b><br>'
+};
+
 var regExp = 
 {
   year: /\|\s[0-9]+$/i,
   word: /[^A-Za-zА-Яа-я]+$/i,
-  link: /((http|https):\/\/(www\.)?[a-zа-я0-9-]+\.[a-zа-я0-9-]{2,6})/i,
+  link: /((http|https):\/\/)/i,
+};
+
+function compileText(source, data)
+{
+  var template = Handlebars.compile(source);
+  return template(data);
+};
+
+function getCurrentPage()
+{
+  return location.search.substr(4); // При переходе на mod_rewrite поправить
 };
 
 function getVkUserNameById(id, to) 
@@ -41,6 +73,10 @@ function getVkUserNameById(id, to)
     }
   });
 };
+
+/**
+  @deprecated
+ */
 
 function convertTextToLinks(str) 
 {

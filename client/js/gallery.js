@@ -17,7 +17,14 @@ var gallery =
       {
         for (var i in data.response) 
         {
-          $('h2').after('<a onclick="gallery.getPhotosByAlbum({\'id\': ' + data.response[i]['aid'] + '});">' + data.response[i]['title'] + '</a>, фотографий: <b>' + data.response[i]['size'] + '</b><br>');
+          var a =
+          {
+            'id': data.response[i]['aid'],
+            'title': data.response[i]['title'],
+            'size': data.response[i]['size']
+          };
+
+          $('h2').after(compileText(templates['galleryLink'], a));
         };
 
         log('Albums loaded: ' + i);
@@ -27,8 +34,9 @@ var gallery =
 
   getPhotosByAlbum: function(parameters)
   {
-    var id  = parameters.id,
-        rev = parameters.rev || 0;
+    var id    = parameters.id,
+        title = parameters.title || '',
+        rev   = parameters.rev || 0;
 
     $.ajax(
     { 
@@ -38,9 +46,13 @@ var gallery =
       {
         gallery.closeGallery('fast');
 
-        $('body').append('<div class="gallery background"></div>' + 
-                         '<div class="gallery close" onclick="gallery.closeGallery();">' + config['galleryCloseSymbol'] + '</div>' + 
-                         '<div class="gallery photo"></div>');
+        var a = 
+        {
+          'title': title,
+          'closeSymbol': config['galleryCloseSymbol']
+        };
+
+        $('body').append(compileText(templates['gallery'], a));
 
         for (var i in data.response)
         {
@@ -61,14 +73,7 @@ var gallery =
           $('.gallery.photo').append('<img src="' + src + '">');
         };
 
-        $('.gallery.photo').fotorama(
-        {
-          'nav'     : 'thumbs',
-          'keyboard': true,
-          'shadows' : false,
-          'width'   : '100%',
-          'height'  : '100%',
-        });
+        $('.gallery.photo').fotorama();
 
         log('Photos in album-' + id + ' loaded: ' + ++i);
       }
