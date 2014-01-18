@@ -20,7 +20,7 @@ var names =
   '04': 'education',
   '05': 'activity',
   '06': 'people',
-  '07': 'link',
+  '07': 'about',
   '08': 'photo'
 };
 
@@ -38,7 +38,8 @@ var templates =
               <div class="gallery title">{{title}}</div>\
               <div class="gallery close" onclick="gallery.closeGallery();">{{closeSymbol}}</div>\
               <div class="gallery photo"></div>',
-  'galleryLink': '<a onclick="gallery.getPhotosByAlbum({\'id\': {{id}}, \'title\': \'{{title}}\' });">{{title}}</a>, фотографий: <b>{{size}}</b><br>'
+  'galleryLink': '<a onclick="gallery.getPhotosByAlbum({\'id\': {{id}}, \'title\': \'{{title}}\' });">{{title}}</a>, фотографий: <b>{{size}}</b><br>',
+  'script': '<script type="text/javascript" src={{src}}></script>'
 };
 
 var regExp = 

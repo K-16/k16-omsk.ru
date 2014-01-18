@@ -10,7 +10,7 @@
 
 function debug(code) 
 {
-  if (config['debug'] == true && code) 
+  if (config['debug']['enable'] == true && code) 
   {
     code();
   }
@@ -21,11 +21,11 @@ function debug(code)
 
 function log(text)
 {
-  if (config['debug'] == true) 
+  if (config['debug']['enable'] == true) 
   {
     stopTime = (new Date()).getTime() - startTime;
 
-    switch (config['debugTime'])
+    switch (config['debug']['time'])
     {
       case 'ms':
         stopTime = '[' + stopTime + ' ms] ';

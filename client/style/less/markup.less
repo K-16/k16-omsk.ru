@@ -162,9 +162,11 @@ body
     padding: 10px;
     font-size: 200%;
     color: @COLOR_WHITE;
-//    background: @COLOR_BLUE;
+    background: @COLOR_BLUE;
+    border-bottom-right-radius: 7px;
     z-index: 10;
   };
+
 
 
   #news article
@@ -184,6 +186,27 @@ body
       display: block;
       color: #aaaaaa;
       font-style: normal;
+    };
+  };
+
+
+
+  #map
+  {
+    width: 100%;
+    height: 500px;
+
+    .gm-style-iw
+    {
+      width: 100% !important;
+      .sansFont;
+      font-weight: normal;
+      overflow: hidden !important;
+
+      div
+      {
+        overflow: inherit !important;
+      };
     };
   };
 

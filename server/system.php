@@ -24,7 +24,7 @@ $names = array(
   'education' => '04',
   'activity'  => '05',
   'people'    => '06',
-  'link'      => '07',
+  'about'      => '07',
   'photo'     => '08'
 );
 
