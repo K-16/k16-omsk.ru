@@ -1,0 +1,37 @@
+{
+  "items": 
+  [
+    {
+      "name": "Главная",
+      "url": ""
+    },
+    {
+      "name": "Новости",
+      "url": "news"
+    },
+    {
+      "name": "История",
+      "url": "history"
+    },
+    {
+      "name": "Учёба",
+      "url": "education"
+    },
+    {
+      "name": "Мероприятия",
+      "url": "activity"
+    },
+    {
+      "name": "Люди",
+      "url": "people"
+    },
+    {
+      "name": "Ссылки",
+      "url": "link"
+    },
+    {
+      "name": "Фото",
+      "url": "photo"
+    }
+  ]
+}

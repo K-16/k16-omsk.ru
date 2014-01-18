@@ -11,7 +11,7 @@
     <meta http-equiv="Pragma" content="cache">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"> 
 
-    <link rel="stylesheet" type="text/css" href="<?php echo CLIENT_URL ?>css/main.css">
+    <link rel="stylesheet" type="text/css" href="<?php echo CLIENT_URL ?>style/css/main.css">
 
     <link href='http://fonts.googleapis.com/css?family=PT+Sans:400,700,400italic,700italic
     |PT+Mono&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
@@ -21,13 +21,17 @@
 
     <script src="<?php echo CLIENT_URL ?>js/config.js"></script>
 
-    <script src="<?php echo CLIENT_URL ?>js/other.js"></script>
+    <script src="<?php echo CLIENT_URL ?>js/tools.js"></script>
     <script src="<?php echo CLIENT_URL ?>js/debug.js"></script>
 
     <script src="<?php echo CLIENT_URL ?>js/ajax.js"></script>
     <script src="<?php echo CLIENT_URL ?>js/parsers.js"></script>
 
+    <script src="<?php echo CLIENT_URL ?>js/menu.js"></script>
+
 <!--    <script src="<?php echo CLIENT_URL ?>js/gallery.js"></script>--> <!-- Пока перенёс в html файл раздела Фото -->
+
+<!--    <script src="<?php echo CLIENT_URL ?>js/news.js"></script>--> <!-- Пока перенёс в html файл раздела Новости -->
 
     <script src="<?php echo CLIENT_URL ?>js/main.js"></script>
 
@@ -37,7 +41,6 @@
 
     <nav class="menu">
       <a href="/" class="logo"></a>
-      <?php echo Menu::Show() ?>
     </nav>
 
     <section class="panel">

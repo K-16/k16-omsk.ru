@@ -10,7 +10,7 @@ require_once './server/system.php';
 /* Компилирование *.less файлов в *.css */
 
 require_once SERVER_URL.'lib/lessc.inc.php';
-compileLess(CLIENT_URL.'css/main.less', CLIENT_URL.'css/main.css');
+compileLess(CLIENT_URL.'style/less/main.less', CLIENT_URL.'style/css/main.css');
 
 /* */
 
@@ -22,10 +22,10 @@ $page = $_GET['to'];
 
 if (!$page) 
 {
-  $content = View::ShowPage('01/0101.html', 'txt/');
+  $content = View::ShowPage('01/01.html', 'txt/');
 } 
 else {
-  $content = View::ShowPage($names[$page].'/'.$names[$page].'01.html', 'txt/');
+  $content = View::ShowPage($names[$page].'/'.'01.html', 'txt/');
 }
 
 /* Подключение главного файла и запуск приложения */

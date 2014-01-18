@@ -8,6 +8,9 @@
 
 var config = 
 {
-  'debug': true, 
-  'debugTime': 'ms', 
+  'debug': true,
+  'debugTime': 'ms',
+  'groupId': '-1088622',
+  'galleryCloseSymbol': '×',
+  'defaultAdmin': 'Админ',
 };
