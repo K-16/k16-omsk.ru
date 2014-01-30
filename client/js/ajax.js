@@ -1,7 +1,7 @@
 function nav(way)
 {
-  var result = 'to=' + way;
-  var state = '?to=' + way;
+  var result = 'page=' + way,
+      state  = rewrite(way);
   
   var template = 4;
 

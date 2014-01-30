@@ -2,7 +2,7 @@
 
 require_once('./server/system.php');
 
-$page = $_GET['to'];
+$page = $_GET['page'];
 
 if (!$firstPage) // ??? КАК ???
 {

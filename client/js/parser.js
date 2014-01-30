@@ -41,7 +41,7 @@ var Parser =
     $('a').each(function(i)
     {
       var link     = $(this).attr('href'),
-          template = 4;
+          template = (config['rewrite']) ? 6 : 4;
 
       if (link && !link.match(regExp['link'])) 
       {

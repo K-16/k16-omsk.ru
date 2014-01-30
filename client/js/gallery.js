@@ -5,9 +5,11 @@ var gallery =
 {
   getAlbumsList: function(parameters)
   {
-    var offset  = parameters.offset || 0,
-        count   = parameters.count  || 0,
-        fields  = parameters.fields || ['aid', 'title', 'size'];
+    var p = inherit(parameters);
+
+    var offset  = p.offset || 0,
+        count   = p.count  || 0,
+        fields  = p.fields || ['aid', 'title', 'size'];
 
     $.ajax(
     { 
@@ -34,9 +36,11 @@ var gallery =
 
   getPhotosByAlbum: function(parameters)
   {
-    var id    = parameters.id,
-        title = parameters.title || '',
-        rev   = parameters.rev || 0;
+    var p = inherit(parameters);
+
+    var id    = p.id,
+        title = p.title || '',
+        rev   = p.rev   || 0;
 
     $.ajax(
     { 
@@ -85,4 +89,4 @@ var gallery =
   },
 };
 
-gallery.getAlbumsList({});
+gallery.getAlbumsList();

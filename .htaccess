@@ -9,6 +9,16 @@ RewriteEngine on
 
 RewriteBase /
 
-#RewriteRule ^to/(.*)$ index.php?to=$1
+# Я знаю, что это ужасно. Скоро исправлю.
+
+RewriteRule ^news$ index.php?page=news [L,NE]
+RewriteRule ^history$ index.php?page=history [L,NE]
+RewriteRule ^education$ index.php?page=education [L,NE]
+RewriteRule ^activity$ index.php?page=activity [L,NE]
+RewriteRule ^people$ index.php?page=people [L,NE]
+RewriteRule ^about$ index.php?page=about [L,NE]
+RewriteRule ^photo$ index.php?page=photo [L,NE]
+
+# RewriteRule ^to/(.*)$ index.php?page=$1
 
 </IfModule>

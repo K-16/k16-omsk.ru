@@ -8,15 +8,17 @@
 
 var config = 
 {
+  'rewrite': true,
+  'noRewriteWord': 'page',
+  'groupId': '-1088622',
+  'defaultAdmin': 'Админ',
+  'galleryCloseSymbol': '×',
+
   'debug':
   {
     'enable': true,
     'time': 'ms'
   },
-  
-  'groupId': '-1088622',
-  'defaultAdmin': 'Админ',
-  'galleryCloseSymbol': '×',
 
   'color':
   {
@@ -32,7 +34,7 @@ var config =
     'zoom': 16,
     'x': 55.013896934985624,
     'y': 73.32402510070847,
-    'info': '<h4>Кабинет №16, улица Красный Путь, 155 <br>БОУ ДОД «Городской Дворец творчества»</h4>',
+    'info': '<h4>Каб. №16, ул. Красный Путь, 155, г. Омск <br>БОУ ДОД «Городской Дворец творчества»</h4>',
     'ui':
     {
       'disable': true,

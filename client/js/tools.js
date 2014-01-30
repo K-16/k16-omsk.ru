@@ -6,8 +6,10 @@
  *  - names. Массив преобразований имён для упрощения url адреса.
  *  - templates. html исходники для шаблонизатора.
  *  - regExp. Массив регулярных выражений.
- *  - compileText(). Компилирование текста шаблонизатором.
+ *  - compileText(). Возвращает скомпилированный шаблонизатором текст.
  *  - getCurrentPage(). Возвращает текущую страницу.
+ *  - rewrite(). Возвращает url в зависимости от того, включен ли mod_rewrite или нет.
+ *  - inherit(). Системная функция для работы необязательных аргументов.
  *  - getVkUserNameById(). Возвращает имя юзера ВК по id.
  *
 */
@@ -34,11 +36,14 @@ var templates =
              <span><i class="icon comment"></i> {{comments}}</span>\
              <br> {{{text}}}\
            </article>',
+
   'gallery': '<div class="gallery background"></div>\
               <div class="gallery title">{{title}}</div>\
               <div class="gallery close" onclick="gallery.closeGallery();">{{closeSymbol}}</div>\
               <div class="gallery photo"></div>',
+
   'galleryLink': '<a onclick="gallery.getPhotosByAlbum({\'id\': {{id}}, \'title\': \'{{title}}\' });">{{title}}</a>, фотографий: <b>{{size}}</b><br>',
+  
   'script': '<script type="text/javascript" src={{src}}></script>'
 };
 
@@ -49,6 +54,8 @@ var regExp =
   link: /((http|https):\/\/)/i,
 };
 
+
+
 function compileText(source, data)
 {
   var template = Handlebars.compile(source);
@@ -57,7 +64,26 @@ function compileText(source, data)
 
 function getCurrentPage()
 {
-  return location.search.substr(4); // При переходе на mod_rewrite поправить
+  if (config['rewrite']) 
+  {
+    return location.pathname.substr(1);
+  }
+  else
+  {
+    return location.search.substr(6);
+  };
+};
+
+function rewrite(str)
+{
+  return (config['rewrite']) ? str : '?' + config['noRewriteWord'] + '=' + str;
+};
+
+function inherit(p)
+{
+  function f() {};
+  f.prototype = p;
+  return new f;
 };
 
 function getVkUserNameById(id, to) 
@@ -74,6 +100,8 @@ function getVkUserNameById(id, to)
     }
   });
 };
+
+
 
 /**
   @deprecated

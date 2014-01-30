@@ -2,9 +2,11 @@ var news =
 {
   getNews: function(parameters)
   {
-    var filter = parameters.filter || 'owner',
-        offset = parameters.offset || 0,
-        count  = parameters.count  || 100;
+    var p = inherit(parameters);
+
+    var filter = p.filter || 'owner',
+        offset = p.offset || 0,
+        count  = p.count  || 100;
 
     $.ajax(
     { 
@@ -66,4 +68,4 @@ var news =
   }
 };
 
-news.getNews({});
+news.getNews();

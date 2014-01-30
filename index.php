@@ -18,7 +18,7 @@ $firstPage = true;
 
 /* Смотри на адрес и отдаём нужную страницу */
 
-$page = $_GET['to'];
+$page = $_GET['page'];
 
 if (!$page) 
 {
