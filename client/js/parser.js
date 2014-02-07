@@ -41,13 +41,13 @@ var Parser =
     $('a').each(function(i)
     {
       var link     = $(this).attr('href'),
-          template = (config['rewrite']) ? 6 : 4;
+          template = 1;
 
       if (link && !link.match(regExp['link'])) 
       {
         $(this).removeAttr('href').attr('onclick', 'nav(\'' + link.substr(template) + '\');');
 
-        log('<' + this.nodeName.toLowerCase() + '> attr href: convert \'' + link + '\' to \'' + link.substr(template) + '\'');        
+        log('Cконвертировал аттрибут href у <' + this.nodeName.toLowerCase() + '> из \'' + link + '\' в \'' + link.substr(template) + '\'');        
       };
     });
   },
@@ -64,11 +64,11 @@ var Parser =
       link = link.substr(charBefore);
       link = link.substr(0, link.length - charAfter);
 
-      if (link == getCurrentPage()) 
+      if (link == getCurrentPage())
       {
         $(this).addClass('active');
 
-        log('Menu item \'' + link + '\' state: active');
+        log('Пункт меню \'' + link + '\' активирован');
       }
       else {
         $(this).removeClass('active');      
@@ -78,9 +78,9 @@ var Parser =
 
   setTitle: function() 
   {
-    $('title').text($('h2').html() + ' | К16');
+    $('title').text($('h2').html() + ' | ' + config['siteName']);
 
-    log('Replace page\'s title on: ' + $('h2').html());
+    log('Заменил title страницы на ' + $('h2').html());
   },
 
   init: function()

@@ -62,7 +62,7 @@ var news =
         };
 
 
-        log('News loaded: ' + i);
+        log('Загрузил новостей: ' + i);
       }
     });
   }

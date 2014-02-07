@@ -1,0 +1,7 @@
+# Кэш картинок от Винды
+Thumbs.db
+ehthumbs.db
+
+# Продукты компиляции less в css
+compiled.css
+*.less.cache

@@ -8,11 +8,11 @@
 
 var config = 
 {
-  'rewrite': true,
-  'noRewriteWord': 'page',
+  'siteName': 'К16',
   'groupId': '-1088622',
   'defaultAdmin': 'Админ',
-  'galleryCloseSymbol': '×',
+  'closeSymbol': '×',
+  'arrowSymbol': '→',
 
   'debug':
   {

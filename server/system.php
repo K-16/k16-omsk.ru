@@ -15,17 +15,4 @@ require_once 'view.class.php';
 
 require_once 'tools.php';
 
-/* Массив преобразований имён */
-
-$names = array(
-  'main'      => '01',
-  'news'      => '02',
-  'history'   => '03',
-  'education' => '04',
-  'activity'  => '05',
-  'people'    => '06',
-  'about'      => '07',
-  'photo'     => '08'
-);
-
 ?>

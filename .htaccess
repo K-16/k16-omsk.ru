@@ -3,22 +3,40 @@ DefaultLanguage ru-RU
 
 <IfModule mod_rewrite.c>
 
-    SetEnv HTTP_MOD_REWRITE On
+  SetEnv HTTP_MOD_REWRITE On
 
-RewriteEngine on
+  RewriteEngine on
 
-RewriteBase /
+  RewriteBase /
 
-# Я знаю, что это ужасно. Скоро исправлю.
+  RewriteRule ^.htaccess$ [F]
 
-RewriteRule ^news$ index.php?page=news [L,NE]
-RewriteRule ^history$ index.php?page=history [L,NE]
-RewriteRule ^education$ index.php?page=education [L,NE]
-RewriteRule ^activity$ index.php?page=activity [L,NE]
-RewriteRule ^people$ index.php?page=people [L,NE]
-RewriteRule ^about$ index.php?page=about [L,NE]
-RewriteRule ^photo$ index.php?page=photo [L,NE]
+  # Я знаю, что это ужасно. Скоро исправлю.
 
-# RewriteRule ^to/(.*)$ index.php?page=$1
+  RewriteRule ^news$ index.php?page=news [L]
+  RewriteRule ^history$ index.php?page=history [L]
+  RewriteRule ^education$ index.php?page=education [L]
+    RewriteRule ^education/(.*) index.php?page=education&page2=$1 [L]
+  RewriteRule ^activity$ index.php?page=activity [L]
+    RewriteRule ^activity/(.*) index.php?page=activity&page2=$1 [L]
+  RewriteRule ^people$ index.php?page=people [L]
+    RewriteRule ^people/(.*) index.php?page=people&page2=$1 [L]
+  RewriteRule ^about$ index.php?page=about [L]
+  RewriteRule ^photo$ index.php?page=photo [L]
+
+  RewriteCond %{SCRIPT_FILENAME} !-f
+  RewriteCond %{SCRIPT_FILENAME} !-d
+
+
+#  RewriteCond %{QUERY_STRING} page=(.*)
+#  RewriteCond %{QUERY_STRING} page2=(.*)
+
+#  RewriteRule ^(.*)/$ /index.php?page=$1 [L]
+#  RewriteRule ^(.*)/(.*)/$ /index.php?page=$1&page2=$2 [L]
+
+#  RewriteRule ^(.*) index.php?page=$1 [L]
+#  RewriteRule ^(.*)/(.*) index.php?page=$1&page2=$2 [L]
+
+  # RewriteRule ^to/(.*)$ index.php?page=$1
 
 </IfModule>

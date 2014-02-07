@@ -35,7 +35,7 @@ function log(text)
         break;
     };
 
-    console.log('[K16] ' + stopTime + text);
+    console.log('[' + config['siteName'] + '] ' + stopTime + text);
   }
   else {
     return;

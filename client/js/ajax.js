@@ -1,38 +1,30 @@
 function nav(way)
 {
-  var result = 'page=' + way,
-      state  = rewrite(way);
-  
-  var template = 4;
+  var page,
+      a = way.split('/');
 
-  var animationSpeed = 'fast';
+  if (way == getCurrentPage()) return;
 
-//  $('.content').css('opacity', '0.5');
-//  $('.load').css('display', 'block');
-
-  $.ajax(
+  if (!way)
   {
-    type: 'GET',
-    cache: true,
-    url: 'ajax.php',
-    data: result,
-    dataType: 'html',
-    success: function(data)
-    {
-      if (parseInt(data) != 0)
-      {
-        $('.content').html(data);
-        history.pushState(null, null, state);
-        Parser.init();
+    page = TEXT_URL + 'main/main.html';
+  }
+  else if (a[1])
+  {
+    page = TEXT_URL + a[0] + '/' + a[1] + '.html';
+  }
+  else
+  {
+    page = TEXT_URL + way + '/' + way + '.html';
+  };
 
-//        $('.content').css('opacity', '1');
-//        $('.load').css('display', 'none');
-        
-        log('Ajax request to ' + state + ': success');
-      }
-      else {
-        log('Ajax request to ' + state + ': error');
-      }
-    }
+  $('.content').load(page, function()
+  {
+    generateSecondMenu();
+    history.pushState(null, null, way);
+    loadScripts();
+    Parser.init(); // починка виджета//////////////////////////////////////////////////////
+///////////////////// Убрать парсер ajax'a и цеплять событие click по ссылкам, а там нужный nav. В чём проблема?
+    log('Загрузил страницу: ' + way);
   });
-}
+};

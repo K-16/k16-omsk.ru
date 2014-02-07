@@ -23,10 +23,10 @@ function init()
   {
     path: google.maps.SymbolPath.CIRCLE,
     fillColor: config['color']['white'],
-    fillOpacity: 0.8,
-    scale: 20,
+    fillOpacity: 0.7,
+    scale: 25,
     strokeColor: config['color']['blue'],
-    strokeWeight: 10
+    strokeWeight: 11
   };
 
   var marker = new google.maps.Marker(
@@ -46,10 +46,10 @@ function init()
     info.open(map, marker);
   });
 
-  log('Map loaded with coordinates: ' + config['map']['x'] + ', ' + config['map']['y']);
+  log('Загрузил карту с такими координатами (x, y): ' + config['map']['x'] + ', ' + config['map']['y']);
 };
 
-function loadScript() 
+function loadMap() 
 {
   var data = 
   {
@@ -59,4 +59,4 @@ function loadScript()
   $('#map').append(compileText(templates['script'], data));
 };
 
-$('body').ready(loadScript);
+$('body').ready(loadMap);

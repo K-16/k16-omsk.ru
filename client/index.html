@@ -4,17 +4,20 @@
 
   <head>
 
+    <base href="/">
+
     <meta name="author" content="upisfree / Сеня Пугач">
     <meta name="copyright" content="<?php echo $config['site_name'] ?>">
     <meta http-equiv="Pragma" content="cache">
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"> 
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     
     <title><?php echo $config['site_name'] ?></title>
 
-    <link rel="stylesheet" href="<?php echo CLIENT_URL ?>style/css/main.css">
+    <link rel="stylesheet" href="<?php echo CLIENT_URL ?>style/css/compiled.css">
 
     <script src="<?php echo CLIENT_URL ?>js/lib/jquery-2-0-3-min.js"></script>
     <script src="<?php echo CLIENT_URL ?>js/lib/handlebars-v1.3.0.js"></script>
+    <script src="//vk.com/js/api/openapi.js?105"></script> <!-- Я знаю, что здесь ему делать нечего. Но выхода другого пока не вижу + здесь все библиотеки. -->
 
     <script src="<?php echo CLIENT_URL ?>js/config.js"></script>
 
@@ -40,9 +43,7 @@
     </nav>
 
     <section class="panel">
-      <div class="content">
-        <?php echo $content ?>
-      </div>
+      <div class="content"></div>
 
       <div class="load">
 <img src="<?php echo CLIENT_URL ?>img/load.gif">

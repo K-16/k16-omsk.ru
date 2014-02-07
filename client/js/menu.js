@@ -1,8 +1,25 @@
-$.getJSON('/client/js/menuItems.json', function(data)
+/*
+ * 
+ * menu.js
+ * ========
+ * Генерация основного меню уровня.
+ *
+*/
+
+$.getJSON('/client/js/menuItems.json', function(a)
 {
-  for (var i = data.items.length - 1; i >= 0; i--)
+  var data,
+      b;
+
+  for (var i = a.items.length - 1; i >= 0; i--)
   {
-    $('.menu .logo').after('<a class="item" href="?page=' + data.items[i]['url'] + '">' + data.items[i]['name'] + '</a>');
+    data = 
+    {
+      'url': a.items[i]['url'],
+      'name': a.items[i]['name']
+    };
+
+    $('.menu .logo').after(compileText(templates['firstMenuPart'], data));
   };
 
   Parser.convertLinksToAjax();

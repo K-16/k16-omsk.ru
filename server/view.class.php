@@ -2,24 +2,12 @@
 
 class View
 {
-
   /* Полчуение адреса файла */
 
-  public function GetURL($file, $dir = false)
+  public function GetURL($file)
   {
-    return CLIENT_URL.$dir.$file;
+    return CLIENT_URL.$file;
   }  
-
-  /* Показ файла на странице */
-
-  public function ShowPage($file, $dir = 'txt/') 
-  {  
-    ob_start();
-    
-    include self::GetURL($file, $dir);
-
-    return ob_get_clean();   
-  }
 }
 
 ?>

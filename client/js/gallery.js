@@ -29,7 +29,7 @@ var gallery =
           $('h2').after(compileText(templates['galleryLink'], a));
         };
 
-        log('Albums loaded: ' + i);
+        log('Загрузил альбомов: ' + i);
       }
     });
   },
@@ -79,7 +79,7 @@ var gallery =
 
         $('.gallery.photo').fotorama();
 
-        log('Photos in album-' + id + ' loaded: ' + ++i);
+        log('Фотографий в album-' + id + ': ' + ++i);
       }
     });
   },

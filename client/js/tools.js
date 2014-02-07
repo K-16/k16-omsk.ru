@@ -8,22 +8,35 @@
  *  - regExp. Массив регулярных выражений.
  *  - compileText(). Возвращает скомпилированный шаблонизатором текст.
  *  - getCurrentPage(). Возвращает текущую страницу.
- *  - rewrite(). Возвращает url в зависимости от того, включен ли mod_rewrite или нет.
  *  - inherit(). Системная функция для работы необязательных аргументов.
  *  - getVkUserNameById(). Возвращает имя юзера ВК по id.
  *
 */
 
-var names = 
+var names =
 {
-  '01': 'main',
-  '02': 'news',
-  '03': 'history',
-  '04': 'education',
-  '05': 'activity',
-  '06': 'people',
-  '07': 'about',
-  '08': 'photo'
+  '': '01',
+  'news': '02',
+  'history': '03',
+  'education': '04',
+    'program': '02',
+    'projects': '03',
+    'nou': '04',
+    'achievements': '05',
+  'activity': '05',
+    'beginner': '02',
+    'dedication': '03',
+    'night': '04',
+    'sogra': '05',
+    'summerhouse': '06',
+    'adler': '07',
+  'people': '06',
+    'teacher': '02',
+    'children': '03',
+    'graduates': '04',
+    'parents': '04',
+  'about': '07',
+  'photo': '08'
 };
 
 var templates =
@@ -43,8 +56,12 @@ var templates =
               <div class="gallery photo"></div>',
 
   'galleryLink': '<a onclick="gallery.getPhotosByAlbum({\'id\': {{id}}, \'title\': \'{{title}}\' });">{{title}}</a>, фотографий: <b>{{size}}</b><br>',
-  
-  'script': '<script type="text/javascript" src={{src}}></script>'
+
+  'firstMenuPart': '<a class="item" href="/{{url}}">{{name}}</a>',
+  'secondMenuPart': '<a href="/{{parent}}/{{url}}/">{{name}}</a>',
+
+  'script': '<script type="text/javascript" src={{src}}></script>',
+  'css': '<link href="../client/style/css/{{src}}" rel="stylesheet">'
 };
 
 var regExp = 
@@ -54,7 +71,29 @@ var regExp =
   link: /((http|https):\/\/)/i,
 };
 
+function loadScripts()
+{
+  var scripts;
 
+  switch (getCurrentPage())
+  {
+    case 'news':
+      scripts = ['news'];
+      break;
+    case 'about':
+      scripts = ['map', 'widgets'];
+      break;
+    case 'photo':
+      $('.content').append(compileText(templates['css'], {'src': 'lib/fotorama.css'}))
+      scripts = ['lib/fotorama', 'gallery'];
+      break;
+  };
+
+  for (var i in scripts) 
+  {
+    $.getScript(JS_URL + scripts[i] + '.js');
+  };
+};
 
 function compileText(source, data)
 {
@@ -64,19 +103,7 @@ function compileText(source, data)
 
 function getCurrentPage()
 {
-  if (config['rewrite']) 
-  {
-    return location.pathname.substr(1);
-  }
-  else
-  {
-    return location.search.substr(6);
-  };
-};
-
-function rewrite(str)
-{
-  return (config['rewrite']) ? str : '?' + config['noRewriteWord'] + '=' + str;
+  return location.pathname.substr(1);
 };
 
 function inherit(p)
@@ -84,6 +111,46 @@ function inherit(p)
   function f() {};
   f.prototype = p;
   return new f;
+};
+
+function generateSecondMenu()
+{
+  $.getJSON('/client/js/menuItems.json', function(a)
+  {
+    var data,
+        b;
+
+    for (var i = a.items.length - 1; i >= 0; i--)
+    {
+      data = 
+      {
+        'url': a.items[i]['url'],
+        'name': a.items[i]['name']
+      };
+
+      if (a.items[i]['url'] == getCurrentPage()) 
+      {
+        $('.content').prepend('<h2>' + a.items[i]['name'] + '</h2>');
+
+        if (a.items[i]['menu'])
+        {
+          for (var n = a.items[i]['menu'].length - 1; n >= 0; n--)
+          {
+            b = 
+            {
+              'parent': a.items[i]['url'],
+
+              'url': a.items[i]['menu'][n]['url'],
+              'name': a.items[i]['menu'][n]['name']
+            };
+
+            $('h2').after(compileText(templates['secondMenuPart'], b) + '<br>');
+          };
+        }; // O
+      };  //   /
+    };   // O
+    Parser.setTitle();
+  });
 };
 
 function getVkUserNameById(id, to) 
@@ -96,7 +163,7 @@ function getVkUserNameById(id, to)
     {
       $(to).append(data.response[0]['first_name'] + ' ' + data.response[0]['last_name']);
 
-      log('VK user\'s name with id ' + data.response[0]['uid'] + ' is: ' + data.response[0]['first_name'] + ' ' + data.response[0]['last_name']);
+      log('Имя/фамилия юзера ВК с id ' + data.response[0]['uid'] + ': ' + data.response[0]['first_name'] + ' ' + data.response[0]['last_name']);
     }
   });
 };
