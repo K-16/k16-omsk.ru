@@ -11,8 +11,12 @@ var config =
   'siteName': 'К16',
   'groupId': '-1088622',
   'defaultAdmin': 'Админ',
-  'closeSymbol': '×',
-  'arrowSymbol': '→',
+  
+  'symbol':
+  {
+    'close': '×',
+    'arrow': '→', // >
+  },
 
   'debug':
   {

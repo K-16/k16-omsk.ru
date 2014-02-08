@@ -21,27 +21,6 @@ var startTime = (new Date()).getTime(),
 
 $(function() 
 {
-  var url  = getCurrentPage(),
-      a    = url.split('/'),
-      page;
-
-  if (!url)
-  {
-    page = TEXT_URL + 'main/main.html';
-  }
-  else if (a[1])
-  {
-    page = TEXT_URL + a[0] + '/' + a[1] + '.html';
-  }
-  else
-  {
-    page = TEXT_URL + url + '/' + url + '.html';
-  };
-
-  $('.content').load(page, function()
-  {
-    generateSecondMenu();
-    loadScripts();    
-    Parser.init();
-  });
+  generateFirstMenu();
+  loadPage(getCurrentPage(), false);
 });

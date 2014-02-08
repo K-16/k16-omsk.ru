@@ -2,7 +2,7 @@
 
 /* Компилирование .less в .css */
 
-function compileLess($inputFile, $outputFile) 
+function compileLess($inputFile, $outputFile)
 {
   // Загрузка кэша
   $cacheFile = $inputFile.".cache";
@@ -22,6 +22,13 @@ function compileLess($inputFile, $outputFile)
     file_put_contents($cacheFile, serialize($newCache));
     file_put_contents($outputFile, $newCache['compiled']);
   }
+}
+
+/* Выводит путь к файлу (клиент) */
+
+function get($file)
+{
+  echo CLIENT_URL.$file;
 }
 
 ?>

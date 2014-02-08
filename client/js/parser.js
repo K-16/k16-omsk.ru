@@ -4,6 +4,7 @@
  * =========
  * Парсеры
  *  - createQuoteAuthor(). Обработка и вставка авторов цитат и их лиц.
+ *  - setBoxEmbedWidth(). Установка заданного значения ширины у .box.embed'ов.
  *  - convertLinksToAjax(). Конвертирует ссылки для навигации по сайту (на Ajax'е).
  *  - setMenuItemActive(). Устанавливает активный пункт меню, в зависимости от адреса.
  *  - setTitle(). Устанавливает title страницы.
@@ -11,11 +12,11 @@
  *
 */
 
-var Parser = 
+var parser = 
 {
   createQuoteAuthor: function()
   {
-    $('cite, blockquote, q').each(function(i)
+    $('cite, blockquote, q').each(function()
     {
       var author    = $(this).attr('data-author'),
           authorImg = $(this).attr('data-author-img');
@@ -24,7 +25,7 @@ var Parser =
 
       if (authorImg) 
       {
-        result = '<em class="author italic">' + author + '<img src="../client/img/author/' + authorImg + '.png">' + '</em>';
+        result = '<em class="author italic"><span>' + author + '</span><img src="../client/img/author/' + authorImg + '.png">' + '</em>';
       } 
       else {
         result = '<em class="author italic">' + author + '</em>';
@@ -33,6 +34,14 @@ var Parser =
       $(this).after(result);
       
       log('<' + this.nodeName.toLowerCase() + '>: ' + author);
+    });
+  },
+
+  setBoxEmbedWidth: function()
+  {
+    $('.box.embed').each(function()
+    {
+      $(this).width($(this).attr('data-width'));
     });
   },
   
@@ -54,7 +63,7 @@ var Parser =
 
   setMenuItemActive: function()
   {
-    $('.menu .item').each(function(i)
+    $('.menu .item').each(function()
     {
       var link = $(this).attr('onclick');
 
@@ -86,8 +95,11 @@ var Parser =
   init: function()
   {
     this.createQuoteAuthor();
+    this.setBoxEmbedWidth();
     this.convertLinksToAjax();
     this.setMenuItemActive();
     this.setTitle();
+
+    log('Парсеры инициализированы');
   }
 };

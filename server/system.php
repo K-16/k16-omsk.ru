@@ -8,11 +8,6 @@ define('SERVER_URL', BASE_URL.'server/');
 
 
 require_once 'config.php';
-
-/* Подключение классов */
-
-require_once 'view.class.php';
-
 require_once 'tools.php';
 
 ?>

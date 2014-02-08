@@ -48,12 +48,12 @@ var gallery =
       dataType: 'jsonp',
       success: function(data)
       {
-        gallery.closeGallery('fast');
+        gallery.close('fast');
 
         var a = 
         {
           'title': title,
-          'closeSymbol': config['galleryCloseSymbol']
+          'closeSymbol': config['symbol']['close']
         };
 
         $('body').append(compileText(templates['gallery'], a));
@@ -83,9 +83,11 @@ var gallery =
       }
     });
   },
-  closeGallery: function(speed)
+  close: function(speed)
   {
-    $('.gallery, .fotorama--hidden').fadeOut(speed, function() {$(this).remove()});   
+    $('.gallery, .fotorama--hidden').fadeOut(speed, function() {$(this).remove()});
+
+    log('Закрыл галерею');
   },
 };
 

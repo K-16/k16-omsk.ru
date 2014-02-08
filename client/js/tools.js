@@ -6,10 +6,14 @@
  *  - names. Массив преобразований имён для упрощения url адреса.
  *  - templates. html исходники для шаблонизатора.
  *  - regExp. Массив регулярных выражений.
- *  - compileText(). Возвращает скомпилированный шаблонизатором текст.
+ *  - nav(way). Краткий ajax вариант функции loadPage().
+ *  - loadPage(way, ajax). Загружает и выводит в блок .content нужную страницу.
+ *  - loadScripts(). Загружает скрипты в зависимости от страницы.
+ *  - compileText(source, data). Возвращает скомпилированный шаблонизатором текст.
  *  - getCurrentPage(). Возвращает текущую страницу.
- *  - inherit(). Системная функция для работы необязательных аргументов.
- *  - getVkUserNameById(). Возвращает имя юзера ВК по id.
+ *  - inherit(p). Системная функция для работы необязательных аргументов.
+ *  - generateSecondMenu(). Генерирует меню второго уровня.
+ *  - getVkUserNameById(id, to). Возвращает имя юзера ВК по id.
  *
 */
 
@@ -52,13 +56,15 @@ var templates =
 
   'gallery': '<div class="gallery background"></div>\
               <div class="gallery title">{{title}}</div>\
-              <div class="gallery close" onclick="gallery.closeGallery();">{{closeSymbol}}</div>\
+              <div class="gallery close" onclick="gallery.close();">{{closeSymbol}}</div>\
               <div class="gallery photo"></div>',
 
   'galleryLink': '<a onclick="gallery.getPhotosByAlbum({\'id\': {{id}}, \'title\': \'{{title}}\' });">{{title}}</a>, фотографий: <b>{{size}}</b><br>',
 
   'firstMenuPart': '<a class="item" href="/{{url}}">{{name}}</a>',
-  'secondMenuPart': '<a href="/{{parent}}/{{url}}/">{{name}}</a>',
+  'secondMenuPart': '<a class="item-2" href="/{{parent}}/{{url}}">{{name}}</a>',
+
+  'secondMenuContainer': ' ' + config['symbol']['arrow'] + ' <nav class="menu-2"></nav>',
 
   'script': '<script type="text/javascript" src={{src}}></script>',
   'css': '<link href="../client/style/css/{{src}}" rel="stylesheet">'
@@ -71,6 +77,46 @@ var regExp =
   link: /((http|https):\/\/)/i,
 };
 
+function nav(way)
+{
+  loadPage(way, true);
+};
+
+function loadPage(way, ajax)
+{
+  var page,
+      a = way.split('/');
+
+  if (way == getCurrentPage() && ajax) return;
+
+  if (!way)
+  {
+    page = TEXT_URL + 'main/main.html';
+  }
+  else if (a[1])
+  {
+    page = TEXT_URL + a[0] + '/' + a[1] + '.html';
+  }
+  else
+  {
+    page = TEXT_URL + way + '/' + way + '.html';
+  };
+
+  $('.content').load(page, function()
+  {
+    generateSecondMenu();
+
+    if (ajax) history.pushState(null, null, way);
+    
+    loadScripts();
+    
+    parser.init();
+    elements.init();
+
+    log('Загрузил страницу: ' + way);
+  });
+};
+
 function loadScripts()
 {
   var scripts;
@@ -78,14 +124,14 @@ function loadScripts()
   switch (getCurrentPage())
   {
     case 'news':
-      scripts = ['news'];
+      scripts = ['pages/news'];
       break;
     case 'about':
-      scripts = ['map', 'widgets'];
+      scripts = ['pages/map', 'pages/widgets'];
       break;
     case 'photo':
-      $('.content').append(compileText(templates['css'], {'src': 'lib/fotorama.css'}))
-      scripts = ['lib/fotorama', 'gallery'];
+      $('.content').append(compileText(templates['css'], {'src': 'lib/fotorama-4.4.9.css'}))
+      scripts = ['lib/fotorama-4.4.9', 'pages/gallery'];
       break;
   };
 
@@ -111,46 +157,6 @@ function inherit(p)
   function f() {};
   f.prototype = p;
   return new f;
-};
-
-function generateSecondMenu()
-{
-  $.getJSON('/client/js/menuItems.json', function(a)
-  {
-    var data,
-        b;
-
-    for (var i = a.items.length - 1; i >= 0; i--)
-    {
-      data = 
-      {
-        'url': a.items[i]['url'],
-        'name': a.items[i]['name']
-      };
-
-      if (a.items[i]['url'] == getCurrentPage()) 
-      {
-        $('.content').prepend('<h2>' + a.items[i]['name'] + '</h2>');
-
-        if (a.items[i]['menu'])
-        {
-          for (var n = a.items[i]['menu'].length - 1; n >= 0; n--)
-          {
-            b = 
-            {
-              'parent': a.items[i]['url'],
-
-              'url': a.items[i]['menu'][n]['url'],
-              'name': a.items[i]['menu'][n]['name']
-            };
-
-            $('h2').after(compileText(templates['secondMenuPart'], b) + '<br>');
-          };
-        }; // O
-      };  //   /
-    };   // O
-    Parser.setTitle();
-  });
 };
 
 function getVkUserNameById(id, to) 

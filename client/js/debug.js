@@ -14,7 +14,8 @@ function debug(code)
   {
     code();
   }
-  else {
+  else
+  {
     return;
   };
 }
@@ -37,7 +38,8 @@ function log(text)
 
     console.log('[' + config['siteName'] + '] ' + stopTime + text);
   }
-  else {
+  else
+  {
     return;
   };
 }
