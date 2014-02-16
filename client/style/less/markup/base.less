@@ -1,0 +1,49 @@
+/*
+ * 
+ * base.less
+ * ===============
+ *  - Базовая вёрстка страницы
+ *
+*/
+
+@import 'menu.less';
+
+@import 'pages/gallery.less';
+@import 'pages/map.less';
+@import 'pages/news.less';
+@import 'pages/widgets.less';
+
+body
+{
+  position: relative;
+  .insets(0, 0);
+  .sansFont;
+
+  .panel
+  {
+    .base(block, fixed);
+    top: 0;
+    left: 20%;
+    .size(80%, 100%);
+    margin: 0;
+    overflow: auto;
+    background: @COLOR_WHITE;
+
+    .content 
+    { 
+      padding: 1% 60px; 
+      .transition(@TRANSITION_SPEED);
+    };
+
+    .load
+    {
+      .base(none, absolute);
+      top: 40%;
+      bottom: 25%;
+      left: 0;
+      width: 100%;
+      text-align: center;
+      .transition(@TRANSITION_SPEED);
+    };
+  };
+};

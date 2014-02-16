@@ -2,18 +2,17 @@
  * 
  * tools.js
  * ========
- * Различные вспомогательные (и не только) штуки.
- *  - names. Массив преобразований имён для упрощения url адреса.
- *  - templates. html исходники для шаблонизатора.
- *  - regExp. Массив регулярных выражений.
- *  - nav(way). Краткий ajax вариант функции loadPage().
- *  - loadPage(way, ajax). Загружает и выводит в блок .content нужную страницу.
- *  - loadScripts(). Загружает скрипты в зависимости от страницы.
- *  - compileText(source, data). Возвращает скомпилированный шаблонизатором текст.
- *  - getCurrentPage(). Возвращает текущую страницу.
- *  - inherit(p). Системная функция для работы необязательных аргументов.
- *  - generateSecondMenu(). Генерирует меню второго уровня.
- *  - getVkUserNameById(id, to). Возвращает имя юзера ВК по id.
+ * Различные вспомогательные (и не только) штуки
+ *  - names. Массив преобразований имён для упрощения url адреса
+ *  - regExp. Массив регулярных выражений
+ *  - nav(way). Краткий ajax вариант функции loadPage()
+ *  - loadPage(way, ajax). Загружает и выводит в блок .content нужную страницу
+ *  - loadScripts(). Загружает скрипты в зависимости от страницы
+ *  - compileText(source, data). Возвращает скомпилированный шаблонизатором текст
+ *  - getCurrentPage(). Возвращает текущую страницу
+ *  - inherit(p). Системная функция для работы необязательных аргументов
+ *  - generateSecondMenu(). Генерирует меню второго уровня
+ *  - getVkUserNameById(id, to). Возвращает имя юзера ВК по id
  *
 */
 
@@ -41,33 +40,6 @@ var names =
     'parents': '04',
   'about': '07',
   'photo': '08'
-};
-
-var templates =
-{
-  'news': '<article>\
-             <time><i class="icon date"></i> {{day}}.{{month}}.{{year}}</time>\
-             <address id="id{{id}}"><i class="icon author"></i> </address>\
-             <span><i class="icon like"></i> {{likes}}</span>\
-             <span><i class="icon repost"></i> {{reposts}}</span>\
-             <span><i class="icon comment"></i> {{comments}}</span>\
-             <br> {{{text}}}\
-           </article>',
-
-  'gallery': '<div class="gallery background"></div>\
-              <div class="gallery title">{{title}}</div>\
-              <div class="gallery close" onclick="gallery.close();">{{closeSymbol}}</div>\
-              <div class="gallery photo"></div>',
-
-  'galleryLink': '<a onclick="gallery.getPhotosByAlbum({\'id\': {{id}}, \'title\': \'{{title}}\' });">{{title}}</a>, фотографий: <b>{{size}}</b><br>',
-
-  'firstMenuPart': '<a class="item" href="/{{url}}">{{name}}</a>',
-  'secondMenuPart': '<a class="item-2" href="/{{parent}}/{{url}}">{{name}}</a>',
-
-  'secondMenuContainer': ' ' + config['symbol']['arrow'] + ' <nav class="menu-2"></nav>',
-
-  'script': '<script type="text/javascript" src={{src}}></script>',
-  'css': '<link href="../client/style/css/{{src}}" rel="stylesheet">'
 };
 
 var regExp = 

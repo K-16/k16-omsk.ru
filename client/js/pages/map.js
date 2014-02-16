@@ -51,12 +51,7 @@ function init()
 
 function loadMap() 
 {
-  var data = 
-  {
-    'src': 'https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=true&callback=init'
-  };
-
-  $('#map').append(compileText(templates['script'], data));
+  $('#map').append(compileText(templates['script'], {'src': 'https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=true&callback=init'}));
 };
 
 $('body').ready(loadMap);

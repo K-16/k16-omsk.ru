@@ -37,8 +37,14 @@ var elements =
 
     $('.menu-2').hide();
 
-    $('h2').mouseenter(function() {$('.menu-2').show(speed).slideDown(speed)});
-    $('h2').mouseleave(function() {$('.menu-2').hide(speed).slideUp(speed)});
+    $('h2').hover(function() 
+    {
+      $('.menu-2').slideDown(speed).show(speed);
+    },
+    function() 
+    {
+      $('.menu-2').slideUp(speed).hide(speed);
+    });
   },
 
   init: function()

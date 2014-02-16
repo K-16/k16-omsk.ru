@@ -18,17 +18,17 @@ var parser =
   {
     $('cite, blockquote, q').each(function()
     {
-      var author    = $(this).attr('data-author'),
-          authorImg = $(this).attr('data-author-img');
+      var author = $(this).attr('data-author'),
+          img    = $(this).attr('data-author-img');
 
       var result;
 
-      if (authorImg) 
+      if (img) 
       {
-        result = '<em class="author italic"><span>' + author + '</span><img src="../client/img/author/' + authorImg + '.png">' + '</em>';
+        result = compileText(templates['quoteAuthorWithImg'], {'author': author, 'img': img});
       } 
       else {
-        result = '<em class="author italic">' + author + '</em>';
+        result = compileText(templates['quoteAuthorWithoutImg'], {'author': author});
       };
 
       $(this).after(result);
