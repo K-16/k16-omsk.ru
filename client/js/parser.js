@@ -19,7 +19,7 @@ var parser =
     $('cite, blockquote, q').each(function()
     {
       var author = $(this).attr('data-author'),
-          img    = $(this).attr('data-author-img');
+          img    = $(this).attr('data-img');
 
       var result;
 
