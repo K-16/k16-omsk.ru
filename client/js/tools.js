@@ -16,9 +16,8 @@
 
 var regExp = 
 {
-  year: /\|\s[0-9]+$/i,
-  word: /[^A-Za-zА-Яа-я]+$/i,
-  link: /((http|https|mailto):)/i,
+  'externalLink': /((http|https|mailto):)/i,
+  'funcNavValue': /'[a-z]+'/i,
 };
 
 function nav(way)
@@ -126,7 +125,7 @@ function getVkUserNameById(id, to)
 
 function convertTextToLinks(str) 
 {
-  var reg = str.match(regExp['link']);
+  var reg = str.match(regExp['externalLink']);
 
   for (key in reg)
   {
