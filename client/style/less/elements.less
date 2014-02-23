@@ -70,7 +70,7 @@ code
 .tag::before {content: '<';};
 .tag::after  {content: '>';};
 
-cite
+cite, em.block
 {
   display: block;
   font-style: normal;
@@ -240,6 +240,10 @@ select
   .transition(@TRANSITION_SPEED);
 };
 
+/* Всякие вспомогательные штуки */
+
+.nobr {white-space:nowrap;};
+
 /* Иконки */
 
 .icon
@@ -264,7 +268,7 @@ select
 
 .box
 {
-  border: 6px double @COLOR_BLUE;
+  border: 5px solid @COLOR_BLUE;
 
   &.extend
   {
