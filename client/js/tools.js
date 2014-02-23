@@ -3,7 +3,6 @@
  * tools.js
  * ========
  * Различные вспомогательные (и не только) штуки
- *  - names. Массив преобразований имён для упрощения url адреса
  *  - regExp. Массив регулярных выражений
  *  - nav(way). Краткий ajax вариант функции loadPage()
  *  - loadPage(way, ajax). Загружает и выводит в блок .content нужную страницу
@@ -15,32 +14,6 @@
  *  - getVkUserNameById(id, to). Возвращает имя юзера ВК по id
  *
 */
-
-var names =
-{
-  '': '01',
-  'news': '02',
-  'history': '03',
-  'education': '04',
-    'program': '02',
-    'projects': '03',
-    'nou': '04',
-    'achievements': '05',
-  'activity': '05',
-    'beginner': '02',
-    'dedication': '03',
-    'night': '04',
-    'sogra': '05',
-    'summerhouse': '06',
-    'adler': '07',
-  'people': '06',
-    'teacher': '02',
-    'children': '03',
-    'graduates': '04',
-    'parents': '04',
-  'about': '07',
-  'photo': '08'
-};
 
 var regExp = 
 {
@@ -98,7 +71,7 @@ function loadScripts()
     case 'news':
       scripts = ['pages/news'];
       break;
-    case 'about':
+    case 'contacts':
       scripts = ['pages/map', 'pages/widgets'];
       break;
     case 'photo':

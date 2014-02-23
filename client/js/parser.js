@@ -3,7 +3,7 @@
  * parsers.js
  * =========
  * Парсеры
- *  - createQuoteAuthor(). Обработка и вставка авторов цитат и их лиц.
+ *  - createAuthor(). Обработка и вставка авторов цитат и их лиц.
  *  - setBoxEmbedWidth(). Установка заданного значения ширины у .box.embed'ов.
  *  - convertLinksToAjax(). Конвертирует ссылки для навигации по сайту (на Ajax'е).
  *  - setMenuItemActive(). Устанавливает активный пункт меню, в зависимости от адреса.
@@ -14,7 +14,7 @@
 
 var parser = 
 {
-  createQuoteAuthor: function()
+  createAuthor: function()
   {
     $('cite, blockquote, q').each(function()
     {
@@ -94,7 +94,7 @@ var parser =
 
   init: function()
   {
-    this.createQuoteAuthor();
+    this.createAuthor();
     this.setBoxEmbedWidth();
     this.convertLinksToAjax();
     this.setMenuItemActive();

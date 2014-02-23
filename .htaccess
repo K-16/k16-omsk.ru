@@ -21,7 +21,7 @@ DefaultLanguage ru-RU
     RewriteRule ^activity/(.*) index.php?page=activity&page2=$1 [L]
   RewriteRule ^people$ index.php?page=people [L]
     RewriteRule ^people/(.*) index.php?page=people&page2=$1 [L]
-  RewriteRule ^about$ index.php?page=about [L]
+  RewriteRule ^contacts$ index.php?page=contacts [L]
   RewriteRule ^photo$ index.php?page=photo [L]
 
   RewriteCond %{SCRIPT_FILENAME} !-f
