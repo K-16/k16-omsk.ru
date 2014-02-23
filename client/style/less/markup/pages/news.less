@@ -1,0 +1,27 @@
+/*
+ * 
+ * news.less
+ * ===============
+ *  - Вёрстка новостей
+ *
+*/
+
+#news article
+{
+  padding: 20px;
+  border-bottom: 1px solid @COLOR_GREY;
+
+  &:nth-last-of-type(1)
+  {
+    border-bottom: none;
+  };
+
+  & time,
+  & address,
+  & span
+  {
+    display: block;
+    color: #aaaaaa;
+    font-style: normal;
+  };
+};

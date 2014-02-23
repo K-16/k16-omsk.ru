@@ -1,0 +1,102 @@
+{
+  "items": 
+  [
+    {
+      "name": "Главная",
+      "url": ""
+    },
+    {
+      "name": "Новости",
+      "url": "news"
+    },
+    {
+      "name": "История",
+      "url": "history"
+    },
+    {
+      "name": "Учёба",
+      "url": "education",
+      "menu":
+      [
+        {
+          "name": "Программа",
+          "url": "program"
+        },
+        {
+          "name": "Проекты",
+          "url": "projects"
+        },
+        {
+          "name": "НОУ",
+          "url": "nou"
+        },
+        {
+          "name": "Достижения",
+          "url": "achievements"
+        }
+      ]
+    },
+    {
+      "name": "Мероприятия",
+      "url": "activity",
+      "menu":
+      [
+        {
+          "name": "День Новичка",
+          "url": "beginner"
+        },
+        {
+          "name": "Посвящение",
+          "url": "dedication"
+        },
+        {
+          "name": "Ночной Сбор",
+          "url": "night"
+        },
+        {
+          "name": "Согра",
+          "url": "sogra"
+        },
+        {
+          "name": "Творческая дача",
+          "url": "summerhouse"
+        },
+        {
+          "name": "Адлер",
+          "url": "adler"
+        }
+      ]
+    },
+    {
+      "name": "Люди",
+      "url": "people",
+      "menu":
+      [
+        {
+          "name": "Портфолио педагога",
+          "url": "teacher"
+        },
+        {
+          "name": "Дети",
+          "url": "children"
+        },
+        {
+          "name": "Выпускники",
+          "url": "graduates"
+        },
+        {
+          "name": "Родители",
+          "url": "parents"
+        }
+      ]
+    },
+    {
+      "name": "Контакты",
+      "url": "contacts"
+    },
+    {
+      "name": "Фото",
+      "url": "photo"
+    }
+  ]
+}

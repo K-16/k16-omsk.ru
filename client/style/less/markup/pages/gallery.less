@@ -1,0 +1,64 @@
+/*
+ * 
+ * gallery.less
+ * ===============
+ *  - Вёрстка галерей
+ *
+*/
+
+.gallery.close,
+.gallery.background,
+.gallery.title
+{
+  position: absolute;
+  top: 0;
+  margin: 0;
+  padding: 0;
+};
+
+.gallery.close // или спаном сделать?
+{
+  top: -65px;
+  right: 0;
+  font-size: 1000%;
+  cursor: pointer;
+  color: @COLOR_WHITE;
+  .transition(@TRANSITION_SPEED);
+  .text-select(none);
+  z-index: 10;
+
+  &:hover
+  {
+    color: @COLOR_BLUE;
+  };
+
+  &:active
+  {
+    .resize(0.8);
+  };
+};
+
+.gallery.background
+{
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.85);
+};
+
+.gallery.title
+{
+  margin: auto;
+  padding: 10px;
+  font-size: 200%;
+  color: @COLOR_WHITE;
+  background: @COLOR_BLUE;
+  border-bottom-right-radius: 7px;
+  z-index: 10;
+};
+
+.fotorama__thumb-border 
+{
+  border-color: #4682b4;
+  background-image: none;
+  background: rgba(256, 256, 256, 0.35);
+};

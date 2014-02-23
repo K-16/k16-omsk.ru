@@ -1,0 +1,94 @@
+/*
+ * 
+ * menu.less
+ * ===============
+ *  - Вёрстка меню первого и второго уровня
+ *
+*/
+
+.menu
+{
+  .base(block, fixed);
+  top: 0;
+  left: 0;
+  .size(20%, 100%);
+
+  .logo
+  {
+    .base(block, fixed);
+    top: 0;
+    left: 0;
+    .size(20%, 30%);
+    background: url('../../img/logo.png') no-repeat;
+    background-color: @COLOR_WHITE;
+    background-size: 100% 100%;
+    
+    &:hover
+    {
+      .filter(hue-rotate(180deg));
+    };
+    &:active
+    {
+      .resize(0.9);
+    };   
+  };
+
+  .item
+  {
+    .base(block, relative);
+    top: 30%;
+    .size(100%, 8.5%);     
+    padding-top: 1%;             /* Делаем надпись посередине по вертикали */
+    line-height: 1.9;
+    cursor: pointer;
+    font-size: 200%;
+    font-weight: bold;
+    text-align: center;
+    color: @COLOR_WHITE;
+    background: @COLOR_BLUE;
+    .text-select(none);
+    
+    &:hover
+    {
+      color: @COLOR_WHITE;
+      background: darken(@COLOR_BLUE, 20%);
+    };
+    &:active
+    {
+      .resize(0.9);
+    };
+
+    &.active
+    {
+      color: @COLOR_BLUE;
+      background: @COLOR_WHITE;
+
+      &:hover
+      {
+        color: @COLOR_BLUE;        
+        background: inherit;
+      };
+      &:active
+      {
+        .resize(1);
+      };
+    };
+  };
+};
+
+.menu-2
+{
+  position: absolute;
+  display: block;
+  width: auto !important;
+  padding: 0 10px 10px !important;
+  border: 1px solid @COLOR_GREY;
+  border-top: none;
+  background: @COLOR_WHITE;
+  z-index: 1;
+
+  .item-2
+  {
+    display: block;
+  };
+}

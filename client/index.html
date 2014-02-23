@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+
+<html lang="ru">
+
+  <head>
+
+    <base href="/">
+
+    <meta name="author" content="upisfree / Сеня Пугач">
+    <meta name="copyright" content="<?php echo $config['site_name'] ?>">
+    <meta http-equiv="Pragma" content="cache">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    
+    <title><?php echo $config['site_name'] ?></title>
+
+    <link rel="stylesheet" href="<?php get('style/css/compiled.css') ?>">
+
+    <script src="<?php get('js/lib/jquery-2-0-3-min.js') ?>"></script>
+    <script src="<?php get('js/lib/handlebars-v1.3.0.js') ?>"></script>
+    <script src="//vk.com/js/api/openapi.js?105"></script> <!-- Я знаю, что здесь ему делать нечего. Но выхода другого пока не вижу + здесь все библиотеки. -->
+
+    <script src="<?php get('js/constants.js') ?>"></script>
+    <script src="<?php get('js/config.js') ?>"></script>
+    <script src="<?php get('js/templates.js') ?>"></script>
+
+    <script src="<?php get('js/tools.js') ?>"></script>
+    <script src="<?php get('js/debug.js') ?>"></script>
+
+    <script src="<?php get('js/parser.js') ?>"></script>
+
+    <script src="<?php get('js/menu.js') ?>"></script>
+
+    <script src="<?php get('js/main.js') ?>"></script>
+
+    <script src="<?php get('js/elements.js') ?>"></script>
+
+    <style>
+/* Это багфикс компилятора lessphp, которые некорректно работает с функцией calc в css */
+
+.box.extend
+{
+  width: calc(100% - 80px);
+}
+    </style>
+
+  </head>
+
+  <body>
+
+    <nav class="menu">
+      <a href="/" class="logo"></a>
+    </nav>
+
+    <section class="panel">
+      <div class="content"></div>
+
+      <div class="load">
+<img src="<?php get('img/load.gif') ?>">
+      </div>
+    </section>
+
+  </body>
+
+</html>
