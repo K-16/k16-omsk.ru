@@ -6,67 +6,73 @@
  *
 */
 
-function generateFirstMenu()
+var Menu =
 {
-  $.getJSON('/client/js/menuItems.json', function(a)
+  Generate:
   {
-    var data,
-        b;
-
-    for (var i = a.items.length - 1; i >= 0; i--)
+    First: function()
     {
-      data = 
+      $.getJSON('/client/js/menuItems.json', function(a)
       {
-        'url': a.items[i]['url'],
-        'name': a.items[i]['name']
-      };
+        var data,
+            b;
 
-      $('.menu .logo').after(compileText(templates['firstMenuPart'], data));
-    };
-
-    parser.convertLinksToAjax();
-    parser.setMenuItemActive();
-  });
-};
-
-function generateSecondMenu()
-{
-  $.getJSON('/client/js/menuItems.json', function(a)
-  {
-    var data;
-
-    for (var i = a.items.length - 1; i >= 0; i--)
-    {
-      data = 
-      {
-        'url': a.items[i]['url'],
-        'name': a.items[i]['name']
-      };
-
-      if (a.items[i]['url'] == getCurrentPage()) 
-      {
-        $('.content').prepend('<h2>' + a.items[i]['name'] + '</h2>');
-
-        parser.setTitle();
-
-        if (a.items[i]['menu'])
+        for (var i = a.items.length - 1; i >= 0; i--)
         {
-          $('h2').append(templates['secondMenuContainer']);
-
-          for (var n = a.items[i]['menu'].length - 1; n >= 0; n--)
+          data = 
           {
-            $('.menu-2').append(compileText(templates['secondMenuPart'],
-            {
-              'parent': a.items[i]['url'],
-              'url': a.items[i]['menu'][n]['url'],
-              'name': a.items[i]['menu'][n]['name']
-            }));
+            'url': a.items[i]['url'],
+            'name': a.items[i]['name']
           };
-        }; // O
-      };  //   /
-    };   // O
 
-    parser.convertLinksToAjax();
-    elements.secondMenu();
-  });
+          $('.menu .logo').after(compileText(templates['firstMenuPart'], data));
+        };
+
+        Parser.convertLinksToAjax();
+        Parser.setMenuItemActive();
+      });
+    },
+
+    Second: function()
+    {
+      $.getJSON('/client/js/menuItems.json', function(a)
+      {
+        var data;
+
+        for (var i = a.items.length - 1; i >= 0; i--)
+        {
+          data = 
+          {
+            'url': a.items[i]['url'],
+            'name': a.items[i]['name']
+          };
+
+          if (a.items[i]['url'] == getCurrentPage()) 
+          {
+            $('.content').prepend('<h2>' + a.items[i]['name'] + '</h2>');
+
+            Parser.setTitle();
+
+            if (a.items[i]['menu'])
+            {
+              $('h2').append(templates['secondMenuContainer']);
+
+              for (var n = a.items[i]['menu'].length - 1; n >= 0; n--)
+              {
+                $('.menu-2').append(compileText(templates['secondMenuPart'],
+                {
+                  'parent': a.items[i]['url'],
+                  'url': a.items[i]['menu'][n]['url'],
+                  'name': a.items[i]['menu'][n]['name']
+                }));
+              };
+            }; // O
+          };  //   /
+        };   // O
+
+        Parser.convertLinksToAjax();
+        Elements.secondMenu();
+      });
+    }
+  }
 };

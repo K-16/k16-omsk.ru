@@ -12,7 +12,7 @@
  *
 */
 
-var parser = 
+var Parser = 
 {
   createAuthor: function()
   {

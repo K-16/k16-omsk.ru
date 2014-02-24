@@ -10,7 +10,6 @@
  *  - compileText(source, data). Возвращает скомпилированный шаблонизатором текст
  *  - getCurrentPage(). Возвращает текущую страницу
  *  - inherit(p). Системная функция для работы необязательных аргументов
- *  - generateSecondMenu(). Генерирует меню второго уровня
  *  - getVkUserNameById(id, to). Возвращает имя юзера ВК по id
  *
 */
@@ -49,14 +48,14 @@ function loadPage(way, ajax)
 
   $('.content').load(page, function()
   {
-    generateSecondMenu();
+    Menu.Generate.Second();
 
     if (ajax) history.pushState(null, null, way);
     
     loadScripts();
     
-    parser.init();
-    elements.init();
+    Parser.init();
+    Elements.init();
 
     log('Загрузил страницу: ' + way);
   });
