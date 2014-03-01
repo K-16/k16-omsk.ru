@@ -92,11 +92,36 @@ var Parser =
     });
   },
 
-  setTitle: function() 
+  setTitle: function()
   {
-    $('title').text($('h2').html() + ' | ' + config['siteName']);
+    var menu = Menu.Get(),
+        name;
 
-    log('Заменил title страницы на ' + $('h2').html());
+    menu.success(function(a) 
+    {
+      for (var i = a.items.length - 1; i >= 0; i--)
+      {
+        if (a.items[i]['url'] == getCurrentPage().split('/')[0])
+        {
+          name = a.items[i]['name'];
+
+          if (a.items[i]['menu'])
+          {
+            for (var b = a.items[i]['menu'].length - 1; b >= 0; b--)
+            {
+              if (a.items[i]['url'] + '/' + a.items[i]['menu'][b]['url'] == getCurrentPage())
+              {
+                name = a.items[i]['menu'][b]['name'] + ' | ' + a.items[i]['name'];
+              };
+            };
+          };
+        };
+      };
+
+      $('title').text(name + ' | ' + config['siteName']);
+
+      log('Заменил <title> страницы на ' + name);
+    });
   },
 
   init: function()

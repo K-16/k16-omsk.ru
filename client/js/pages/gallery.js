@@ -3,7 +3,7 @@
 
 var gallery = 
 {
-  getAlbumsList: function(parameters)
+  showAlbumsList: function(parameters)
   {
     var p = inherit(parameters);
 
@@ -19,14 +19,12 @@ var gallery =
       {
         for (var i in data.response) 
         {
-          var a =
+          $('h2').after(compileText(templates['galleryLink'], 
           {
             'id': data.response[i]['aid'],
             'title': data.response[i]['title'],
             'size': data.response[i]['size']
-          };
-
-          $('h2').after(compileText(templates['galleryLink'], a));
+          }));
         };
 
         log('Загрузил альбомов: ' + i);
@@ -34,7 +32,7 @@ var gallery =
     });
   },
 
-  getPhotosByAlbum: function(parameters)
+  showPhotosByAlbum: function(parameters)
   {
     var p = inherit(parameters);
 
@@ -50,13 +48,10 @@ var gallery =
       {
         gallery.close('fast');
 
-        var a = 
+        $('body').append(compileText(templates['gallery'],
         {
-          'title': title,
-          'closeSymbol': config['symbol']['close']
-        };
-
-        $('body').append(compileText(templates['gallery'], a));
+          'title': title
+        }));
 
         for (var i in data.response)
         {
@@ -91,4 +86,4 @@ var gallery =
   },
 };
 
-gallery.getAlbumsList();
+gallery.showAlbumsList();

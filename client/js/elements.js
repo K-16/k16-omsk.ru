@@ -37,14 +37,8 @@ var Elements =
 
     $('.menu-2').hide();
 
-    $('h2').hover(function() 
-    {
-      $('.menu-2').slideDown(speed).show(speed);
-    },
-    function() 
-    {
-      $('.menu-2').slideUp(speed).hide(speed);
-    });
+    $('h2 > span').mouseenter(function() {$('.menu-2').slideDown(speed).show(speed)});
+    $('.menu-2').mouseleave(function() {$('.menu-2').slideUp(speed).hide(speed)});
   },
 
   init: function()
