@@ -86,4 +86,4 @@ var gallery =
   },
 };
 
-gallery.showAlbumsList();
+gallery.getAlbumsList();

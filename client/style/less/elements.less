@@ -37,12 +37,12 @@ a
   outline: none;
   cursor: pointer;
   text-decoration: none;
-  color: @COLOR_BLUE;
+  .smoothing(@COLOR_BLUE);
   .transition(@TRANSITION_SPEED);
 
   &:hover 
   { 
-    color: @COLOR_RED;
+    .smoothing(@COLOR_RED);
   };
 };
 
