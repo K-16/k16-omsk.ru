@@ -2,20 +2,27 @@
  * 
  * menu.js
  * ========
- * Генерация основного меню.
+ * Класс меню.
+ *  - Get(). Возвращает меню.
+ *  - Generate.First(). Генерирует меню первого уровня.
+ *  - Generate.Second(). Генерирует меню второго уровня.
  *
 */
 
 var Menu =
 {
+  Get: function()
+  {
+    return $.getJSON('/client/js/menuItems.json');
+  },
   Generate:
   {
     First: function()
     {
-      $.getJSON('/client/js/menuItems.json', function(a)
-      {
-        var data;
+      var menu = Menu.Get();
 
+      menu.success(function(a)
+      {
         for (var i = a.items.length - 1; i >= 0; i--)
         {
           $('.menu .logo').after(compileText(templates['firstMenuPart'],
@@ -29,24 +36,33 @@ var Menu =
         Parser.setMenuItemActive();
       });
     },
-
     Second: function()
     {
-      $.getJSON('/client/js/menuItems.json', function(a) ///////////////////////// Проверка на существование подменю, а там второй цикл
+      var menu = Menu.Get();
+
+      menu.success(function(a)
       {
         for (var i = a.items.length - 1; i >= 0; i--)
         {
-          if (a.items[i]['url'] == getCurrentPage()) 
+          if (a.items[i]['url'] == getCurrentPage().split('/')[0] && a.items[i]['menu'])
           {
-            $('.content').prepend('<h2>' + a.items[i]['name'] + '</h2>');
-
-            Parser.setTitle();
-
-            if (a.items[i]['menu'])
+            for (var n = a.items[i]['menu'].length - 1; n >= 0; n--)
             {
-              $('h2').append(templates['secondMenuContainer']);
+              if (n == a.items[i]['menu'].length - 1)
+              {
+                $('.content').prepend('<h2>' + a.items[i]['name'] + '</h2>');
+                $('h2').append(templates['secondMenuContainer']);
 
-              for (var n = a.items[i]['menu'].length - 1; n >= 0; n--)
+                Parser.setTitle();
+              };
+
+              if (a.items[i]['url'] + '/' + a.items[i]['menu'][n]['url'] == getCurrentPage())
+              {
+                $('h2 > span').text(a.items[i]['menu'][n]['name']);
+
+                Parser.setTitle();
+              }
+              else
               {
                 $('.menu-2').append(compileText(templates['secondMenuPart'],
                 {
@@ -57,6 +73,12 @@ var Menu =
               };
             };
           }
+          else if (a.items[i]['url'] == getCurrentPage())
+          {
+            $('.content').prepend('<h2>' + a.items[i]['name'] + '</h2>');
+
+            Parser.setTitle();
+          };
         };
 
         Parser.convertLinksToAjax();

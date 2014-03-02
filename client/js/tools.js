@@ -89,13 +89,6 @@ function compileText(source, data)
   var template = Handlebars.compile(source);
   return template(data);
 };
-/*
-function getMenu()
-{
-  var deferred = new $.Deferred();
-
-};
-*/
 
 function getCurrentPage()
 {
