@@ -10,7 +10,7 @@
  *  - compileText(source, data). Возвращает скомпилированный шаблонизатором текст
  *  - getCurrentPage(). Возвращает текущую страницу
  *  - inherit(p). Системная функция для работы необязательных аргументов
- *  - getVkUserNameById(id, to). Возвращает имя юзера ВК по id
+ *  - ajax(request). Возвращает json с полученный от API ВК
  *
 */
 
@@ -102,17 +102,44 @@ function inherit(p)
   return new f;
 };
 
-function getVkUserNameById(id, to) 
+function unique(arr)
+{
+  var obj = {};
+
+  for (var i = 0; i < arr.length; i++)
+  {
+    var str = arr[i];
+
+    obj[str] = true;
+  }
+ 
+  return Object.keys(obj);
+};
+
+function sortAlbumMethod(method)
+{
+  switch (method)
+  {
+    case 'year':
+      return 1; // я не поленился 2-а раза написать 'return'
+    case 'name':
+      return 0; // и тут тоже
+  };
+};
+
+function ajaxVK(request)
 {
   $.ajax(
-  { 
-    url: 'https://api.vk.com/method/users.get?user_ids=' + id, 
-    dataType: 'jsonp',
-    success: function(data)
+  {
+    'async': false,
+    'url': SERVER_URL + 'ajaxVK.php?request=' + encodeURIComponent(request),
+    'dataType': 'json',
+    'success': function(data)
     {
-      $(to).append(data.response[0]['first_name'] + ' ' + data.response[0]['last_name']);
+      if (localStorage.getItem(request) == data) return;
+      if (localStorage.getItem(request) != data && localStorage.getItem(request) != null) localStorage.removeItem(request);
 
-      log('Имя/фамилия юзера ВК с id ' + data.response[0]['uid'] + ': ' + data.response[0]['first_name'] + ' ' + data.response[0]['last_name']);
+      localStorage.setItem(request, JSON.stringify(data));
     }
   });
 };

@@ -55,7 +55,10 @@ var news =
           }
           else
           {
-            getVkUserNameById(authors[b], '#id' + b);
+            ajaxVK('users.get?user_ids=' + authors[b]);
+            var author = JSON.parse(localStorage.getItem('users.get?user_ids=' + authors[b]));
+
+            $('#id' + b).append(author.response[0]['first_name'] + ' ' + author.response[0]['last_name']);
           };
 
           $('#news address:last').html('<i class="icon author"></i> ' + config['defaultAdmin']); // временное решение

@@ -47,7 +47,7 @@ var Parser =
   
   convertLinksToAjax: function()
   {
-    $('a').each(function(i)
+    $('a').each(function()
     {
       var link     = $(this).attr('href'),
           template = 1;
@@ -79,7 +79,7 @@ var Parser =
                    .substring(-1, link.length - 8); // 8? Почему 8?  
       };
 
-      if (link == getCurrentPage())
+      if (link == getCurrentPage().split('/')[0])
       {
         $(this).addClass('active');
 

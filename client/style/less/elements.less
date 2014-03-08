@@ -12,7 +12,7 @@
 
 h1, h2, h3, h4, h5, h6
 {
-  display: inline-block;
+  display: block;
   margin-bottom: 0;
   font-weight: bold;
   .smoothing(@COLOR_BLACK);
@@ -43,6 +43,22 @@ a
   &:hover 
   { 
     color: @COLOR_RED;
+  };
+
+  &.dotted
+  {
+    border-bottom: 1px dotted @COLOR_BLUE;
+
+    &:hover
+    {
+      border-color: @COLOR_RED;
+    };
+
+    &.active
+    {
+      color: @COLOR_RED;
+      border-color: @COLOR_RED;
+    };
   };
 };
 
@@ -136,6 +152,11 @@ blockquote
     opacity: 0;
     .transition(1.5s);
   };
+};
+
+figure
+{
+  margin: 0;
 };
 
 table, tr
@@ -299,6 +320,44 @@ select
     {
       float: right;
       margin-right: 0;
+    };
+  };
+};
+
+.tabs
+{
+  nav
+  {
+    margin-top: 10px;
+
+    a
+    {
+      display: inline-block;
+      padding: 10px 30px;
+      border: solid 1px @COLOR_BLUE;
+
+      &:hover
+      {
+        color: @COLOR_WHITE;
+        background: @COLOR_BLUE;
+      };
+
+      &.active
+      {
+        color: @COLOR_WHITE;
+        background: @COLOR_BLUE;
+      };
+    };
+  };
+
+  figure div 
+  {
+    display: none;
+    margin-top: 10px;
+
+    &.active
+    {
+      display: block;
     };
   };
 };

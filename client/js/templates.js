@@ -18,7 +18,7 @@ var templates =
 {
   'news': '<article>\
              <time><i class="icon date"></i> {{day}}.{{month}}.{{year}}</time>\
-             <address id="id{{id}}"><i class="icon author"></i> </address>\
+             <address id="id{{id}}"><i class="icon author"></i> {{author}}</address>\
              <span><i class="icon like"></i> {{likes}}</span>\
              <span><i class="icon repost"></i> {{reposts}}</span>\
              <span><i class="icon comment"></i> {{comments}}</span>\
@@ -27,10 +27,10 @@ var templates =
 
   'gallery': '<div class="gallery background"></div>\
               <div class="gallery title">{{title}}</div>\
-              <div class="gallery close" onclick="gallery.close();">' + config['symbol']['close'] + '</div>\
+              <div class="gallery close" onclick="Gallery.Close();">' + config['symbol']['close'] + '</div>\
               <div class="gallery photo"></div>',
 
-  'galleryLink': '<a onclick="gallery.showPhotosByAlbum({\'id\': {{id}}, \'title\': \'{{title}}\' });">{{title}}</a>, фотографий: <b>{{size}}</b><br>',
+  'galleryAlbumLink': '<a onclick="Gallery.Photos.ShowByAlbum({\'id\': {{id}}, \'title\': \'{{fullTitle}}\' });">{{title}}</a> <br>',
 
   'firstMenuPart': '<a class="item" href="/{{url}}">{{name}}</a>',
   'secondMenuPart': '<a class="item-2" href="/{{parent}}/{{url}}">{{name}}</a>',
