@@ -9,19 +9,9 @@ DefaultLanguage ru-RU
 
   RewriteBase /
 
-  RewriteRule ^.htaccess$ [F]
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
 
-  # Я знаю, что это ужасно. Скоро исправлю.
-
-  RewriteRule ^news$ index.php [L]
-  RewriteRule ^history$ index.php [L]
-  RewriteRule ^education$ index.php [L]
-    RewriteRule ^education/(.*) index.php [L]
-  RewriteRule ^activity$ index.php [L]
-    RewriteRule ^activity/(.*) index.php [L]
-  RewriteRule ^people$ index.php [L]
-    RewriteRule ^people/(.*) index.php [L]
-  RewriteRule ^contacts$ index.php [L]
-  RewriteRule ^photo$ index.php [L]
+  RewriteRule .* index.php [L]
 
 </IfModule>
