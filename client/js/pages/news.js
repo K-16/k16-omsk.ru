@@ -55,7 +55,7 @@ var news =
           }
           else
           {
-            ajaxVK('users.get?user_ids=' + authors[b]);
+            ajaxVK('users.get?user_ids=' + authors[b], true);
             var author = JSON.parse(localStorage.getItem('users.get?user_ids=' + authors[b]));
 
             $('#id' + b).append(author.response[0]['first_name'] + ' ' + author.response[0]['last_name']);

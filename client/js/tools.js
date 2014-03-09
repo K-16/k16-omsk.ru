@@ -127,14 +127,14 @@ function sortAlbumMethod(method)
   };
 };
 
-function ajaxVK(request)
+function ajaxVK(request, async)
 {
   $.ajax(
   {
-    'async': false,
-    'url': SERVER_URL + 'ajaxVK.php?request=' + encodeURIComponent(request),
-    'dataType': 'json',
-    'success': function(data)
+    async: async,
+    url: SERVER_URL + 'ajaxVK.php?request=' + encodeURIComponent(request),
+    dataType: 'json',
+    success: function(data)
     {
       if (localStorage.getItem(request) == data) return;
       if (localStorage.getItem(request) != data && localStorage.getItem(request) != null) localStorage.removeItem(request);
