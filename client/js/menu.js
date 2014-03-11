@@ -13,7 +13,7 @@ var Menu =
 {
   Get: function()
   {
-    return $.getJSON('/client/js/menuItems.json');
+    return $.getJSON('menu.json');
   },
   Generate:
   {

@@ -31,7 +31,7 @@ var Elements =
     });
   },
 
-  secondMenu: function() 
+  secondMenu: function()
   {
     var speed = 'fast';
 
