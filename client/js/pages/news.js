@@ -57,13 +57,17 @@ var news =
           {
             ajaxVK('users.get?user_ids=' + authors[b], true);
             var author = JSON.parse(localStorage.getItem('users.get?user_ids=' + authors[b]));
+            author = author.response[0]['first_name'] + ' ' + author.response[0]['last_name'];
 
-            $('#id' + b).append(author.response[0]['first_name'] + ' ' + author.response[0]['last_name']);
+            if (author == 'Libli Kun') author = 'Катя Крылова';
+
+            $('#id' + b).append(author);
           };
 
-          $('#news address:last').html('<i class="icon author"></i> ' + config['defaultAdmin']); // временное решение
+          $('#news address:last').html('<i class="icon author"></i> ' + config['defaultAdmin']);
         };
 
+        Elements.newsInfo();
 
         log('Загрузил новостей: ' + i);
       }

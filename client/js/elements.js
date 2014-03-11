@@ -41,6 +41,16 @@ var Elements =
     $('.menu-2').mouseleave(function() {$('.menu-2').slideUp(speed).hide(speed)});
   },
 
+  newsInfo: function()
+  {
+    var speed = 'fast';
+
+    $('#news > article > div').hide();
+
+    $('#news > article').mouseenter(function() {$(this).children('div').slideDown(speed).show(speed)});
+    $('#news > article').mouseleave(function() {$(this).children('div').slideUp(speed).hide(speed)});
+  },
+
   init: function()
   {
     this.author();
