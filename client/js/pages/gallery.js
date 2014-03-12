@@ -20,7 +20,11 @@ var gallery =
 
       for (var i in json.response)
       {
-        result.push([json.response[i]['aid'], json.response[i]['title'], json.response[i]['thumb_src']]);
+        var j = json.response[i];
+
+        result.push([j['aid'],
+                     j['title'],
+                     j['thumb_src']]);
       };
 
       return result;

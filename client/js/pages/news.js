@@ -1,6 +1,6 @@
 var news =
 {
-  getNews: function(parameters)
+  get: function(parameters)
   {
     var p = inherit(parameters);
 
@@ -8,71 +8,81 @@ var news =
         offset = p.offset || 0,
         count  = p.count  || 100;
 
-    $.ajax(
-    { 
-      url: 'https://api.vk.com/method/wall.get?owner_id=' + config['groupId'] + '&filter=' + filter + '&offset=' + offset + '&count=' + count, 
-      dataType: 'jsonp',
-      success: function(a)
+    var result = [];
+
+    var request = 'wall.get?owner_id=' + config['groupId'] + '&filter=' + filter + '&offset=' + offset + '&count=' + count;
+
+    ajaxVK(request, true);
+
+    var json = JSON.parse(localStorage.getItem(request));
+
+    for (var i = 1; i <= json.response.length - 1; i++)
+    {
+      var j = json.response[i];
+
+      result.push([j['signer_id'],
+                   j['date'],
+                   j['text'],
+                   j['likes']['count'],
+                   j['reposts']['count'],
+                   j['comments']['count']]);
+    };
+
+    return result;
+  },
+
+  show: function()
+  {
+    var n = news.get(),
+        time,
+        result = []
+        authors = [];
+
+    for (var i in n)
+    {
+      authors.push((n[i][0]) ? n[i][0] : 1);
+
+      time = new Date(n[i][1]);
+      time.setTime(n[i][1] * 1000);
+
+      result.push(compileText(templates['news'],
       {
-        var time,
-            data,
-            result;
+        'id': i,
+        'day': time.getDate(),
+        'month': time.getMonth() + 1,
+        'year': time.getFullYear(),
+        'likes': n[i][3],
+        'reposts': n[i][4],
+        'comments': n[i][5],
+        'text': n[i][2]
+      }));
+    };
 
-        var authors = [];
+    $('#news').append(result);
 
-        for (var i in a.response)
-        {
-          if (a.response[i]['text'])
-          {
-            time = new Date(a.response[i]['date']);
-            time.setTime(a.response[i]['date'] * 1000);
+    news.showAuthors(authors);
 
-            authors.push((a.response[i]['signer_id']) ? a.response[i]['signer_id'] : 1);
+    elements.newsInfo();
+  },
 
-            data = 
-            {
-              'id': i - 1,
-              'day': time.getDate(),
-              'month': time.getMonth() + 1,
-              'year': time.getFullYear(),
-              'likes': a.response[i]['likes']['count'],
-              'reposts': a.response[i]['reposts']['count'],
-              'comments': a.response[i]['comments']['count'],
-              'text': a.response[i]['text']
-            };
-
-            result = compileText(templates['news'], data);
-
-            $('#news').append(result);
-          };
-        };
-
-        for (var b = 0; b <= authors.length - 1; b++) 
-        {
-          if (authors[b] == 1)
-          {
-            $('#news #id' + b).append(config['defaultAdmin']);
-          }
-          else
-          {
-            ajaxVK('users.get?user_ids=' + authors[b], true);
-            var author = JSON.parse(localStorage.getItem('users.get?user_ids=' + authors[b]));
-            author = author.response[0]['first_name'] + ' ' + author.response[0]['last_name'];
-
-            if (author == 'Libli Kun') author = 'Катя Крылова';
-
-            $('#id' + b).append(author);
-          };
-
-          $('#news address:last').html('<i class="icon author"></i> ' + config['defaultAdmin']);
-        };
-
-        elements.newsInfo();
-
-        log('Загрузил новостей: ' + i);
+  showAuthors: function(authors)
+  {
+    for (var i in authors) 
+    {
+      if (authors[i] == 1)
+      {
+        $('#news #' + i).append(config['defaultAdmin']);
       }
-    });
+      else
+      {
+        author = getVKName(authors[i]);
+
+        if (author == 'Libli Kun') author = 'Катя Крылова';
+
+        $('#news #' + i).append(author);
+      };
+    };
   }
 };
 
-news.getNews();
+news.show();
