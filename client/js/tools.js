@@ -47,14 +47,14 @@ function loadPage(way, ajax)
 
   $('.content').load(page, function()
   {
-    Menu.Generate.Second();
+    menu.generate.second();
 
     if (ajax) history.pushState(null, null, way);
     
     loadScripts();
     
-    Parser.init();
-    Elements.init();
+    parser.init();
+    elements.init();
 
     log('Загрузил страницу: ' + way);
   });

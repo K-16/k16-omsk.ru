@@ -13,6 +13,6 @@ var startTime = (new Date()).getTime(),
 
 $(function() 
 {
-  Menu.Generate.First();
+  menu.generate.first();
   loadPage(getCurrentPage(), false);
 });

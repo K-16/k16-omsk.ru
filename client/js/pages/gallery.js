@@ -1,9 +1,8 @@
-
-var Gallery = 
+var gallery =
 {
-  Albums:
+  albums:
   {
-    Get: function(parameters)
+    get: function(parameters)
     {
       var p = inherit(parameters);
 
@@ -27,7 +26,7 @@ var Gallery =
       return result;
     },
 
-    Sort: function(albums, method)
+    sort: function(albums, method)
     {
       var keys   = [],
           sorted = {};
@@ -63,14 +62,14 @@ var Gallery =
       return sorted;
     },
 
-    Show: function(method)
+    show: function(method)
     {
       $('.tabs nav, .tabs figure').empty();
       $('.dotted').removeClass('active');
 
       $('.dotted:eq(' + ((method == 'year') ? 0 : 1) + ')').addClass('active');
 
-      var albums = Gallery.Albums.Sort(Gallery.Albums.Get(), method);
+      var albums = gallery.albums.sort(gallery.albums.get(), method);
 
       for (var a in albums)
       {
@@ -92,9 +91,9 @@ var Gallery =
       $('.tabs').tabs();
     }
   },
-  Photos:
+  photos:
   {
-    ShowByAlbum: function(parameters)
+    showByAlbum: function(parameters)
     {
       var p = inherit(parameters);
 
@@ -108,7 +107,7 @@ var Gallery =
         dataType: 'jsonp',
         success: function(data)
         {
-          Gallery.Close('fast');
+          gallery.close('fast');
 
           $('body').append(compileText(templates['gallery'],
           {
@@ -141,7 +140,7 @@ var Gallery =
       });
     }
   },
-  Close: function(speed)
+  close: function(speed)
   {
     $('.gallery, .fotorama--hidden').fadeOut(speed, function() {$(this).remove()});
 
@@ -149,4 +148,4 @@ var Gallery =
   },
 };
 
-Gallery.Albums.Show('year');
+gallery.albums.show('year');

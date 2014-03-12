@@ -3,25 +3,25 @@
  * menu.js
  * ========
  * Класс меню.
- *  - Get(). Возвращает меню.
- *  - Generate.First(). Генерирует меню первого уровня.
- *  - Generate.Second(). Генерирует меню второго уровня.
+ *  - get(). Возвращает меню.
+ *  - generate.first(). Генерирует меню первого уровня.
+ *  - generate.second(). Генерирует меню второго уровня.
  *
 */
 
-var Menu =
+var menu =
 {
-  Get: function()
+  get: function()
   {
     return $.getJSON('menu.json');
   },
-  Generate:
+  generate:
   {
-    First: function()
+    first: function()
     {
-      var menu = Menu.Get();
+      var m = menu.get();
 
-      menu.success(function(a)
+      m.success(function(a)
       {
         for (var i = a.items.length - 1; i >= 0; i--)
         {
@@ -32,15 +32,15 @@ var Menu =
           }));
         };
 
-        Parser.convertLinksToAjax();
-        Parser.setMenuItemActive();
+        parser.convertLinksToAjax();
+        parser.setMenuItemActive();
       });
     },
-    Second: function()
+    second: function()
     {
-      var menu = Menu.Get();
+      var m = menu.get();
 
-      menu.success(function(a)
+      m.success(function(a)
       {
         for (var i = a.items.length - 1; i >= 0; i--)
         {
@@ -53,14 +53,14 @@ var Menu =
                 $('.content').prepend('<h2>' + a.items[i]['name'] + '</h2>');
                 $('h2').append(templates['secondMenuContainer']);
 
-                Parser.setTitle();
+                parser.setTitle();
               };
 
               if (a.items[i]['url'] + '/' + a.items[i]['menu'][n]['url'] == getCurrentPage())
               {
                 $('h2 > span').text(a.items[i]['menu'][n]['name']);
 
-                Parser.setTitle();
+                parser.setTitle();
               }
               else
               {
@@ -77,12 +77,12 @@ var Menu =
           {
             $('.content').prepend('<h2>' + a.items[i]['name'] + '</h2>');
 
-            Parser.setTitle();
+            parser.setTitle();
           };
         };
 
-        Parser.convertLinksToAjax();
-        Elements.secondMenu();
+        parser.convertLinksToAjax();
+        elements.secondMenu();
       });
     }
   }

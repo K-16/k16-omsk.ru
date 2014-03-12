@@ -67,7 +67,7 @@ var news =
           $('#news address:last').html('<i class="icon author"></i> ' + config['defaultAdmin']);
         };
 
-        Elements.newsInfo();
+        elements.newsInfo();
 
         log('Загрузил новостей: ' + i);
       }

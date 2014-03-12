@@ -9,7 +9,7 @@
  *
 */
 
-var Elements = 
+var elements = 
 {
   author: function()
   {

@@ -12,7 +12,7 @@
  *
 */
 
-var Parser =
+var parser =
 {
   createAuthor: function()
   {
@@ -27,7 +27,8 @@ var Parser =
       {
         result = compileText(templates['quoteAuthorWithImg'], {'author': author, 'img': img});
       } 
-      else {
+      else
+      {
         result = compileText(templates['quoteAuthorWithoutImg'], {'author': author});
       };
 
@@ -94,10 +95,10 @@ var Parser =
 
   setTitle: function()
   {
-    var menu = Menu.Get(),
+    var m = menu.get(),
         name;
 
-    menu.success(function(a) 
+    m.success(function(a) 
     {
       for (var i = a.items.length - 1; i >= 0; i--)
       {
