@@ -54,7 +54,7 @@ var news =
         'likes': n[i][3],
         'reposts': n[i][4],
         'comments': n[i][5],
-        'text': n[i][2]
+        'text': parser.newsText(n[i][2])
       }));
     };
 
@@ -63,6 +63,7 @@ var news =
     news.showAuthors(authors);
 
     elements.newsInfo();
+    parser.convertLinksToAjax();
   },
 
   showAuthors: function(authors)

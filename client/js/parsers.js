@@ -58,6 +58,10 @@ var parser =
         $(this).removeAttr('href').attr('onclick', 'nav(\'' + link.substr(template) + '\');');
 
         log('Cконвертировал аттрибут href у <' + this.nodeName.toLowerCase() + '> из \'' + link + '\' в \'' + link.substr(template) + '\'');        
+      }
+      else if (!$(this).attr('onclick'))
+      {
+        $(this).attr('target', '_blank');
       };
     });
   },
@@ -123,6 +127,11 @@ var parser =
 
       log('Заменил <title> страницы на ' + name);
     });
+  },
+
+  newsText: function(text)
+  {
+    return text.replace(/\[id(\d+)\|(\W+)\s(\W+)]/g, '<a href="http://vk.com/id$1">$2 $3</a>');
   },
 
   init: function()
