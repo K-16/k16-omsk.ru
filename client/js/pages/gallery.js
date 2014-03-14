@@ -32,16 +32,17 @@ var gallery =
 
     sort: function(albums, method)
     {
-      var keys   = [],
+      var key,
+          keys   = [],
           sorted = {};
 
       // Сортируем ключи
 
       for (var i in albums)
       {
-        var key = albums[i][1].split(' | ')[sortAlbumMethod(method)];
+        key = albums[i][1].split(' | ')[sortAlbumMethod(method)];
 
-        if (key != undefined) keys.push(key); // условие, кидать в Разное альбомы
+        if (albums[i][1].match(/\|/)) keys.push(key);
       };
 
       keys = unique(keys);
@@ -52,9 +53,9 @@ var gallery =
       {
         sorted[keys[a]] = [];
 
-        for (var b in albums) // .filter?
+        for (var b in albums)
         {
-          var key = albums[b][1].split(' | ')[sortAlbumMethod(method)];
+          key = albums[b][1].split(' | ')[sortAlbumMethod(method)];
 
           if (key == keys[a])
           {
