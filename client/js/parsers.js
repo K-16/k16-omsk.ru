@@ -131,7 +131,8 @@ var parser =
 
   newsText: function(text)
   {
-    return text.replace(/\[id(\d+)\|(\W+)\s(\W+)]/g, '<a href="http://vk.com/id$1">$2 $3</a>');
+    return text.replace(regExp['newsVKProfileLink'], '<a href="http://vk.com/id$1">$2 $3</a>')
+//               .replace(regExp['textExternalLink'], '<a href="$1">$1</a>');
   },
 
   init: function()
