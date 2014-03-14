@@ -32,7 +32,10 @@ var templates =
               <div class="gallery close" onclick="gallery.close();">' + config['symbol']['close'] + '</div>\
               <div class="gallery photo"></div>',
 
-  'galleryAlbumLink': '<a onclick="gallery.photos.showByAlbum({\'id\': {{id}}, \'title\': \'{{fullTitle}}\' });">{{title}}</a> <br>',
+  'galleryAlbumLink': '<a class="albumLink" onclick="gallery.photos.showByAlbum({\'id\': {{id}}, \'title\': \'{{fullTitle}}\' });">\
+                         <img src="{{img}}">\
+                         {{title}}\
+                       </a>',
 
   'firstMenuPart': '<a class="item" href="/{{url}}">{{name}}</a>',
   'secondMenuPart': '<a class="item-2" href="/{{parent}}/{{url}}">{{name}}</a>',

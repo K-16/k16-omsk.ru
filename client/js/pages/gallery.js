@@ -87,7 +87,8 @@ var gallery =
           {
             'id': albums[a][b][0],
             'title': albums[a][b][1].split(' | ')[(sortAlbumMethod(method) == 1) ? 0 : 1],
-            'fullTitle': albums[a][b][1]
+            'fullTitle': albums[a][b][1],
+            'img': albums[a][b][2]
           }));
         };
       };
