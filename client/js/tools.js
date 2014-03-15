@@ -34,6 +34,8 @@ function loadPage(way, ajax)
 
   if (way == getCurrentPage() && ajax) return;
 
+  if (ajax) history.pushState(null, null, way);
+
   if (!way)
   {
     page = TEXT_URL + 'main/main.html';
@@ -47,11 +49,16 @@ function loadPage(way, ajax)
     page = TEXT_URL + way + '/' + way + '.html';
   };
 
-  $('.content').load(page, function()
+  $('.content').load(page, function(response, status, xhr)
   {
-    menu.generate.second();
+    if (response.match(/\<base href=\"\/\"\>/))
+    {
+      loadErrorPage();
 
-    if (ajax) history.pushState(null, null, way);
+      return;
+    };
+
+    menu.generate.second();
     
     loadScripts();
     
@@ -59,6 +66,18 @@ function loadPage(way, ajax)
     elements.init();
 
     log('Загрузил страницу: ' + way);
+  });
+};
+
+function loadErrorPage()
+{
+  $('.content').load(TEXT_URL + 'error.html', function()
+  {    
+    parser.convertLinksToAjax();
+
+    $('title').text('Ошибка | ' + config['siteName']);
+
+    log('Загрузил страницу с ошибкой :(');
   });
 };
 
