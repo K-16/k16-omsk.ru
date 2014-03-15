@@ -12,7 +12,7 @@
 
 h1, h2, h3, h4, h5, h6
 {
-  display: inline-block;
+  display: block;
   margin-bottom: 0;
   font-weight: bold;
   .smoothing(@COLOR_BLACK);
@@ -42,7 +42,23 @@ a
 
   &:hover 
   { 
-    color: @COLOR_RED; 
+    color: @COLOR_RED;
+  };
+
+  &.dotted
+  {
+    border-bottom: 1px dotted @COLOR_BLUE;
+
+    &:hover
+    {
+      border-color: @COLOR_RED;
+    };
+
+    &.active
+    {
+      color: @COLOR_RED;
+      border-color: @COLOR_RED;
+    };
   };
 };
 
@@ -126,7 +142,7 @@ blockquote
 
     &:hover
     {
-      .rotate(360deg)
+      .rotate(360deg);
     };
   };
 
@@ -136,6 +152,11 @@ blockquote
     opacity: 0;
     .transition(1.5s);
   };
+};
+
+figure
+{
+  margin: 0;
 };
 
 table, tr
@@ -231,7 +252,7 @@ input, textarea
   .transition(@TRANSITION_SPEED);
   .sansFont;
   border: 1px solid @COLOR_BLUE;
-  border-radius: 2px;
+  .border-radius(2px);
   outline: none;
 };
 
@@ -299,6 +320,46 @@ select
     {
       float: right;
       margin-right: 0;
+    };
+  };
+};
+
+.tabs
+{
+  nav
+  {
+    margin-top: 10px;
+
+    a
+    {
+      display: inline-block;
+      margin: -1px 0 0 -1px;
+      padding: 10px 30px;
+      border: solid 1px @COLOR_BLUE;
+
+      &:hover
+      {
+        color: @COLOR_WHITE;
+        background: @COLOR_BLUE;
+      };
+
+      &.active
+      {
+        color: @COLOR_WHITE;
+        background: darken(@COLOR_BLUE, 20%);
+        border-color: darken(@COLOR_BLUE, 20%);
+      };
+    };
+  };
+
+  figure div 
+  {
+    display: none;
+    margin-top: 10px;
+
+    &.active
+    {
+      display: block;
     };
   };
 };

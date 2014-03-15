@@ -8,10 +8,11 @@
 
 @import 'menu.less';
 
+@import 'pages/news.less';
 @import 'pages/gallery.less';
 @import 'pages/map.less';
-@import 'pages/news.less';
 @import 'pages/widgets.less';
+@import 'pages/error.less';
 
 body
 {
@@ -33,6 +34,18 @@ body
     { 
       padding: 1% 60px; 
       .transition(@TRANSITION_SPEED);
+
+      h2:nth-of-type(1) > span
+      {
+        cursor: pointer;
+        .smoothing(@COLOR_BLUE);
+        .transition(@TRANSITION_SPEED);
+
+        &:hover
+        {
+          .smoothing(@COLOR_RED);
+        }
+      };
     };
 
     .load

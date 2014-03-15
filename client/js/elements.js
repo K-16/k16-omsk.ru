@@ -31,20 +31,24 @@ var elements =
     });
   },
 
-  secondMenu: function() 
+  secondMenu: function()
   {
     var speed = 'fast';
 
     $('.menu-2').hide();
 
-    $('h2').hover(function() 
-    {
-      $('.menu-2').slideDown(speed).show(speed);
-    },
-    function() 
-    {
-      $('.menu-2').slideUp(speed).hide(speed);
-    });
+    $('h2 > span').mouseenter(function() {$('.menu-2').slideDown(speed).show(speed)});
+    $('.menu-2').mouseleave(function() {$('.menu-2').slideUp(speed).hide(speed)});
+  },
+
+  newsInfo: function()
+  {
+    var speed = 'fast';
+
+    $('#news > article > div').hide();
+
+    $('#news > article').mouseenter(function() {$(this).children('div').slideDown(speed).show(speed)});
+    $('#news > article').mouseleave(function() {$(this).children('div').slideUp(speed).hide(speed)});
   },
 
   init: function()

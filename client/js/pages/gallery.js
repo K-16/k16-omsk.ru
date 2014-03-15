@@ -1,87 +1,150 @@
-// Решение с несколькими ajax запросами -- временное, пока я не найду более оптимального решения.
-// Скорее всего буду выносить в глобальный массив и проч.
-
-var gallery = 
+var gallery =
 {
-  getAlbumsList: function(parameters)
+  albums:
   {
-    var p = inherit(parameters);
+    get: function(parameters)
+    {
+      var p = inherit(parameters);
 
-    var offset  = p.offset || 0,
-        count   = p.count  || 0,
-        fields  = p.fields || ['aid', 'title', 'size'];
+      var offset = p.offset || 0,
+          count  = p.count  || 0,
+          covers = p.covers || 1; // bool, 0 === false, 1 === true
 
-    $.ajax(
-    { 
-      url: 'https://api.vk.com/method/photos.getAlbums?owner_id=' + config['groupId'] + '&offset=' + offset + '&count=' + count, 
-      dataType: 'jsonp',
-      success: function(data)
+      var result = [];
+
+      var request = 'photos.getAlbums?owner_id=' + config['groupId'] + '&need_covers=' + covers + '&offset=' + offset + '&count=' + count;
+
+      ajaxVK(request, true);
+
+      var json = JSON.parse(localStorage.getItem(request));
+
+      for (var i in json.response)
       {
-        for (var i in data.response) 
+        var j = json.response[i];
+
+        result.push([j['aid'],
+                     j['title'],
+                     j['thumb_src']]);
+      };
+
+      return result;
+    },
+
+    sort: function(albums, method)
+    {
+      var key,
+          keys   = [],
+          sorted = {};
+
+      // Сортируем ключи
+
+      for (var i in albums)
+      {
+        key = albums[i][1].split(' | ')[sortAlbumMethod(method)];
+
+        if (albums[i][1].match(/\|/)) keys.push(key);
+      };
+
+      keys = unique(keys);
+
+      // Сортируем альбомы
+
+      for (var a in keys)
+      {
+        sorted[keys[a]] = [];
+
+        for (var b in albums)
         {
-          var a =
+          key = albums[b][1].split(' | ')[sortAlbumMethod(method)];
+
+          if (key == keys[a])
           {
-            'id': data.response[i]['aid'],
-            'title': data.response[i]['title'],
-            'size': data.response[i]['size']
+            sorted[keys[a]].push(albums[b]);
           };
-
-          $('h2').after(compileText(templates['galleryLink'], a));
         };
+      };
 
-        log('Загрузил альбомов: ' + i);
-      }
-    });
-  },
+      return sorted;
+    },
 
-  getPhotosByAlbum: function(parameters)
-  {
-    var p = inherit(parameters);
+    show: function(method)
+    {
+      $('.tabs nav, .tabs figure').empty();
+      $('.dotted').removeClass('active');
 
-    var id    = p.id,
-        title = p.title || '',
-        rev   = p.rev   || 0;
+      $('.dotted:eq(' + ((method == 'year') ? 0 : 1) + ')').addClass('active');
 
-    $.ajax(
-    { 
-      url: 'https://api.vk.com/method/photos.get?owner_id=' + config['groupId'] + '&album_id=' + id + '&rev=' + rev, 
-      dataType: 'jsonp',
-      success: function(data)
+      var albums = gallery.albums.sort(gallery.albums.get(), method);
+
+      for (var a in albums)
       {
-        gallery.close('fast');
+        $('.tabs nav').append('<a>' + a + '</a>');
 
-        var a = 
+        $('.tabs figure').append('<div></div>');
+
+        for (var b in albums[a])
         {
-          'title': title,
-          'closeSymbol': config['symbol']['close']
-        };
-
-        $('body').append(compileText(templates['gallery'], a));
-
-        for (var i in data.response)
-        {
-          var src = data.response[i]['src_xxbig']; // есть идеи, как по другому эту проверку реализовать?
-          if (!data.response[i]['src_xxbig'])
+          $('.tabs figure div:last').append(compileText(templates['galleryAlbumLink'],
           {
-            var src = data.response[i]['src_xbig'];
-            if (!data.response[i]['src_xbig']) 
+            'id': albums[a][b][0],
+            'title': albums[a][b][1].split(' | ')[(sortAlbumMethod(method) == 1) ? 0 : 1],
+            'fullTitle': albums[a][b][1],
+            'img': albums[a][b][2]
+          }));
+        };
+      };
+
+      $('.tabs').tabs();
+    }
+  },
+  photos:
+  {
+    showByAlbum: function(parameters)
+    {
+      var p = inherit(parameters);
+
+      var id    = p.id,
+          title = p.title || '',
+          rev   = p.rev   || 0;
+
+      $.ajax(
+      { 
+        url: 'https://api.vk.com/method/photos.get?owner_id=' + config['groupId'] + '&album_id=' + id + '&rev=' + rev, 
+        dataType: 'jsonp',
+        success: function(data)
+        {
+          gallery.close('fast');
+
+          $('body').append(compileText(templates['gallery'],
+          {
+            'title': title
+          }));
+
+          for (var i in data.response)
+          {
+            var src = data.response[i]['src_xxbig']; // есть идеи, как по другому эту проверку реализовать?
+            if (!data.response[i]['src_xxbig'])
             {
-              var src = data.response[i]['src_big'];
-              if (!data.response[i]['src_big']) 
+              var src = data.response[i]['src_xbig'];
+              if (!data.response[i]['src_xbig']) 
               {
-                var src = data.response[i]['src'];
+                var src = data.response[i]['src_big'];
+                if (!data.response[i]['src_big']) 
+                {
+                  var src = data.response[i]['src'];
+                };
               };
             };
+
+            $('.gallery.photo').append('<img src="' + src + '">');
           };
 
-          $('.gallery.photo').append('<img src="' + src + '">');
-        };
+          $('.gallery.photo').fotorama();
 
-        $('.gallery.photo').fotorama();
-
-        log('Фотографий в album-' + id + ': ' + ++i);
-      }
-    });
+          log('Фотографий в album-' + id + ': ' + ++i);
+        }
+      });
+    }
   },
   close: function(speed)
   {
@@ -91,4 +154,4 @@ var gallery =
   },
 };
 
-gallery.getAlbumsList();
+gallery.albums.show('year');

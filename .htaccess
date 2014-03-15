@@ -9,34 +9,9 @@ DefaultLanguage ru-RU
 
   RewriteBase /
 
-  RewriteRule ^.htaccess$ [F]
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
 
-  # Я знаю, что это ужасно. Скоро исправлю.
-
-  RewriteRule ^news$ index.php?page=news [L]
-  RewriteRule ^history$ index.php?page=history [L]
-  RewriteRule ^education$ index.php?page=education [L]
-    RewriteRule ^education/(.*) index.php?page=education&page2=$1 [L]
-  RewriteRule ^activity$ index.php?page=activity [L]
-    RewriteRule ^activity/(.*) index.php?page=activity&page2=$1 [L]
-  RewriteRule ^people$ index.php?page=people [L]
-    RewriteRule ^people/(.*) index.php?page=people&page2=$1 [L]
-  RewriteRule ^contacts$ index.php?page=contacts [L]
-  RewriteRule ^photo$ index.php?page=photo [L]
-
-  RewriteCond %{SCRIPT_FILENAME} !-f
-  RewriteCond %{SCRIPT_FILENAME} !-d
-
-
-#  RewriteCond %{QUERY_STRING} page=(.*)
-#  RewriteCond %{QUERY_STRING} page2=(.*)
-
-#  RewriteRule ^(.*)/$ /index.php?page=$1 [L]
-#  RewriteRule ^(.*)/(.*)/$ /index.php?page=$1&page2=$2 [L]
-
-#  RewriteRule ^(.*) index.php?page=$1 [L]
-#  RewriteRule ^(.*)/(.*) index.php?page=$1&page2=$2 [L]
-
-  # RewriteRule ^to/(.*)$ index.php?page=$1
+  RewriteRule .* index.php [L]
 
 </IfModule>

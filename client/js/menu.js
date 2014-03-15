@@ -2,71 +2,88 @@
  * 
  * menu.js
  * ========
- * Генерация основного меню.
+ * Класс меню.
+ *  - get(). Возвращает меню.
+ *  - generate.first(). Генерирует меню первого уровня.
+ *  - generate.second(). Генерирует меню второго уровня.
  *
 */
 
-function generateFirstMenu()
+var menu =
 {
-  $.getJSON('/client/js/menuItems.json', function(a)
+  get: function()
   {
-    var data,
-        b;
-
-    for (var i = a.items.length - 1; i >= 0; i--)
-    {
-      data = 
-      {
-        'url': a.items[i]['url'],
-        'name': a.items[i]['name']
-      };
-
-      $('.menu .logo').after(compileText(templates['firstMenuPart'], data));
-    };
-
-    parser.convertLinksToAjax();
-    parser.setMenuItemActive();
-  });
-};
-
-function generateSecondMenu()
-{
-  $.getJSON('/client/js/menuItems.json', function(a)
+    return $.getJSON('menu.json');
+  },
+  generate:
   {
-    var data;
-
-    for (var i = a.items.length - 1; i >= 0; i--)
+    first: function()
     {
-      data = 
+      var m = menu.get();
+
+      m.success(function(a)
       {
-        'url': a.items[i]['url'],
-        'name': a.items[i]['name']
-      };
-
-      if (a.items[i]['url'] == getCurrentPage()) 
-      {
-        $('.content').prepend('<h2>' + a.items[i]['name'] + '</h2>');
-
-        parser.setTitle();
-
-        if (a.items[i]['menu'])
+        for (var i = a.items.length - 1; i >= 0; i--)
         {
-          $('h2').append(templates['secondMenuContainer']);
-
-          for (var n = a.items[i]['menu'].length - 1; n >= 0; n--)
+          $('.menu .logo').after(compileText(templates['firstMenuPart'],
           {
-            $('.menu-2').append(compileText(templates['secondMenuPart'],
-            {
-              'parent': a.items[i]['url'],
-              'url': a.items[i]['menu'][n]['url'],
-              'name': a.items[i]['menu'][n]['name']
-            }));
-          };
-        }; // O
-      };  //   /
-    };   // O
+            'url': a.items[i]['url'],
+            'name': a.items[i]['name']
+          }));
+        };
 
-    parser.convertLinksToAjax();
-    elements.secondMenu();
-  });
+        parser.convertLinksToAjax();
+        parser.setMenuItemActive();
+      });
+    },
+    second: function()
+    {
+      var m = menu.get();
+
+      m.success(function(a)
+      {
+        for (var i = a.items.length - 1; i >= 0; i--)
+        {
+          if (a.items[i]['url'] == getCurrentPage().split('/')[0] && a.items[i]['menu'])
+          {
+            for (var n = a.items[i]['menu'].length - 1; n >= 0; n--)
+            {
+              if (n == a.items[i]['menu'].length - 1)
+              {
+                $('.content').prepend('<h2>' + a.items[i]['name'] + '</h2>');
+                $('h2').append(templates['secondMenuContainer']);
+
+                parser.setTitle();
+              };
+
+              if (a.items[i]['url'] + '/' + a.items[i]['menu'][n]['url'] == getCurrentPage())
+              {
+                $('h2 > span').text(a.items[i]['menu'][n]['name']);
+
+                parser.setTitle();
+              }
+              else
+              {
+                $('.menu-2').append(compileText(templates['secondMenuPart'],
+                {
+                  'parent': a.items[i]['url'],
+                  'url': a.items[i]['menu'][n]['url'],
+                  'name': a.items[i]['menu'][n]['name']
+                }));
+              };
+            };
+          }
+          else if (a.items[i]['url'] == getCurrentPage())
+          {
+            $('.content').prepend('<h2>' + a.items[i]['name'] + '</h2>');
+
+            parser.setTitle();
+          };
+        };
+
+        parser.convertLinksToAjax();
+        elements.secondMenu();
+      });
+    }
+  }
 };

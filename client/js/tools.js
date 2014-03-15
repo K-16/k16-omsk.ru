@@ -10,16 +10,16 @@
  *  - compileText(source, data). Возвращает скомпилированный шаблонизатором текст
  *  - getCurrentPage(). Возвращает текущую страницу
  *  - inherit(p). Системная функция для работы необязательных аргументов
- *  - generateSecondMenu(). Генерирует меню второго уровня
- *  - getVkUserNameById(id, to). Возвращает имя юзера ВК по id
+ *  - ajax(request). Возвращает json с полученный от API ВК
  *
 */
 
 var regExp = 
 {
-  year: /\|\s[0-9]+$/i,
-  word: /[^A-Za-zА-Яа-я]+$/i,
-  link: /((http|https|mailto):)/i,
+  'externalLink': /((http|https|mailto):)/i,
+  'funcNavValue': /'[a-z]+'/i,
+  'newsVKProfileLink': /\[id(\d+)\|(\W+)\s(\W+)\]/g, /** @example [id000|Name Surname] */
+  'textExternalLink': /((http|https):\/\/[\w\d\.\/]+|[\s]+)/
 };
 
 function nav(way)
@@ -34,6 +34,8 @@ function loadPage(way, ajax)
 
   if (way == getCurrentPage() && ajax) return;
 
+  if (ajax) history.pushState(null, null, way);
+
   if (!way)
   {
     page = TEXT_URL + 'main/main.html';
@@ -47,11 +49,16 @@ function loadPage(way, ajax)
     page = TEXT_URL + way + '/' + way + '.html';
   };
 
-  $('.content').load(page, function()
+  $('.content').load(page, function(response, status, xhr)
   {
-    generateSecondMenu();
+    if (response.match(/\<base href=\"\/\"\>/))
+    {
+      loadErrorPage();
 
-    if (ajax) history.pushState(null, null, way);
+      return;
+    };
+
+    menu.generate.second();
     
     loadScripts();
     
@@ -59,6 +66,18 @@ function loadPage(way, ajax)
     elements.init();
 
     log('Загрузил страницу: ' + way);
+  });
+};
+
+function loadErrorPage()
+{
+  $('.content').load(TEXT_URL + 'error.html', function()
+  {    
+    parser.convertLinksToAjax();
+
+    $('title').text('Ошибка | ' + config['siteName']);
+
+    log('Загрузил страницу с ошибкой :(');
   });
 };
 
@@ -104,22 +123,57 @@ function inherit(p)
   return new f;
 };
 
-function getVkUserNameById(id, to) 
+function unique(arr)
+{
+  var obj = {};
+
+  for (var i = 0; i < arr.length; i++)
+  {
+    var str = arr[i];
+
+    obj[str] = true;
+  }
+ 
+  return Object.keys(obj);
+};
+
+function sortAlbumMethod(method)
+{
+  switch (method)
+  {
+    case 'year':
+      return 1; // я не поленился 2-а раза написать 'return'
+    case 'name':
+      return 0; // и тут тоже
+  };
+};
+
+function ajaxVK(request, async)
 {
   $.ajax(
-  { 
-    url: 'https://api.vk.com/method/users.get?user_ids=' + id, 
-    dataType: 'jsonp',
+  {
+    async: async,
+    url: SERVER_URL + 'ajaxVK.php?request=' + encodeURIComponent(request),
+    dataType: 'json',
     success: function(data)
     {
-      $(to).append(data.response[0]['first_name'] + ' ' + data.response[0]['last_name']);
+      if (localStorage.getItem(request) == data) return;
+      if (localStorage.getItem(request) != data && localStorage.getItem(request) != null) localStorage.removeItem(request);
 
-      log('Имя/фамилия юзера ВК с id ' + data.response[0]['uid'] + ': ' + data.response[0]['first_name'] + ' ' + data.response[0]['last_name']);
+      localStorage.setItem(request, JSON.stringify(data));
     }
   });
 };
 
+function getVKName(id)
+{
+  var request = 'users.get?user_ids=' + id;
+  ajaxVK(request, true);
 
+  var json = JSON.parse(localStorage.getItem(request));
+
+  return json.response[0]['first_name'] + ' ' + json.response[0]['last_name']
+};
 
 /**
   @deprecated
@@ -127,7 +181,7 @@ function getVkUserNameById(id, to)
 
 function convertTextToLinks(str) 
 {
-  var reg = str.match(regExp['link']);
+  var reg = str.match(regExp['externalLink']);
 
   for (key in reg)
   {
