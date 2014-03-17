@@ -19,7 +19,7 @@ var regExp =
   'externalLink': /((http|https|mailto):)/i,
   'funcNavValue': /'[a-z]+'/i,
   'newsVKProfileLink': /\[id(\d+)\|(\W+)\s(\W+)\]/g, /** @example [id000|Name Surname] */
-  'textExternalLink': /((http|https):\/\/[\w\d\.\/]+|[\s]+)/
+  'textExternalLink': /((http|https):\/\/[\w\d\/.?=%\-_&;]+)/g // ; — O_o
 };
 
 function nav(way)
