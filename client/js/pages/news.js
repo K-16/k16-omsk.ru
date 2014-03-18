@@ -63,7 +63,7 @@ var news =
     news.showAuthors(authors);
 
     elements.newsInfo();
-    parser.convertLinksToAjax();
+    parser.convertLinks();
   },
 
   showAuthors: function(authors)

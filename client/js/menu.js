@@ -32,7 +32,7 @@ var menu =
           }));
         };
 
-        parser.convertLinksToAjax();
+        parser.convertLinks();
         parser.setMenuItemActive();
       });
     },
@@ -81,7 +81,7 @@ var menu =
           };
         };
 
-        parser.convertLinksToAjax();
+        parser.convertLinks();
         elements.secondMenu();
       });
     }

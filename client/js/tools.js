@@ -73,7 +73,7 @@ function loadErrorPage()
 {
   $('.content').load(TEXT_URL + 'error.html', function()
   {    
-    parser.convertLinksToAjax();
+    parser.convertLinks();
 
     $('title').text('Ошибка | ' + config['siteName']);
 

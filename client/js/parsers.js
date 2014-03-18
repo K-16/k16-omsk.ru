@@ -5,7 +5,7 @@
  * Парсеры
  *  - createAuthor(). Обработка и вставка авторов цитат и их лиц.
  *  - setBoxEmbedWidth(). Установка заданного значения ширины у .box.embed'ов.
- *  - convertLinksToAjax(). Конвертирует ссылки для навигации по сайту (на Ajax'е).
+ *  - convertLinks(). Конвертирует ссылки для навигации по сайту (на Ajax'е).
  *  - setMenuItemActive(). Устанавливает активный пункт меню, в зависимости от адреса.
  *  - setTitle(). Устанавливает title страницы.
  *  - init(). Активирует все парсеры.
@@ -38,6 +38,14 @@ var parser =
     });
   },
 
+  quotes: function()
+  {
+    $('.quotes').each(function()
+    {
+      $(this).before('«').after('»');
+    });
+  },
+
   setBoxEmbedWidth: function()
   {
     $('.box.embed').each(function()
@@ -46,7 +54,7 @@ var parser =
     });
   },
   
-  convertLinksToAjax: function()
+  convertLinks: function()
   {
     $('a').each(function()
     {
@@ -138,8 +146,9 @@ var parser =
   init: function()
   {
     this.createAuthor();
+    this.quotes();
     this.setBoxEmbedWidth();
-    this.convertLinksToAjax();
+    this.convertLinks();
     this.setMenuItemActive();
     this.setTitle();
 
