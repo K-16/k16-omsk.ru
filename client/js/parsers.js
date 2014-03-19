@@ -33,8 +33,6 @@ var parser =
       };
 
       $(this).after(result);
-      
-      log('<' + this.nodeName.toLowerCase() + '>: ' + author);
     });
   },
 
@@ -42,7 +40,15 @@ var parser =
   {
     $('.quotes').each(function()
     {
-      $(this).before('«').after('»');
+      $(this).prepend('«').append('»');
+    });
+  },
+
+  tag: function()
+  {
+    $('code.tag').each(function()
+    {
+      $(this).prepend('<').append('>');
     });
   },
 
@@ -64,8 +70,6 @@ var parser =
       if (link && !link.match(regExp['externalLink'])) 
       {
         $(this).removeAttr('href').attr('onclick', 'nav(\'' + link.substr(template) + '\');');
-
-        log('Cконвертировал аттрибут href у <' + this.nodeName.toLowerCase() + '> из \'' + link + '\' в \'' + link.substr(template) + '\'');        
       }
       else if (!$(this).attr('onclick'))
       {
@@ -147,6 +151,7 @@ var parser =
   {
     this.createAuthor();
     this.quotes();
+    this.tag();
     this.setBoxEmbedWidth();
     this.convertLinks();
     this.setMenuItemActive();

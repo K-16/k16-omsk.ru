@@ -1,0 +1,261 @@
+/*
+ * 
+ * tags.less
+ * =============
+ *  - Теги
+ *
+*/
+
+h1, h2, h3, h4, h5, h6
+{
+  display: block;
+  margin: 0;
+  font-weight: bold;
+  .smoothing(@COLOR_BLACK);
+  .transition(@TRANSITION_SPEED);
+};
+
+h1 {font-size: 450%;}
+h2 {font-size: 375%; &:nth-of-type(1) {margin-top: 50px;};}
+h3 {font-size: 300%;}
+h4 {font-size: 225%;}
+h5 {font-size: 150%;}
+h6 {font-size: 75%;}
+
+p
+{
+  font-size: 125%;
+  .transition(@TRANSITION_SPEED);
+};
+
+a
+{     
+  outline: none;
+  cursor: pointer;
+  text-decoration: none;
+  color: @COLOR_BLUE;
+  .transition(@TRANSITION_SPEED);
+
+  &:hover 
+  { 
+    color: @COLOR_RED;
+  };
+
+  &.dotted
+  {
+    border-bottom: 1px dotted @COLOR_BLUE;
+
+    &:hover
+    {
+      border-color: @COLOR_RED;
+    };
+
+    &.active
+    {
+      color: @COLOR_RED;
+      border-color: @COLOR_RED;
+    };
+  };
+};
+
+em
+{
+  font-style: normal;
+
+  &.italic 
+  {
+    font-style: italic;
+  };
+  
+  &.bold
+  {
+    font-weight: bold;
+    font-style: normal;
+  };
+};
+
+code
+{
+  .monoFont;
+};
+
+cite, em.block
+{
+  display: block;
+  font-style: normal;
+  margin: 30px 0px;  
+  padding-left: 20px;
+  font-size: 105%;
+  border-left: 5px solid @COLOR_BLUE;
+};
+
+blockquote
+{
+  display: block;
+  position: relative;  
+  margin: 30px;
+  font-size: 125%;
+
+  &:before,
+  &:after
+  {
+    position: absolute;
+    font-size: 400%;
+    line-height: 0.1;
+  };
+
+  &::before
+  {
+    content: '«';
+    left: -45px;
+  };
+
+  &::after
+  {
+    content: '»';
+    right: -45px;
+  };
+};
+
+.author
+{
+  display: block;
+  text-align: right;
+  font-size: 125%;
+  
+  img
+  {
+    width: 100px;
+    height: 100px;
+    .border-radius(100px);
+    .transition(1.5s);
+
+    &:hover
+    {
+      .rotate(360deg);
+    };
+  };
+
+  span
+  {
+    margin-right: -100px;
+    opacity: 0;
+    .transition(1.5s);
+  };
+};
+
+figure
+{
+  margin: 0;
+};
+
+hr
+{
+  margin-left: -60px;
+  border: 1px solid @COLOR_BLUE;
+};
+
+table, tr
+{
+  width: 100%;
+};
+
+td
+{
+  padding: 5%;
+  width: 20%;
+  text-align: center;
+};
+
+ol, ul
+{
+  counter-reset: li;       /* Новые маркеры */
+  list-style: none;        /* Удаляем старые маркеры */
+  padding: 0;
+};
+
+ul
+{
+  counter-reset: none;      /* Новые маркеры */
+};
+
+ol ol,
+ul ul,
+ol ul,
+ul ol
+{
+  margin: 0 0 0 40px; 
+};
+  
+li
+{
+  position: relative;
+  display: block;
+  padding: .4em .4em .4em .8em;
+  margin: .5em 0 .5em 2.5em;
+  color: #000;
+  font-size: 100%;
+};
+
+ol li:before                /* Счётчик */
+{
+  content: counter(li);
+  counter-increment: li;
+  position: absolute;
+  left: -2.5em;
+  top: 50%;
+  margin-top: -1em;
+  background: @COLOR_BLUE;
+  height: 2em;
+  width: 2em;
+  color: @COLOR_WHITE;
+  line-height: 2em;
+  text-align: center;
+  font-weight: bold;
+};
+
+ul li:before 
+{
+  content: '';
+  position: absolute;
+  left: -2.5em;
+  top: 50%;
+  margin-top: -1em;
+  background: @COLOR_BLUE;
+  height: 2em;
+  width: 2em; 
+};
+
+input
+{
+  height: 30px;
+  padding: 5px;
+  width: 30%;
+};
+
+textarea
+{
+  resize: none;
+  width: 50%;
+  height: 200px; 
+  font-size: 85%;  
+  padding: 5px; 
+};
+
+input, textarea
+{
+  .appearance(e(none));
+  .transition(@TRANSITION_SPEED);
+  .sansFont;
+  border: 1px solid @COLOR_BLUE;
+  .border-radius(2px);
+  outline: none;
+};
+
+input:hover, textarea:hover {box-shadow: 0px 0px 2px @COLOR_BLUE;};
+input:focus, textarea:focus {box-shadow: 0px 0px 5px @COLOR_BLUE;};
+
+select
+{
+  .transition(@TRANSITION_SPEED);
+};
