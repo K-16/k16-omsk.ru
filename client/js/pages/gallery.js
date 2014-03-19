@@ -154,4 +154,15 @@ var gallery =
   },
 };
 
+function sortAlbumMethod(method)
+{
+  switch (method)
+  {
+    case 'year':
+      return 1; // я не поленился 2-а раза написать 'return'
+    case 'name':
+      return 0; // и тут тоже
+  };
+};
+
 gallery.albums.show('year');
