@@ -6,50 +6,72 @@
  *
 */
 
-function nav(way)
+function nav(url)
 {
-  loadPage(way, true);
+  loadPage(url, true);
 };
 
-function loadPage(way, ajax)
+function loadPage(url, ajax)
 {
-  var page,
-      a = way.split('/');
+  var m = menu.get(),
+      page;
 
-  if (way == getCurrentPage() && ajax) return;
+  if (url == getCurrentPage() && ajax) return;
 
-  if (ajax) history.pushState(null, null, way);
+  m.success(function(a)
+  {
+    for (var i in a.items)
+    {
+      var b = a.items[i];
 
-  if (!way)
-  {
-    page = TEXT_URL + 'main/main.html';
-  }
-  else if (a[1])
-  {
-    page = TEXT_URL + a[0] + '/' + a[1] + '.html';
-  }
-  else
-  {
-    page = TEXT_URL + way + '/' + way + '.html';
-  };
+      if (b['url'] == url.split('/')[0])
+      {
+        if (b['menu'])
+        {
+          if (url.split('/')[1])
+          {
+            for (var n in b['menu'])
+            {
+              if (b['menu'][n]['url'] == url.split('/')[1])
+              {
+                page = b['url'] + '/' + b['menu'][n]['url'] + '.html';
+              };
+            };
+          }
+          else
+          {
+            page = b['url'] + '/' + b['url'] + '.html';
+          };
+        }
+        else if (!url.split('/')[1])
+        {
+          page = b['url'] + '.html';
+        };
+      };
+    };
 
-  $('.content').load(page, function(response, status, xhr)
-  {
-    if (response.match(/\<base href=\"\/\"\>/))
+    if (url == '') page = 'main.html';
+
+    if (!page)
     {
       loadErrorPage();
 
       return;
     };
 
-    menu.generate.second();
-    
-    loadScripts();
-    
-    parser.init();
-    elements.init();
+    $('.content').load(TEXT_URL + page, function()
+    {
+      if (ajax) history.pushState(null, null, url);
 
-    log('Загрузил страницу: ' + way);
+      menu.generate.second();
+      
+      loadScripts();
+      
+      parser.init();
+      elements.init();
+
+      log('Загрузил страницу: ' + url);
+    });
   });
 };
 
