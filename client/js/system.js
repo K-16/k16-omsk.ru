@@ -81,6 +81,11 @@ function loadErrorPage()
   {    
     parser.convertLinks();
 
+    $('.menu .item').each(function()
+    {
+      $(this).removeClass('active')
+    });
+
     $('title').text('Ошибка | ' + config['siteName']);
 
     log('Загрузил страницу с ошибкой :(');
@@ -89,24 +94,21 @@ function loadErrorPage()
 
 function loadScripts()
 {
-  var scripts;
+  var m = menu.get();
 
-  switch (getCurrentPage())
+  m.success(function(a)
   {
-    case 'news':
-      scripts = ['pages/news'];
-      break;
-    case 'contacts':
-      scripts = ['pages/map', 'pages/widgets'];
-      break;
-    case 'photo':
-      $('.content').append(compileText(templates['css'], {'src': 'lib/fotorama-4.4.9.css'}))
-      scripts = ['lib/fotorama-4.4.9', 'pages/gallery'];
-      break;
-  };
+    for (var i in a.items)
+    {
+      var b = a.items[i];
 
-  for (var i in scripts) 
-  {
-    $.getScript(JS_URL + scripts[i] + '.js');
-  };
+      if (b['url'] == getCurrentPage().split('/')[0] && b['scripts'])
+      {
+        for (var n in b['scripts'])
+        {
+          $.getScript(JS_URL + b['scripts'][n]);
+        };
+      };
+    };
+  });
 };

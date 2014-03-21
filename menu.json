@@ -7,7 +7,8 @@
     },
     {
       "name": "Новости",
-      "url": "news"
+      "url": "news",
+      "scripts": ["pages/news.js"]
     },
     {
       "name": "История",
@@ -80,11 +81,13 @@
     },
     {
       "name": "Контакты",
-      "url": "contacts"
+      "url": "contacts",
+      "scripts": ["pages/map.js", "pages/widgets.js"]
     },
     {
       "name": "Фото",
-      "url": "photo"
+      "url": "photo",
+      "scripts": ["lib/fotorama-4.4.9.js", "pages/gallery.js"]
     }
   ]
 }
