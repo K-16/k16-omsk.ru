@@ -44,7 +44,7 @@ var parser =
     });
   },
 
-  tag: function()
+  tags: function()
   {
     $('code.tag').each(function()
     {
@@ -151,7 +151,7 @@ var parser =
   {
     this.createAuthor();
     this.quotes();
-    this.tag();
+    this.tags();
     this.setBoxEmbedWidth();
     this.convertLinks();
     this.setMenuItemActive();
