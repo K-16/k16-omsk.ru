@@ -40,7 +40,7 @@ var gallery =
 
       for (var i in albums)
       {
-        key = albums[i][1].split(' | ')[sortAlbumMethod(method)];
+        key = albums[i][1].split(' | ')[gallery.albums.sortMethod(method)];
 
         if (albums[i][1].match(/\|/)) keys.push(key);
       };
@@ -55,7 +55,7 @@ var gallery =
 
         for (var b in albums)
         {
-          key = albums[b][1].split(' | ')[sortAlbumMethod(method)];
+          key = albums[b][1].split(' | ')[gallery.albums.sortMethod(method)];
 
           if (key == keys[a])
           {
@@ -65,6 +65,17 @@ var gallery =
       };
 
       return sorted;
+    },
+
+    sortMethod: function(method)
+    {
+      switch (method)
+      {
+        case 'year':
+          return 1; // я не поленился 2-а раза написать 'return'
+        case 'name':
+          return 0; // и тут тоже
+      };
     },
 
     show: function(method)
@@ -87,7 +98,7 @@ var gallery =
           $('.tabs figure div:last').append(compileText(templates['galleryAlbumLink'],
           {
             'id': albums[a][b][0],
-            'title': albums[a][b][1].split(' | ')[(sortAlbumMethod(method) == 1) ? 0 : 1],
+            'title': albums[a][b][1].split(' | ')[(gallery.albums.sortMethod(method) == 1) ? 0 : 1],
             'fullTitle': albums[a][b][1],
             'img': albums[a][b][2]
           }));
@@ -152,17 +163,6 @@ var gallery =
 
     log('Закрыл галерею');
   },
-};
-
-function sortAlbumMethod(method)
-{
-  switch (method)
-  {
-    case 'year':
-      return 1; // я не поленился 2-а раза написать 'return'
-    case 'name':
-      return 0; // и тут тоже
-  };
 };
 
 gallery.albums.show('year');
