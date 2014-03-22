@@ -83,7 +83,7 @@
     {
       "name": "Фото",
       "url": "photo",
-      "scripts": ["lib/fotorama-4.4.9.js", "pages/gallery.js"]
+      "scripts": ["pages/gallery.js"]
     }
   ]
 }

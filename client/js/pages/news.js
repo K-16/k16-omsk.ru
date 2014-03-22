@@ -25,7 +25,8 @@ var news =
                    j['text'],
                    j['likes']['count'],
                    j['reposts']['count'],
-                   j['comments']['count']]);
+                   j['comments']['count'],
+                   j['attachments']]);
     };
 
     return result;
@@ -54,11 +55,14 @@ var news =
         'likes': n[i][3],
         'reposts': n[i][4],
         'comments': n[i][5],
-        'text': parser.newsText(n[i][2])
+        'text': parser.newsText(n[i][2]),
+        'attachments': news.getAttachments(n[i][6])
       }));
     };
 
     $('#news').append(result);
+
+    $('.photo').fotorama({'height': '70%'});
 
     news.showAuthors(authors);
 
@@ -83,6 +87,24 @@ var news =
         $('#news #' + i).append(author);
       };
     };
+  },
+
+  getAttachments: function(attachments)
+  {
+    var result = [];
+
+    for (var i in attachments)
+    {
+      var a = attachments[i];
+
+      switch (a['type'])
+      {
+        case 'photo':
+          result.push('<img src="' + a['photo']['src_big'] + '">');
+      };
+    };
+
+    return result;
   }
 };
 

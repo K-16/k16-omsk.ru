@@ -18,6 +18,7 @@ var templates =
 {
   'news': '<article>\
              {{{text}}}\
+             <div class="photo">{{{attachments}}}</div>\
              <div class="info">\
                <time><i class="icon date"></i> {{day}}.{{month}}.{{year}}</time>\
                <address id="{{id}}"><i class="icon author"></i> </address>\

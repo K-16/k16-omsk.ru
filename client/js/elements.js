@@ -45,10 +45,10 @@ var elements =
   {
     var speed = 'fast';
 
-    $('#news > article > div').hide();
+    $('#news > article > .info').hide();
 
-    $('#news > article').mouseenter(function() {$(this).children('div').slideDown(speed).show(speed)});
-    $('#news > article').mouseleave(function() {$(this).children('div').slideUp(speed).hide(speed)});
+    $('#news > article').mouseenter(function() {$(this).children('.info').slideDown(speed).show(speed)});
+    $('#news > article').mouseleave(function() {$(this).children('.info').slideUp(speed).hide(speed)});
   },
 
   init: function()
