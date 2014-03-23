@@ -60,14 +60,9 @@
 
 .fotorama__thumb-border 
 {
-  border-color: #4682b4;
+  border-color: @COLOR_BLUE;
   background-image: none;
   background: rgba(256, 256, 256, 0.35);
-};
-
-.fotorama__thumb-border
-{
-  border-color: @COLOR_BLUE;
 };
 
 .control
@@ -84,17 +79,20 @@
   text-align: center;
   .transition(@TRANSITION_SPEED);
 
-  &:hover
-  {
-    .resize(1.05);
-  };
-
   img
   {
     display: block;
     width: 125px;
     height: 125px;
     margin-bottom: 5px;
-    .border-radius(100px);
+    .border-radius(100%);
+    .transition(0.5s);
+    background-size: 300% 300% !important;
+    background-position: center !important;
+
+    &:hover
+    {
+      background-size: 100% 100% !important;
+    };
   };
 };

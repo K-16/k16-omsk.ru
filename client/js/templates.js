@@ -34,7 +34,7 @@ var templates =
               <div class="gallery photo"></div>',
 
   'galleryAlbumLink': '<a class="albumLink" onclick="gallery.photos.showByAlbum({\'id\': {{id}}, \'title\': \'{{fullTitle}}\' });">\
-                         <img src="{{img}}">\
+                         <img style="background: url({{img}});">\
                          {{title}}\
                        </a>',
 

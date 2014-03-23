@@ -12,7 +12,7 @@ var gallery =
 
       var result = [];
 
-      var request = 'photos.getAlbums?owner_id=' + config['groupId'] + '&need_covers=' + covers + '&offset=' + offset + '&count=' + count;
+      var request = 'photos.getAlbums?owner_id=' + config['groupId'] + '&need_covers=' + covers + '&photo_sizes=' + covers + '&offset=' + offset + '&count=' + count;
 
       ajaxVK(request, false);
 
@@ -24,7 +24,7 @@ var gallery =
 
         result.push([j['aid'],
                      j['title'],
-                     j['thumb_src']]);
+                     j['sizes'][2]['src']]);
       };
 
       return result;
