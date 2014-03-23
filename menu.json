@@ -15,7 +15,7 @@
       "url": "history"
     },
     {
-      "name": "Учёба",
+      "name": "Учеба",
       "url": "education",
       "menu":
       [
@@ -49,10 +49,6 @@
         {
           "name": "Ночной Сбор",
           "url": "night"
-        },
-        {
-          "name": "Согра",
-          "url": "sogra"
         }
       ]
     },
