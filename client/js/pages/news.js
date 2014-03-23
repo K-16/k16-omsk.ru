@@ -76,7 +76,7 @@ var news =
     {
       if (authors[i] == 1)
       {
-        $('#news #' + i).append(config['defaultAdmin']);
+        $('article#' + i + ' address').append(config['defaultAdmin']);
       }
       else
       {
@@ -84,7 +84,7 @@ var news =
 
         if (author == 'Libli Kun') author = 'Катя Крылова';
 
-        $('#news #' + i).append(author);
+        $('article#' + i + ' address').append(author);
       };
     };
   },

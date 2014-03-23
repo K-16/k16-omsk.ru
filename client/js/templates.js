@@ -16,12 +16,12 @@
 
 var templates =
 {
-  'news': '<article>\
+  'news': '<article id="{{id}}">\
              {{{text}}}\
              <div class="photo">{{{attachments}}}</div>\
              <div class="info">\
                <time><i class="icon date"></i> {{day}}.{{month}}.{{year}}</time>\
-               <address id="{{id}}"><i class="icon author"></i> </address>\
+               <address><i class="icon author"></i> </address>\
                <span><i class="icon like"></i> {{likes}}</span>\
                <span><i class="icon repost"></i> {{reposts}}</span>\
                <span><i class="icon comment"></i> {{comments}}</span>\
