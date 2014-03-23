@@ -58,10 +58,6 @@
       "menu":
       [
         {
-          "name": "Дети",
-          "url": "children"
-        },
-        {
           "name": "Выпускники",
           "url": "graduates"
         },
