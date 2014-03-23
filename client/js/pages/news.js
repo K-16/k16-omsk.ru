@@ -12,7 +12,7 @@ var news =
 
     var request = 'wall.get?owner_id=' + config['groupId'] + '&filter=' + filter + '&offset=' + offset + '&count=' + count;
 
-    ajaxVK(request, true);
+    ajaxVK(request, false);
 
     var json = JSON.parse(localStorage.getItem(request));
 
@@ -36,13 +36,10 @@ var news =
   {
     var n = news.get(),
         time,
-        result = []
-        authors = [];
+        result = [];
 
     for (var i in n)
     {
-      authors.push((n[i][0]) ? n[i][0] : 1);
-
       time = new Date(n[i][1]);
       time.setTime(n[i][1] * 1000);
 
@@ -56,7 +53,8 @@ var news =
         'reposts': n[i][4],
         'comments': n[i][5],
         'text': parser.newsText(n[i][2]),
-        'attachments': news.getAttachments(n[i][6])
+        'attachments': news.getAttachments(n[i][6]),
+        'authorID': (n[i][0]) ? n[i][0] : 1
       }));
     };
 
@@ -64,29 +62,54 @@ var news =
 
     $('.photo').fotorama({'height': '70%'});
 
-    news.showAuthors(authors);
-
     elements.newsInfo();
     parser.convertLinks();
   },
 
-  showAuthors: function(authors)
+  showAuthors: function()
   {
-    for (var i in authors) 
+    var ids = [],
+        names = [];
+
+    $('article address span').each(function()
     {
-      if (authors[i] == 1)
-      {
-        $('article#' + i + ' address').append(config['defaultAdmin']);
-      }
-      else
-      {
-        author = getVKName(authors[i]);
+      ids.push($(this).text());
+    });
 
-        if (author == 'Libli Kun') author = 'Катя Крылова';
+    ids = unique(ids);
 
-        $('article#' + i + ' address').append(author);
+    var request = 'users.get?user_ids=' + ids.toString();
+    ajaxVK(request, false);
+
+    var json = JSON.parse(localStorage.getItem(request));
+
+    for (var i in json.response)
+    {
+      var j = json.response[i],
+          name = j['first_name'] + ' ' + j['last_name'];
+
+      switch (name)
+      {
+        case 'Libli Kun':
+          name = 'Катя Крылова';
+          break;
+        case 'Павел Дуров':
+          name = config['defaultAdmin'];
+          break;
       };
+
+      names.push([ids[i], name]);
     };
+
+    $('article address span').each(function()
+    {
+      var id = $(this).text();
+
+      for (var i in names)
+      {
+        if (names[i][0] == id) $(this).text(names[i][1]);
+      };
+    });
   },
 
   getAttachments: function(attachments)
@@ -109,3 +132,4 @@ var news =
 };
 
 news.show();
+news.showAuthors();
