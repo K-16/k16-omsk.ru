@@ -96,8 +96,8 @@ blockquote
   margin: 30px;
   font-size: 125%;
 
-  &:before,
-  &:after
+  &::before,
+  &::after
   {
     position: absolute;
     font-size: 400%;
@@ -114,6 +114,11 @@ blockquote
   {
     content: '»';
     right: -45px;
+  };
+
+  p
+  {
+    font-size: 100%;
   };
 };
 
