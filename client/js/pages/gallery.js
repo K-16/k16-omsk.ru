@@ -14,7 +14,7 @@ var gallery =
 
       var request = 'photos.getAlbums?owner_id=' + config['groupId'] + '&need_covers=' + covers + '&offset=' + offset + '&count=' + count;
 
-      ajaxVK(request, true);
+      ajaxVK(request, false);
 
       var json = JSON.parse(localStorage.getItem(request));
 

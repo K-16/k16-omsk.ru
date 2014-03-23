@@ -67,13 +67,3 @@ function ajaxVK(request, async)
     }
   });
 };
-
-function getVKName(id)
-{
-  var request = 'users.get?user_ids=' + id;
-  ajaxVK(request, true);
-
-  var json = JSON.parse(localStorage.getItem(request));
-
-  return json.response[0]['first_name'] + ' ' + json.response[0]['last_name']
-};
