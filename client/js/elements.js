@@ -37,8 +37,22 @@ var elements =
 
     $('.menu-2').hide();
 
-    $('h2 > span').mouseenter(function() {$('.menu-2').slideDown(speed).show(speed)});
-    $('.menu-2').mouseleave(function() {$('.menu-2').slideUp(speed).hide(speed)});
+    if ($('.menu-2').html())
+    {
+      $('h2 > span').mouseenter(function()
+      {
+        $('.menu-2').slideDown(speed).show(speed);
+      });
+
+      $('.menu-2').mouseleave(function()
+      {
+        $('.menu-2').slideUp(speed).hide(speed);
+      });
+    }
+    else
+    {
+      return;
+    };
   },
 
   newsInfo: function()
