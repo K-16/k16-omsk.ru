@@ -33,7 +33,7 @@ var templates =
               <div class="gallery close" onclick="gallery.close();">' + config['symbol']['close'] + '</div>\
               <div class="gallery photo"></div>',
 
-  'galleryAlbumLink': '<a class="albumLink" onclick="gallery.photos.showByAlbum({\'id\': {{id}}, \'title\': \'{{fullTitle}}\' });">\
+  'galleryAlbumLink': '<a class="albumLink" onclick="gallery.photos.show({{id}}, \'{{fullTitle}}\');">\
                          <img style="background: url({{img}});">\
                          {{title}}\
                        </a>',

@@ -108,55 +108,58 @@ var gallery =
       $('.tabs').tabs();
     }
   },
+
   photos:
   {
-    showByAlbum: function(parameters)
+    get: function(id)
     {
-      var p = inherit(parameters);
+      var rev = 0;
 
-      var id    = p.id,
-          title = p.title || '',
-          rev   = p.rev   || 0;
+      var request = 'photos.get?owner_id=' + config['groupId'] + '&album_id=' + id + '&rev=' + rev;
 
-      $.ajax(
-      { 
-        url: 'https://api.vk.com/method/photos.get?owner_id=' + config['groupId'] + '&album_id=' + id + '&rev=' + rev, 
-        dataType: 'jsonp',
-        success: function(data)
+      ajaxVK(request, false);
+
+      return JSON.parse(localStorage.getItem(request));
+    },
+
+    show: function(id, title)
+    {
+      var photos = gallery.photos.get(id);
+
+      gallery.close('fast');
+
+      $('body').append(compileText(templates['gallery'],
+      {
+        'title': title
+      }));
+
+      for (var i in photos.response)
+      {
+        var p = photos.response[i];
+
+        var src = p['src_xxbig'];
+        if (!p['src_xxbig'])
         {
-          gallery.close('fast');
-
-          $('body').append(compileText(templates['gallery'],
+          var src = p['src_xbig'];
+          if (!p['src_xbig']) 
           {
-            'title': title
-          }));
-
-          for (var i in data.response)
-          {
-            var src = data.response[i]['src_xxbig']; // есть идеи, как по другому эту проверку реализовать?
-            if (!data.response[i]['src_xxbig'])
+            var src = p['src_big'];
+            if (!p['src_big']) 
             {
-              var src = data.response[i]['src_xbig'];
-              if (!data.response[i]['src_xbig']) 
-              {
-                var src = data.response[i]['src_big'];
-                if (!data.response[i]['src_big']) 
-                {
-                  var src = data.response[i]['src'];
-                };
-              };
+              var src = p['src'];
             };
-
-            $('.gallery.photo').append('<img src="' + src + '">');
           };
+        };
 
-          $('.gallery.photo').fotorama();
+        $('.gallery.photo').append('<img src="' + src + '">');
+      };
 
-          log('Фотографий в album-' + id + ': ' + ++i);
-        }
-      });
+      $('.gallery.photo').fotorama();
+
+      log('Фотографий в album-' + id + ': ' + ++i);
     }
   },
+
   close: function(speed)
   {
     $('.gallery, .fotorama--hidden').fadeOut(speed, function() {$(this).remove()});
@@ -165,4 +168,4 @@ var gallery =
   },
 };
 
-gallery.albums.show('year');
+gallery.albums.show('year'); /////////////// ОБЪЕДИНЕНИЕ ОДИНАКОВЫХ АЛЬБОМОВ | ночной сбор 2010, например
