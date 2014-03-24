@@ -93,12 +93,13 @@ var gallery =
 
         $('.tabs figure').append('<div></div>');
 
-        for (var b in albums[a])
+        for (var b = albums[a].length - 1; b >= 0; b--)
         {
           $('.tabs figure div:last').append(compileText(templates['galleryAlbumLink'],
           {
             'id': albums[a][b][0],
-            'title': albums[a][b][1].split(' | ')[(gallery.albums.sortMethod(method) == 1) ? 0 : 1],
+            'title': albums[a][b][1].split(' | ')[(gallery.albums.sortMethod(method) == 1) ? 0 : 1] +
+                     ((albums[a][b][1].split(' | ')[2]) ? ' | ' + albums[a][b][1].split(' | ')[2] : ''),
             'fullTitle': albums[a][b][1],
             'img': albums[a][b][2]
           }));
