@@ -169,4 +169,4 @@ var gallery =
   },
 };
 
-gallery.albums.show('year'); /////////////// ОБЪЕДИНЕНИЕ ОДИНАКОВЫХ АЛЬБОМОВ | ночной сбор 2010, например
+gallery.albums.show('year');
