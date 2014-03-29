@@ -24,11 +24,4 @@ function compileLess($inputFile, $outputFile)
   }
 }
 
-/* Выводит путь к файлу (клиент) */
-
-function get($file)
-{
-  echo CLIENT_URL.$file;
-}
-
 ?>
