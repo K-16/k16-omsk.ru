@@ -1,0 +1,182 @@
+Роботландский Университет 13/14
+42 Интернет-конструирование
+Турнир "Не тегом единым"
+Команда: 4205
+Руководитель команды: Пономарева Маргарита Михайловна                  
+Город: Омск
+E-mail команды: programmers@rambler.ru
+
+Название проекта: "Проект К-16"
+
+Исполнители:
+Сеня Пугач, программист, обработка графики, кодировщик текста, критик.
+
+Самооценка проекта:
+Автор сайта в течение двух лет занимался по программе Роботландского
+университета.
+А затем научился работать самостоятельно: изучил JavaScript, PHP, Less, Ajax
+и другие технологии. Над этим сайтом начал работать с 2012 года.
+В кружке пропагандировал идею минимализма: новый дизайн сайта сначала казался 
+противоестественным, а теперь мы с ним сроднились и готовы заменить наш
+традиционный старый сайт этим новым.
+Этот проект он разрабатывал с использованием технологии git (системы контроля
+версий).
+Изюминка проекта: новости на сайте, галереи импортируются из нашей группы
+во ВКонтакте. Сайт полностью динамический, все переходы между страницами
+реализованы с использованием Ajax.
+
+Состав приложения
+
+Логическая схема
+
+.htaccess 276 байт
+/client
+  /img
+    /author
+    /fotorama
+      fotorama.png 5080 байт
+      fotorama@2x.png 16299 байт
+    logo.png 3874 байт ...............................................
+  index.html 1916 байт
+  /js
+    config.js 1021 байт
+    constants.js 781 байт
+    debug.js 1023 байт
+    elements.js 1571 байт
+    /lib
+      fotorama-4.4.9.js 36628 байт
+      handlebars-v1.3.0.js 92413 байт
+      jquery-2-0-3-min.js 83575 байт
+      jquery-tabs.js 597 байт
+    menu.js 2304 байт
+    /pages
+      gallery.js 4108 байт
+      map.js 1529 байт
+      news.js 2932 байт
+      widgets.js 182 байт
+    parsers.js 4040 байт
+    start.js 247 байт
+    system.js 2134 байт
+    templates.js 2401 байт
+    tools.js 1810 байт
+  /style
+    /css
+      /lib
+        fotorama-4.4.9.css 14574 байт
+    /less
+      constants.less 610 байт
+      /elements
+        icons.less 5124 байт
+        objects.less 1136 байт
+        tags.less 3666 байт
+        tools.less 138 байт
+      main.less 310 байт
+      /markup
+        base.less 842 байт
+        menu.less 1746 байт
+        /pages
+          error.less 223 байт
+          gallery.less 1526 байт
+          map.less 323 байт
+          news.less 453 байт
+          widgets.less 167 байт
+      mixins.less 1718 байт
+  /txt
+    /activity
+      activity.html 864 байт
+      beginner.html 2698 байт
+      dedication.html 4611 байт
+      night.html 4234 байт
+    contacts.html 1909 байт
+    /education
+      education.html 3358 байт
+      program.html 4254 байт
+    error.html 287 байт
+    history.html 9755 байт
+    main.html 2748 байт
+    news.html 55 байт
+    /people
+      graduates.html 10370 байт
+      parents.html 4096 байт
+      people.html 3731 байт
+    photo.html 302 байт
+index.php 425 байт
+menu.json 1573 байт
+/server
+  ajaxVK.php 162 байт
+  /lib
+    lessc.inc.php 95495 байт
+  system.php 202 байт
+  tools.php 598 байт
+
+---------------------------
+
+Инварианты
+
+index.php                                 425 байт
+  client/index.html                       1916 байт
+    client/style/css/compiled.css         (генерируется динамически)
+    client/js/lib/jquery-2-0-3-min.js     83575 байт
+    client/js/lib/jquery-tabs.js          567 байт
+    client/js/lib/handlebars-v1.3.0.js    92413 байт
+    client/js/lib/fotorama-4.4.9.js       36628 байт
+    //vk.com/js/api/openapi.js            63896 байт
+    client/js/constants.js                781 байт
+    client/js/config.js                   1021 байт
+    client/js/tools.js                    1810 байт
+      server/ajaxVK.php                   162 байт
+    client/js/debug.js                    1023 байт
+    client/js/parsers.js                  4040 байт
+    client/js/menu.js                     2304 байт
+      menu.json                           1573 байт
+    client/js/system.js                   2134 байт
+    client/js/start.js                    247 байт
+    client/js/elements.js                 1571 байт
+                                          ---------
+                                          296868 байт
+
+Главная
+  client/txt/main.html                    2748 байт
+Новости
+  client/txt/news.html                    55 байт
+  client/js/pages/news.js                 2932 байт
+История
+  client/txt/history.html                 9755 байт
+Учёба
+  client/txt/education/education.html     3358 байт
+
+  Программа
+    client/txt/education/program.html     4254 байт
+Мероприятия
+  client/txt/activity/activity.html       864 байт
+
+  День Новичка
+    client/txt/activity/beginner.html     2698 байт
+  Посвящение
+    client/txt/activity/dedication.html   4611 байт
+  Ночной Сбор
+    client/txt/activity/night.html        4234 байт
+Люди
+  client/txt/people/people.html           3731 байт
+
+  Выпускники
+    client/txt/people/graduates.html      10370 байт
+  Родители
+    client/txt/people/parents.html        4096 байт
+Контакты
+  client/txt/contacts.html                1909 байт
+  client/js/pages/map.js                  1529 байт
+  client/js/pages/widgets.js              182 байт
+Фото
+  client/txt/photo.html                   302 байт
+  client/js/pages/gallery.js              4108 байт
+                                          ----------
+                                          61736 байт
+
+Назначение приложения и предполагаемый круг читателей приложения:
+Сайт создан для обучающихся в творческой лаборатории "Проект К-16", родителей 
+и выпускников.
+
+Как создавалась эта работа и особенности ее дизайна:
+дизайн подчинен идее минимализма. Проект создавался самостоятельно. Благодаря 
+этой работе автор хорошо изучил JavaScript, PHP.
