@@ -10,7 +10,8 @@ var news =
 
     var result = [];
 
-    var request = 'wall.get?owner_id=' + config['vk']['groupId'] + '&filter=' + filter + '&offset=' + offset + '&count=' + count;
+    var request = 'wall.get?owner_id=' + config['vk']['groupId'] + '&filter=' +
+                  filter + '&offset=' + offset + '&count=' + count;
 
     ajaxVK(request, false);
 

@@ -25,11 +25,18 @@ var parser =
 
       if (img) 
       {
-        result = compileText(templates['quoteAuthorWithImg'], {'author': author, 'img': img});
+        result = compileText(templates['quoteAuthorWithImg'],
+        {
+          'author': author,
+          'img': img
+        });
       } 
       else
       {
-        result = compileText(templates['quoteAuthorWithoutImg'], {'author': author});
+        result = compileText(templates['quoteAuthorWithoutImg'],
+        {
+          'author': author
+        });
       };
 
       $(this).after(result);
@@ -69,7 +76,8 @@ var parser =
 
       if (link && !link.match(regExp['externalLink'])) 
       {
-        $(this).removeAttr('href').attr('onclick', 'nav(\'' + link.substr(template) + '\');');
+        $(this).removeAttr('href')
+               .attr('onclick', 'nav(\'' + link.substr(template) + '\');');
       }
       else if (!$(this).attr('onclick'))
       {
@@ -93,14 +101,12 @@ var parser =
         link = link.match(regExp['funcNavValue'])
                    .toString()
                    .substr(1)
-                   .substring(-1, link.length - 8); // 8? Почему 8?  
+                   .substring(-1, link.length - 8);
       };
 
       if (link == getCurrentPage().split('/')[0])
       {
         $(this).addClass('active');
-
-        log('Пункт меню \'' + link + '\' активирован');
       }
       else
       {
@@ -136,8 +142,6 @@ var parser =
       };
 
       $('title').text(name + ' | ' + config['siteName']);
-
-      log('Заменил <title> страницы на ' + name);
     });
   },
 
@@ -156,7 +160,5 @@ var parser =
     this.convertLinks();
     this.setMenuItemActive();
     this.setTitle();
-
-    log('Парсеры инициализированы');
   }
 };

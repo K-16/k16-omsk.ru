@@ -175,14 +175,14 @@ td
 
 ol, ul
 {
-  counter-reset: li;       /* Новые маркеры */
-  list-style: none;        /* Удаляем старые маркеры */
+  counter-reset: li;
+  list-style: none;
   padding: 0;
 };
 
 ul
 {
-  counter-reset: none;      /* Новые маркеры */
+  counter-reset: none;
 };
 
 ol ol,
@@ -203,7 +203,7 @@ li
   font-size: 100%;
 };
 
-ol li:before                /* Счетчик */
+ol li:before
 {
   content: counter(li);
   counter-increment: li;

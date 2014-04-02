@@ -69,8 +69,6 @@ function loadPage(url, ajax)
       
       parser.init();
       elements.init();
-
-      log('Загрузил страницу: ' + url);
     });
   });
 };
@@ -87,8 +85,6 @@ function loadErrorPage()
     });
 
     $('title').text('Ошибка | ' + config['siteName']);
-
-    log('Загрузил страницу с ошибкой :(');
   });
 };
 

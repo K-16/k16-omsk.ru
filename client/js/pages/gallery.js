@@ -12,7 +12,9 @@ var gallery =
 
       var result = [];
 
-      var request = 'photos.getAlbums?owner_id=' + config['vk']['groupId'] + '&need_covers=' + covers + '&photo_sizes=' + covers + '&offset=' + offset + '&count=' + count;
+      var request = 'photos.getAlbums?owner_id=' + config['vk']['groupId'] +
+                    '&need_covers=' + covers + '&photo_sizes=' + covers +
+                    '&offset=' + offset + '&count=' + count;
 
       ajaxVK(request, false);
 
@@ -72,9 +74,9 @@ var gallery =
       switch (method)
       {
         case 'year':
-          return 1; // я не поленился 2-а раза написать 'return'
+          return 1;
         case 'name':
-          return 0; // и тут тоже
+          return 0;
       };
     },
 
@@ -98,8 +100,10 @@ var gallery =
           $('.tabs figure div:last').append(compileText(templates['galleryAlbumLink'],
           {
             'id': albums[a][b][0],
-            'title': albums[a][b][1].split(' | ')[(gallery.albums.sortMethod(method) == 1) ? 0 : 1] +
-                     ((albums[a][b][1].split(' | ')[2]) ? ' | ' + albums[a][b][1].split(' | ')[2] : ''),
+            'title': albums[a][b][1].split(' | ')
+                     [(gallery.albums.sortMethod(method) == 1) ? 0 : 1] +
+                     ((albums[a][b][1].split(' | ')[2]) ? ' | ' +
+                     albums[a][b][1].split(' | ')[2] : ''),
             'fullTitle': albums[a][b][1],
             'img': albums[a][b][2]
           }));
@@ -116,7 +120,8 @@ var gallery =
     {
       var rev = 0;
 
-      var request = 'photos.get?owner_id=' + config['vk']['groupId'] + '&album_id=' + id + '&rev=' + rev + '&photo_sizes=1';
+      var request = 'photos.get?owner_id=' + config['vk']['groupId'] +
+                    '&album_id=' + id + '&rev=' + rev + '&photo_sizes=1';
 
       ajaxVK(request, false);
 
@@ -151,16 +156,15 @@ var gallery =
       };
 
       $('.gallery.photo').fotorama();
-
-      log('Фотографий в album-' + id + ': ' + ++i);
     }
   },
 
   close: function(speed)
   {
-    $('.gallery, .fotorama--hidden').fadeOut(speed, function() {$(this).remove()});
-
-    log('Закрыл галерею');
+    $('.gallery, .fotorama--hidden').fadeOut(speed, function()
+    {
+      $(this).remove();
+    });
   },
 };
 

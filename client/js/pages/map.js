@@ -44,8 +44,9 @@ function mapInit()
   {
     info.open(map, marker);
   });
-
-  log('Загрузил карту с такими координатами (x, y): ' + config['map']['x'] + ', ' + config['map']['y']);
 };
 
-$('#map').append(compileText(templates['script'], {'src': 'https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=true&callback=mapInit'}));
+$('#map').append(compileText(templates['script'],
+{
+  'src': 'https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=true&callback=mapInit'
+}));

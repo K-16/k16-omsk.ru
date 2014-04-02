@@ -15,8 +15,8 @@ var regExp =
 {
   'externalLink': /((http|https|mailto):)/i,
   'funcNavValue': /'[a-z]+'/i,
-  'newsVKProfileLink': /\[id(\d+)\|(\W+)\s(\W+)\]/g, /** @example [id000|Name Surname] */
-  'textExternalLink': /((http|https):\/\/[\w\d\/.?=%\-_&;]+)/g // ; — O_o
+  'newsVKProfileLink': /\[id(\d+)\|(\W+)\s(\W+)\]/g,
+  'textExternalLink': /((http|https):\/\/[\w\d\/.?=%\-_&;]+)/g
 };
 
 function compileText(source, data)
@@ -56,7 +56,8 @@ function ajaxVK(request, async)
   $.ajax(
   {
     async: async,
-    url: SERVER_URL + 'ajaxVK.php?request=' + encodeURIComponent(request + '&v=' + config['vk']['apiVersion']),
+    url: SERVER_URL + 'ajaxVK.php?request=' +
+         encodeURIComponent(request + '&v=' + config['vk']['apiVersion']),
     dataType: 'json',
     success: function(data)
     {

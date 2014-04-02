@@ -30,10 +30,11 @@ var templates =
 
   'gallery': '<div class="gallery background"></div>\
               <div class="gallery title">{{title}}</div>\
-              <div class="gallery close" onclick="gallery.close();">' + config['symbol']['close'] + '</div>\
+              <div class="gallery close" onclick="gallery.close();">' +
+              config['symbol']['close'] + '</div>\
               <div class="gallery photo"></div>',
 
-  'galleryAlbumLink': '<a class="albumLink" onclick="gallery.photos.show({{id}}, \'{{fullTitle}}\');">\
+  'galleryAlbumLink': '<a class="albumLink" onclick="gallery.photos.show({{id}},\'{{fullTitle}}\');">\
                          <img style="background: url({{img}});">\
                          {{title}}\
                        </a>',
@@ -41,9 +42,11 @@ var templates =
   'firstMenuPart': '<a class="item" href="/{{url}}">{{name}}</a>',
   'secondMenuPart': '<a class="item-2" href="/{{parent}}/{{url}}">{{name}}</a>',
 
-  'secondMenuContainer': ' ' + config['symbol']['arrow'] + ' <span>......</span> <nav class="menu-2"></nav>',
+  'secondMenuContainer': ' ' + config['symbol']['arrow'] +
+                         ' <span>......</span> <nav class="menu-2"></nav>',
 
-  'quoteAuthorWithImg': '<em class="quoteAuthor italic"><span>{{author}}</span><img src="' + IMG_URL + 'author/{{img}}.png"></em>',
+  'quoteAuthorWithImg': '<em class="quoteAuthor italic"><span>{{author}}</span>\
+                        <img src="' + IMG_URL + 'author/{{img}}.png"></em>',
   'quoteAuthorWithoutImg': '<em class="quoteAuthor italic">{{author}}</em>',
 
   'script': '<script type="text/javascript" src={{src}}></script>',
