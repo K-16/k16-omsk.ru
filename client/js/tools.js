@@ -56,14 +56,34 @@ function ajaxVK(request, async)
   $.ajax(
   {
     async: async,
-    url: SERVER_URL + 'ajaxVK.php?request=' + encodeURIComponent(request),
+    url: SERVER_URL + 'ajaxVK.php?request=' + encodeURIComponent(request + '&v=' + config['vk']['apiVersion']),
     dataType: 'json',
     success: function(data)
     {
-      if (localStorage.getItem(request) == data) return;
-      if (localStorage.getItem(request) != data && localStorage.getItem(request) != null) localStorage.removeItem(request);
-
       localStorage.setItem(request, JSON.stringify(data));
     }
   });
+};
+
+
+function checkFotoSize(photo)
+{
+  var src = photo['photo_2560'];
+
+  if (!photo['photo_2560'])
+  {
+    var src = photo['photo_1280'];
+
+    if (!photo['photo_1280'])
+    {
+      var src = photo['photo_807'];
+
+      if (photo['photo_807'])
+      {
+        var src = photo['photo_604'];
+      };
+    };
+  };
+
+  return src;
 };

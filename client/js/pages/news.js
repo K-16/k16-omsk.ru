@@ -10,15 +10,15 @@ var news =
 
     var result = [];
 
-    var request = 'wall.get?owner_id=' + config['groupId'] + '&filter=' + filter + '&offset=' + offset + '&count=' + count;
+    var request = 'wall.get?owner_id=' + config['vk']['groupId'] + '&filter=' + filter + '&offset=' + offset + '&count=' + count;
 
     ajaxVK(request, false);
 
     var json = JSON.parse(localStorage.getItem(request));
 
-    for (var i = 1; i <= json.response.length - 1; i++)
+    for (var i in json.response.items)
     {
-      var j = json.response[i];
+      var j = json.response.items[i];
 
       result.push([j['signer_id'],
                    j['date'],
@@ -123,7 +123,7 @@ var news =
       switch (a['type'])
       {
         case 'photo':
-          result.push('<img src="' + a['photo']['src_big'] + '">');
+          result.push('<img src="' + checkFotoSize(a['photo']) + '">');
       };
     };
 

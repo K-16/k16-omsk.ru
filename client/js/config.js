@@ -8,8 +8,14 @@
 
 var config = 
 {
-  'siteName': 'К16',
-  'groupId': '-1088622',
+  'siteName': 'К-16',
+
+  'vk':
+  {
+    'groupId': '-1088622',
+    'apiVersion': '5.7'
+  },
+
   'defaultAdmin': 'Админ',
   
   'symbol':

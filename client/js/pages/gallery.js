@@ -12,17 +12,17 @@ var gallery =
 
       var result = [];
 
-      var request = 'photos.getAlbums?owner_id=' + config['groupId'] + '&need_covers=' + covers + '&photo_sizes=' + covers + '&offset=' + offset + '&count=' + count;
+      var request = 'photos.getAlbums?owner_id=' + config['vk']['groupId'] + '&need_covers=' + covers + '&photo_sizes=' + covers + '&offset=' + offset + '&count=' + count;
 
       ajaxVK(request, false);
 
       var json = JSON.parse(localStorage.getItem(request));
 
-      for (var i in json.response)
+      for (var i in json.response.items)
       {
-        var j = json.response[i];
+        var j = json.response.items[i];
 
-        result.push([j['aid'],
+        result.push([j['id'],
                      j['title'],
                      j['sizes'][2]['src']]);
       };
@@ -116,7 +116,7 @@ var gallery =
     {
       var rev = 0;
 
-      var request = 'photos.get?owner_id=' + config['groupId'] + '&album_id=' + id + '&rev=' + rev;
+      var request = 'photos.get?owner_id=' + config['vk']['groupId'] + '&album_id=' + id + '&rev=' + rev + '&photo_sizes=1';
 
       ajaxVK(request, false);
 
@@ -134,22 +134,17 @@ var gallery =
         'title': title
       }));
 
-      for (var i in photos.response)
+      for (var i in photos.response.items)
       {
-        var p = photos.response[i];
+        var p = photos.response.items[i];
 
-        var src = p['src_xxbig'];
-        if (!p['src_xxbig'])
+        var x = 0,
+            y = 0;
+
+        for (var a in p['sizes'])
         {
-          var src = p['src_xbig'];
-          if (!p['src_xbig']) 
-          {
-            var src = p['src_big'];
-            if (!p['src_big']) 
-            {
-              var src = p['src'];
-            };
-          };
+          if (x >= p['sizes'][a]['width'] && y >= p['sizes'][a]['height'])
+            var src = p['sizes'][a]['src'];
         };
 
         $('.gallery.photo').append('<img src="' + src + '">');
