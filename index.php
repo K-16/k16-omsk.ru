@@ -12,6 +12,6 @@ require_once './server/system.php';
 require_once SERVER_URL.'lib/lessc.inc.php';
 compileLess(CLIENT_URL.'style/less/main.less', CLIENT_URL.'style/css/compiled.css');
 
-include CLIENT_URL.'index.html';
+include CLIENT_URL.'index.htm';
 
 ?>

@@ -34,23 +34,23 @@ function loadPage(url, ajax)
             {
               if (b['menu'][n]['url'] == url.split('/')[1])
               {
-                page = b['url'] + '/' + b['menu'][n]['url'] + '.html';
+                page = b['url'] + '/' + b['menu'][n]['url'] + '.htm';
               };
             };
           }
           else
           {
-            page = b['url'] + '/' + b['url'] + '.html';
+            page = b['url'] + '/' + b['url'] + '.htm';
           };
         }
         else if (!url.split('/')[1])
         {
-          page = b['url'] + '.html';
+          page = b['url'] + '.htm';
         };
       };
     };
 
-    if (url == '') page = 'main.html';
+    if (url == '') page = 'main.htm';
 
     if (!page)
     {
@@ -75,7 +75,7 @@ function loadPage(url, ajax)
 
 function loadErrorPage()
 {
-  $('.content').load(TEXT_URL + 'error.html', function()
+  $('.content').load(TEXT_URL + 'error.htm', function()
   {    
     parser.convertLinks();
 

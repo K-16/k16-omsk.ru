@@ -38,7 +38,7 @@ E-mail команды: programmers@rambler.ru
       fotorama.png 5080 байт
       fotorama@2x.png 16299 байт
     logo.png 3874 байт ...............................................
-  index.html 1916 байт
+  index.htm 1916 байт
   /js
     config.js 1021 байт
     constants.js 781 байт
@@ -84,23 +84,23 @@ E-mail команды: programmers@rambler.ru
       mixins.less 1718 байт
   /txt
     /activity
-      activity.html 864 байт
-      beginner.html 2698 байт
-      dedication.html 4611 байт
-      night.html 4234 байт
-    contacts.html 1909 байт
+      activity.htm 864 байт
+      beginner.htm 2698 байт
+      dedication.htm 4611 байт
+      night.htm 4234 байт
+    contacts.htm 1909 байт
     /education
-      education.html 3358 байт
-      program.html 4254 байт
-    error.html 287 байт
-    history.html 9755 байт
-    main.html 2748 байт
-    news.html 55 байт
+      education.htm 3358 байт
+      program.htm 4254 байт
+    error.htm 287 байт
+    history.htm 9755 байт
+    main.htm 2748 байт
+    news.htm 55 байт
     /people
-      graduates.html 10370 байт
-      parents.html 4096 байт
-      people.html 3731 байт
-    photo.html 302 байт
+      graduates.htm 10370 байт
+      parents.htm 4096 байт
+      people.htm 3731 байт
+    photo.htm 302 байт
 index.php 425 байт
 menu.json 1573 байт
 /server
@@ -115,7 +115,7 @@ menu.json 1573 байт
 Инварианты
 
 index.php                                 425 байт
-  client/index.html                       1916 байт
+  client/index.htm                       1916 байт
     client/style/css/compiled.css         (генерируется динамически)
     client/js/lib/jquery-2-0-3-min.js     83575 байт
     client/js/lib/jquery-tabs.js          567 байт
@@ -137,39 +137,39 @@ index.php                                 425 байт
                                           296868 байт
 
 Главная
-  client/txt/main.html                    2748 байт
+  client/txt/main.htm                    2748 байт
 Новости
-  client/txt/news.html                    55 байт
+  client/txt/news.htm                    55 байт
   client/js/pages/news.js                 2932 байт
 История
-  client/txt/history.html                 9755 байт
+  client/txt/history.htm                 9755 байт
 Учёба
-  client/txt/education/education.html     3358 байт
+  client/txt/education/education.htm     3358 байт
 
   Программа
-    client/txt/education/program.html     4254 байт
+    client/txt/education/program.htm     4254 байт
 Мероприятия
-  client/txt/activity/activity.html       864 байт
+  client/txt/activity/activity.htm       864 байт
 
   День Новичка
-    client/txt/activity/beginner.html     2698 байт
+    client/txt/activity/beginner.htm     2698 байт
   Посвящение
-    client/txt/activity/dedication.html   4611 байт
+    client/txt/activity/dedication.htm   4611 байт
   Ночной Сбор
-    client/txt/activity/night.html        4234 байт
+    client/txt/activity/night.htm        4234 байт
 Люди
-  client/txt/people/people.html           3731 байт
+  client/txt/people/people.htm           3731 байт
 
   Выпускники
-    client/txt/people/graduates.html      10370 байт
+    client/txt/people/graduates.htm      10370 байт
   Родители
-    client/txt/people/parents.html        4096 байт
+    client/txt/people/parents.htm        4096 байт
 Контакты
-  client/txt/contacts.html                1909 байт
+  client/txt/contacts.htm                1909 байт
   client/js/pages/map.js                  1529 байт
   client/js/pages/widgets.js              182 байт
 Фото
-  client/txt/photo.html                   302 байт
+  client/txt/photo.htm                   302 байт
   client/js/pages/gallery.js              4108 байт
                                           ----------
                                           61736 байт
