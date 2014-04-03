@@ -37,13 +37,12 @@ E-mail команды: programmers@rambler.ru
     /fotorama
       fotorama.png 5080 байт
       fotorama@2x.png 16299 байт
-    logo.png 3874 байт ...............................................
-  index.htm 1916 байт
+    logo.png 89106 байт
+  index.htm 1540 байт
   /js
-    config.js 1021 байт
+    config.js 1087 байт
     constants.js 781 байт
-    debug.js 1023 байт
-    elements.js 1571 байт
+    elements.js 1548 байт
     /lib
       fotorama-4.4.9.js 36628 байт
       handlebars-v1.3.0.js 92413 байт
@@ -51,15 +50,15 @@ E-mail команды: programmers@rambler.ru
       jquery-tabs.js 597 байт
     menu.js 2304 байт
     /pages
-      gallery.js 4108 байт
-      map.js 1529 байт
-      news.js 2932 байт
-      widgets.js 182 байт
-    parsers.js 4040 байт
-    start.js 247 байт
-    system.js 2134 байт
-    templates.js 2401 байт
-    tools.js 1810 байт
+      gallery.js 3989 байт
+      map.js 1396 байт
+      news.js 2950 байт
+      widgets.js 204 байт
+    parsers.js 3894 байт
+    start.js 188 байт
+    system.js 2000 байт
+    templates.js 2468 байт
+    tools.js 1969 байт
   /style
     /css
       /lib
@@ -69,12 +68,12 @@ E-mail команды: programmers@rambler.ru
       /elements
         icons.less 5124 байт
         objects.less 1136 байт
-        tags.less 3666 байт
+        tags.less 3524 байт
         tools.less 138 байт
       main.less 310 байт
       /markup
         base.less 842 байт
-        menu.less 1746 байт
+        menu.less 1587 байт
         /pages
           error.less 223 байт
           gallery.less 1526 байт
@@ -88,11 +87,11 @@ E-mail команды: programmers@rambler.ru
       beginner.htm 2698 байт
       dedication.htm 4611 байт
       night.htm 4234 байт
-    contacts.htm 1909 байт
+    contacts.htm 1933 байт
     /education
       education.htm 3358 байт
       program.htm 4254 байт
-    error.htm 287 байт
+    error.htm 288 байт
     history.htm 9755 байт
     main.htm 2748 байт
     news.htm 55 байт
@@ -100,9 +99,9 @@ E-mail команды: programmers@rambler.ru
       graduates.htm 10370 байт
       parents.htm 4096 байт
       people.htm 3731 байт
-    photo.htm 302 байт
-index.php 425 байт
-menu.json 1573 байт
+    photo.htm 304 байт
+index.php 424 байт
+menu.json 1385 байт
 /server
   ajaxVK.php 162 байт
   /lib
@@ -115,7 +114,7 @@ menu.json 1573 байт
 Инварианты
 
 index.php                                 425 байт
-  client/index.htm                       1916 байт
+  client/index.htm                        1540 байт
     client/style/css/compiled.css         (генерируется динамически)
     client/js/lib/jquery-2-0-3-min.js     83575 байт
     client/js/lib/jquery-tabs.js          567 байт
@@ -124,55 +123,54 @@ index.php                                 425 байт
     //vk.com/js/api/openapi.js            63896 байт
     client/js/constants.js                781 байт
     client/js/config.js                   1021 байт
-    client/js/tools.js                    1810 байт
+    client/js/tools.js                    1969 байт
       server/ajaxVK.php                   162 байт
-    client/js/debug.js                    1023 байт
-    client/js/parsers.js                  4040 байт
+    client/js/parsers.js                  3894 байт
     client/js/menu.js                     2304 байт
-      menu.json                           1573 байт
-    client/js/system.js                   2134 байт
-    client/js/start.js                    247 байт
-    client/js/elements.js                 1571 байт
+      menu.json                           1385 байт
+    client/js/system.js                   2000 байт
+    client/js/start.js                    188 байт
+    client/js/elements.js                 1548 байт
                                           ---------
-                                          296868 байт
+                                          295078 байт
 
 Главная
-  client/txt/main.htm                    2748 байт
+  client/txt/main.htm                     2748 байт
 Новости
-  client/txt/news.htm                    55 байт
-  client/js/pages/news.js                 2932 байт
+  client/txt/news.htm                     55 байт
+  client/js/pages/news.js                 2950 байт
 История
-  client/txt/history.htm                 9755 байт
+  client/txt/history.htm                  9755 байт
 Учёба
-  client/txt/education/education.htm     3358 байт
+  client/txt/education/education.htm      3358 байт
 
   Программа
-    client/txt/education/program.htm     4254 байт
+    client/txt/education/program.htm      4254 байт
 Мероприятия
-  client/txt/activity/activity.htm       864 байт
+  client/txt/activity/activity.htm        864 байт
 
   День Новичка
-    client/txt/activity/beginner.htm     2698 байт
+    client/txt/activity/beginner.htm      2698 байт
   Посвящение
-    client/txt/activity/dedication.htm   4611 байт
+    client/txt/activity/dedication.htm    4611 байт
   Ночной Сбор
-    client/txt/activity/night.htm        4234 байт
+    client/txt/activity/night.htm         4234 байт
 Люди
-  client/txt/people/people.htm           3731 байт
+  client/txt/people/people.htm            3731 байт
 
   Выпускники
-    client/txt/people/graduates.htm      10370 байт
+    client/txt/people/graduates.htm       10370 байт
   Родители
-    client/txt/people/parents.htm        4096 байт
+    client/txt/people/parents.htm         4096 байт
 Контакты
-  client/txt/contacts.htm                1909 байт
-  client/js/pages/map.js                  1529 байт
-  client/js/pages/widgets.js              182 байт
+  client/txt/contacts.htm                 1933 байт
+  client/js/pages/map.js                  1396 байт
+  client/js/pages/widgets.js              204 байт
 Фото
-  client/txt/photo.htm                   302 байт
-  client/js/pages/gallery.js              4108 байт
+  client/txt/photo.htm                    304 байт
+  client/js/pages/gallery.js              3989 байт
                                           ----------
-                                          61736 байт
+                                          61550 байт
 
 Назначение приложения и предполагаемый круг читателей приложения:
 Сайт создан для обучающихся в творческой лаборатории "Проект К-16", родителей 
