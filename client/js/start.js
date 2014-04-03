@@ -8,10 +8,7 @@
 
 'use strict';
 
-var startTime = (new Date()).getTime(),
-    stopTime;
-
-$(function() 
+$(function()
 {
   menu.generate.first();
   loadPage(getCurrentPage(), false);
