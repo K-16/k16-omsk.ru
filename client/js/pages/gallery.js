@@ -150,6 +150,8 @@ var gallery =
         {
           if (x >= p['sizes'][a]['width'] && y >= p['sizes'][a]['height'])
             var src = p['sizes'][a]['src'];
+          else
+            var src = p['sizes'][2]['src'];
         };
 
         $('.gallery.photo').append('<img src="' + src + '">');
