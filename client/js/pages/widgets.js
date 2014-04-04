@@ -1,11 +1,7 @@
-var width = $('.content').width() / 3;
-
-/* ВК */
-
 VK.Widgets.Group('vk',
 {
   mode: 0,
-  width: width,
+  width: $('.content').width(),
   height: '400',
   color1: 'ffffff',
   color2: '4682b4',

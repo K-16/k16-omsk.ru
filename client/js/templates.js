@@ -46,9 +46,10 @@ var templates =
                          ' <span>......</span> <nav class="menu-2"></nav>',
 
   'quoteAuthorWithImg': '<em class="quoteAuthor italic"><span>{{author}}</span>\
-                        <img src="' + IMG_URL + 'author/{{img}}.png"></em>',
+                         <img src="' + IMG_URL + 'author/{{img}}.png"></em>',
   'quoteAuthorWithoutImg': '<em class="quoteAuthor italic">{{author}}</em>',
 
   'script': '<script type="text/javascript" src={{src}}></script>',
-  'css': '<link href="' + CSS_URL + '{{src}}" rel="stylesheet">',
+
+  'load': '<h3 class="load"><span>Загрузка...</span></h3>'
 };

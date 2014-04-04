@@ -170,4 +170,11 @@ var gallery =
   },
 };
 
-gallery.albums.show('year');
+$('.control').after(templates['load']);
+
+setTimeout(function()
+{
+  $('.load').remove();
+
+  gallery.albums.show('year');
+}, 2);

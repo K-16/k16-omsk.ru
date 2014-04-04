@@ -132,5 +132,12 @@ var news =
   }
 };
 
-news.show();
-news.showAuthors();
+$('#news').append(templates['load']);
+
+setTimeout(function()
+{
+  $('.load').remove();
+
+  news.show();
+  news.showAuthors();
+}, 2);
