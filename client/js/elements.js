@@ -52,6 +52,8 @@ var elements =
     }
     else
     {
+      $('h2 > span').addClass('alone');
+
       return;
     };
   },
