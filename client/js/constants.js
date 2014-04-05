@@ -1,8 +1,8 @@
 /*
  * 
  * constants.js
- * ========
- * Объявление констант.
+ * ============
+ * Объявление констант
  *  - CLIENT_URL. Путь до /client
  *  - TEXT_URL. Путь до /client/txt
  *  - IMG_URL. Путь до /client/img

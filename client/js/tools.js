@@ -7,11 +7,13 @@
  *  - compileText(source, data). Возвращает скомпилированный шаблонизатором текст
  *  - getCurrentPage(). Возвращает текущую страницу
  *  - inherit(p). Системная функция для работы необязательных аргументов
- *  - ajax(request). Возвращает json с полученный от API ВК
+ *  - unique(arr). Возвращает уникальные элементы массива
+ *  - ajaxVK(request, async). Возвращает json полученный при пмомощи ВК API
+ *  - checkFotoSize(photo). Возвращает самый большой размер у фото
  *
 */
 
-var regExp = 
+var regExp =
 {
   'externalLink': /((http|https|mailto):)/i,
   'funcNavValue': /'[a-z]+'/i,

@@ -1,3 +1,12 @@
+/*
+ * 
+ * map.js
+ * ======
+ * Загрузка карты
+ *  - mapInit(). Стандартные параметры карты
+ *
+*/
+
 function mapInit() 
 {
   var mapOptions = 
