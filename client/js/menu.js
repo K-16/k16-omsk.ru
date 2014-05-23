@@ -52,15 +52,11 @@ var menu =
               {
                 $('.content').prepend('<h2>' + a.items[i]['name'] + '</h2>');
                 $('h2').append(templates['secondMenuContainer']);
-
-                parser.setTitle();
               };
 
               if (a.items[i]['url'] + '/' + a.items[i]['menu'][n]['url'] == getCurrentPage())
               {
                 $('h2 > span').text(a.items[i]['menu'][n]['name']);
-
-                parser.setTitle();
               }
               else
               {
@@ -76,11 +72,10 @@ var menu =
           else if (a.items[i]['url'] == getCurrentPage())
           {
             $('.content').prepend('<h2>' + a.items[i]['name'] + '</h2>');
-
-            parser.setTitle();
           };
         };
 
+        parser.setTitle();
         parser.convertLinks();
         elements.secondMenu();
       });

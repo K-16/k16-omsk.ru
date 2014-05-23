@@ -80,7 +80,7 @@ var parser =
 
   setMenuItemActive: function()
   {
-    $('.menu .item').each(function()
+    $('.menu .item, .menu .logo').each(function()
     {
       var link = $(this).attr('onclick');
 
