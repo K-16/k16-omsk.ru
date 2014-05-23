@@ -116,7 +116,7 @@ var gallery =
     {
       var rev = 0;
 
-      var request = 'photos.get?owner_id=' + config['vk']['groupId'] + '&album_id=' + id + '&rev=' + rev + '&photo_sizes=1';
+      var request = 'photos.get?owner_id=' + config['vk']['groupId'] + '&album_id=' + id + '&rev=' + rev;
 
       ajaxVK(request, false);
 
@@ -138,16 +138,13 @@ var gallery =
       {
         var p = photos.response.items[i];
 
-        var x = 0,
-            y = 0;
+        var a = [],
+            r;
 
-        for (var a in p['sizes'])
-        {
-          if (x >= p['sizes'][a]['width'] && y >= p['sizes'][a]['height'])
-            var src = p['sizes'][a]['src'];
-          else
-            var src = p['sizes'][2]['src'];
-        };
+        for (var b in p)
+          if (b.match(/photo_/)) a.push(b.replace(/photo_/, ''));
+
+        var src = p['photo_' + a[a.length - 1]];
 
         $('.gallery.photo').append('<img src="' + src + '">');
       };
