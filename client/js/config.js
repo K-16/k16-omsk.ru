@@ -13,6 +13,7 @@ var config =
   'vk':
   {
     'groupId': '-1088622',
+    'achievementsAlbumId': '194971509',
     'apiVersion': '5.7'
   },
 

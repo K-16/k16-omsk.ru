@@ -12,7 +12,7 @@ var news =
 
     var request = 'wall.get?owner_id=' + config['vk']['groupId'] + '&filter=' + filter + '&offset=' + offset + '&count=' + count;
 
-    ajaxVK(request, false);
+    ajaxVK(request);
 
     var json = JSON.parse(localStorage.getItem(request));
 
@@ -79,7 +79,7 @@ var news =
     ids = unique(ids);
 
     var request = 'users.get?user_ids=' + ids.toString();
-    ajaxVK(request, false);
+    ajaxVK(request);
 
     var json = JSON.parse(localStorage.getItem(request));
 
@@ -106,9 +106,7 @@ var news =
       var id = $(this).text();
 
       for (var i in names)
-      {
         if (names[i][0] == id) $(this).text(names[i][1]);
-      };
     });
   },
 
@@ -123,7 +121,14 @@ var news =
       switch (a['type'])
       {
         case 'photo':
-          result.push('<img src="' + checkFotoSize(a['photo']) + '">');
+          var c = [];
+
+          for (var b in a['photo'])
+            if (b.match(/photo_/)) c.push(b.replace(/photo_/, ''));
+
+          var p = a['photo']['photo_' + c[c.length - 1]];
+          
+          result.push('<img src="' + p + '">');
       };
     };
 

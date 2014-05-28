@@ -14,7 +14,7 @@ var gallery =
 
       var request = 'photos.getAlbums?owner_id=' + config['vk']['groupId'] + '&need_covers=' + covers + '&photo_sizes=' + covers + '&offset=' + offset + '&count=' + count;
 
-      ajaxVK(request, false);
+      ajaxVK(request);
 
       var json = JSON.parse(localStorage.getItem(request));
 
@@ -71,10 +71,10 @@ var gallery =
     {
       switch (method)
       {
-        case 'year':
-          return 1; // я не поленился 2-а раза написать 'return'
         case 'name':
-          return 0; // и тут тоже
+          return 0;
+        case 'year':
+          return 1;
       };
     },
 
@@ -83,7 +83,7 @@ var gallery =
       $('.tabs nav, .tabs figure').empty();
       $('.dotted').removeClass('active');
 
-      $('.dotted:eq(' + ((method == 'year') ? 0 : 1) + ')').addClass('active');
+      $('.dotted:eq(' + ((method == 'year') ? 0 : 1)  + ')').addClass('active'); // костыль ужасный, знаю
 
       var albums = gallery.albums.sort(gallery.albums.get(), method);
 
@@ -118,9 +118,27 @@ var gallery =
 
       var request = 'photos.get?owner_id=' + config['vk']['groupId'] + '&album_id=' + id + '&rev=' + rev;
 
-      ajaxVK(request, false);
+      ajaxVK(request);
 
-      return JSON.parse(localStorage.getItem(request));
+      var json = JSON.parse(localStorage.getItem(request));
+
+      var result = [];
+
+      for (var i in json.response.items)
+      {
+        var j = json.response.items[i];
+
+        var a = [];
+
+        for (var b in j)
+          if (b.match(/photo_/)) a.push(b.replace(/photo_/, ''));
+
+        var src = j['photo_' + a[a.length - 1]];
+
+        result.push(src);
+      };
+
+      return result;
     },
 
     show: function(id, title)
@@ -134,19 +152,9 @@ var gallery =
         'title': title
       }));
 
-      for (var i in photos.response.items)
+      for (var i in photos)
       {
-        var p = photos.response.items[i];
-
-        var a = [],
-            r;
-
-        for (var b in p)
-          if (b.match(/photo_/)) a.push(b.replace(/photo_/, ''));
-
-        var src = p['photo_' + a[a.length - 1]];
-
-        $('.gallery.photo').append('<img src="' + src + '">');
+        $('.gallery.photo').append('<img src="' + photos[i] + '">');
       };
 
       $('.gallery.photo').fotorama();
@@ -160,7 +168,7 @@ var gallery =
     $('.gallery, .fotorama--hidden').fadeOut(speed, function() {$(this).remove()});
 
     log('Закрыл галерею');
-  },
+  }
 };
 
 gallery.albums.show('year');

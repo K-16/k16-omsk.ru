@@ -16,7 +16,8 @@ var regExp =
   'externalLink': /((http|https|mailto):)/i,
   'funcNavValue': /'[a-z]+'/i,
   'newsVKProfileLink': /\[id(\d+)\|(\W+)\s(\W+)\]/g, /** @example [id000|Name Surname] */
-  'textExternalLink': /((http|https):\/\/[\w\d\/.?=%\-_&;]+)/g // ; — O_o
+  'textExternalLink': /((http|https):\/\/[\w\d\/.?=%\-_&;]+)/g, // ; — O_o
+  'achievementsCategory': /\n[\W\w]+/
 };
 
 function compileText(source, data)
@@ -51,7 +52,12 @@ function unique(arr)
   return Object.keys(obj);
 };
 
-function ajaxVK(request, async)
+function random(min, max) 
+{
+  return Math.floor(Math.random() * (max - min + 1)) + min; 
+};
+
+function ajaxVK2(request, async) // В 6-ть утра в голову название функции не лезет ВООБЩЕ
 {
   $.ajax(
   {
@@ -65,25 +71,20 @@ function ajaxVK(request, async)
   });
 };
 
-
-function checkFotoSize(photo)
+function ajaxVK(request)
 {
-  var src = photo['photo_2560'];
-
-  if (!photo['photo_2560'])
+  if (localStorage.getItem(request) === undefined || localStorage.getItem(request) === null)
   {
-    var src = photo['photo_1280'];
+    var speed = 'fast';
 
-    if (!photo['photo_1280'])
-    {
-      var src = photo['photo_807'];
+    ajaxVK2(request, false);
 
-      if (photo['photo_807'])
-      {
-        var src = photo['photo_604'];
-      };
-    };
+    setTimeout(function() { $('.load').slideUp(speed).hide(speed); }, 1000);
+  }
+  else
+  {
+    ajaxVK2(request, true);
+
+    setTimeout(function() { $('.load').slideUp(speed).hide(speed); }, 1000);
   };
-
-  return src;
 };

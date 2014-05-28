@@ -2,16 +2,28 @@
   Достижения
 -->
 
-<p>
-УчебаУчебаУчебаУчебаУчебаУчебаУчебаУчебаУчебаУчебаУчебаУчебаУчебаУчеба
+<script src="../client/js/pages/achievements.js" async></script>
 
-  <blockquote data-author="Александр Александрович Дуванов">
-Надо потихоньку со школы учить тех, кто будет в 
-состоянии писать готовые движки, выбрав соответствующую профессию.
-Ведь изготовление сайта на движке практически не дает настоящего 
-представления об этой профессии.
-<br>
-Если в школе учить только пользоваться программами, и не учить 
-программировать, то как ребятам узнать, что программирование&nbsp;&#151; это их призвание?
-  </blockquote>
-</p>
+<style>
+.tabs figure > div
+{
+  display: block;
+}
+</style>
+
+<div class="control">
+cортировать по
+<a class="dotted" onclick="achievements.category.show('activity');">мероприятию</a> |
+<a class="dotted" onclick="achievements.category.show('year');">годам</a> |
+<a class="dotted" onclick="achievements.category.show('level');">уровню</a>
+</div>
+
+<div class="tabs">
+  <nav></nav>
+  <figure></figure>
+</div>
+
+<div class="load">
+  <div>Загрузка</div>
+  <div></div>
+</div>
