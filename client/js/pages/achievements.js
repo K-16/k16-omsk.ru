@@ -98,7 +98,7 @@ var achievements =
         $('.tabs nav').append('<a onclick="achievements.show(this, ' + img.join(', ') + ');">' + a + '</a>');
       };
 
-      eval($('.tabs nav a:first').attr('onclick')); // Знаю я, бла-бла-бла, eval() — зло и вс такое
+      eval($('.tabs nav a:first').attr('onclick')); // Знаю я, бла-бла-бла, eval() — зло и всё такое
       $('.tabs nav a:first').addClass('active');
     }
   },
