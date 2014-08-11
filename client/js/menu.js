@@ -32,6 +32,11 @@ var menu =
           }));
         };
 
+        $('.menu .item').css('font-size', function() // масштабируем размер текста в меню
+        {
+          return $('.menu .logo').height() / 7;
+        });
+
         parser.convertLinks();
         parser.setMenuItemActive();
       });
