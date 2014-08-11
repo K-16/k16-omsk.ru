@@ -2,5 +2,7 @@
 Thumbs.db
 
 # Продукты компиляции less в css
-compiled.css
-main.less.cache
+compiled.*
+
+# node
+node_modules
