@@ -24,11 +24,19 @@ function compileLess($inputFile, $outputFile)
   }
 }
 
-/* Выводит путь к файлу (клиент) */
-
-function get($file)
+/* Объединение Js */
+/*
+function mergeJs($path, $compiledFile, $extension = 'js')
 {
-  echo CLIENT_URL.$file;
+  foreach (glob($path.'*.'.$extension) as $file)
+  {
+    $updated = file_get_contents($compiledFile);
+    $updated .= file_get_contents($file);
+
+    file_put_contents($compiledFile, $updated);
+  }
 }
 
+mergeJs('../client/js/', '../client/js/compiled.js');
+*/
 ?>

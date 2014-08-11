@@ -18,7 +18,8 @@
     <script src="./client/js/lib/jquery-2-0-3-min.js"></script>
     <script src="./client/js/lib/jquery-tabs.js"></script>
     <script src="./client/js/lib/handlebars-v1.3.0.js"></script>
-    <script src="//vk.com/js/api/openapi.js?105"></script> <!-- Я знаю, что здесь ему делать нечего. Но выхода другого пока не вижу + здесь все библиотеки. -->
+    <script src="./client/js/lib/fotorama-4.4.9.js"></script>
+    <script src="//vk.com/js/api/openapi.js"></script>
 
     <script src="./client/js/constants.js"></script>
     <script src="./client/js/config.js"></script>
@@ -31,6 +32,7 @@
 
     <script src="./client/js/menu.js"></script>
 
+    <script src="./client/js/system.js"></script>
     <script src="./client/js/start.js"></script>
 
     <script src="./client/js/elements.js"></script>
@@ -41,6 +43,11 @@
 .box.extend
 {
   width: calc(100% - 80px);
+}
+
+hr
+{
+  width: calc(100% + 118px);
 }
     </style>
 
@@ -54,10 +61,12 @@
 
     <section class="panel">
       <div class="content"></div>
-
+<!--
       <div class="load">
-<img src="./client/img/load.gif">
+        <div>Загрузка</div>
+        <div></div>
       </div>
+-->
     </section>
 
   </body>

@@ -16,11 +16,12 @@
 
 var templates =
 {
-  'news': '<article>\
+  'news': '<article id="{{id}}">\
              {{{text}}}\
+             <div class="photo">{{{attachments}}}</div>\
              <div class="info">\
                <time><i class="icon date"></i> {{day}}.{{month}}.{{year}}</time>\
-               <address id="{{id}}"><i class="icon author"></i> </address>\
+               <address><i class="icon author"></i> <span>{{authorID}}</span></address>\
                <span><i class="icon like"></i> {{likes}}</span>\
                <span><i class="icon repost"></i> {{reposts}}</span>\
                <span><i class="icon comment"></i> {{comments}}</span>\
@@ -32,8 +33,8 @@ var templates =
               <div class="gallery close" onclick="gallery.close();">' + config['symbol']['close'] + '</div>\
               <div class="gallery photo"></div>',
 
-  'galleryAlbumLink': '<a class="albumLink" onclick="gallery.photos.showByAlbum({\'id\': {{id}}, \'title\': \'{{fullTitle}}\' });">\
-                         <img src="{{img}}">\
+  'galleryAlbumLink': '<a class="albumLink" onclick="gallery.photos.show({{id}}, \'{{fullTitle}}\');">\
+                         <img style="background: url({{img}});">\
                          {{title}}\
                        </a>',
 
@@ -42,8 +43,8 @@ var templates =
 
   'secondMenuContainer': ' ' + config['symbol']['arrow'] + ' <span>......</span> <nav class="menu-2"></nav>',
 
-  'quoteAuthorWithImg': '<em class="author italic"><span>{{author}}</span><img src="' + IMG_URL + 'author/{{img}}.png"></em>',
-  'quoteAuthorWithoutImg': '<em class="author italic">{{author}}</em>',
+  'quoteAuthorWithImg': '<em class="quoteAuthor italic"><span>{{author}}</span><img src="' + IMG_URL + 'author/{{img}}.png"></em>',
+  'quoteAuthorWithoutImg': '<em class="quoteAuthor italic">{{author}}</em>',
 
   'script': '<script type="text/javascript" src={{src}}></script>',
   'css': '<link href="' + CSS_URL + '{{src}}" rel="stylesheet">',

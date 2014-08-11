@@ -12,19 +12,19 @@ var gallery =
 
       var result = [];
 
-      var request = 'photos.getAlbums?owner_id=' + config['groupId'] + '&need_covers=' + covers + '&offset=' + offset + '&count=' + count;
+      var request = 'photos.getAlbums?owner_id=' + config['vk']['groupId'] + '&need_covers=' + covers + '&photo_sizes=' + covers + '&offset=' + offset + '&count=' + count;
 
-      ajaxVK(request, true);
+      ajaxVK(request);
 
       var json = JSON.parse(localStorage.getItem(request));
 
-      for (var i in json.response)
+      for (var i in json.response.items)
       {
-        var j = json.response[i];
+        var j = json.response.items[i];
 
-        result.push([j['aid'],
+        result.push([j['id'],
                      j['title'],
-                     j['thumb_src']]);
+                     j['sizes'][2]['src']]);
       };
 
       return result;
@@ -40,7 +40,7 @@ var gallery =
 
       for (var i in albums)
       {
-        key = albums[i][1].split(' | ')[sortAlbumMethod(method)];
+        key = albums[i][1].split(' | ')[gallery.albums.sortMethod(method)];
 
         if (albums[i][1].match(/\|/)) keys.push(key);
       };
@@ -55,7 +55,7 @@ var gallery =
 
         for (var b in albums)
         {
-          key = albums[b][1].split(' | ')[sortAlbumMethod(method)];
+          key = albums[b][1].split(' | ')[gallery.albums.sortMethod(method)];
 
           if (key == keys[a])
           {
@@ -67,12 +67,23 @@ var gallery =
       return sorted;
     },
 
+    sortMethod: function(method)
+    {
+      switch (method)
+      {
+        case 'name':
+          return 0;
+        case 'year':
+          return 1;
+      };
+    },
+
     show: function(method)
     {
       $('.tabs nav, .tabs figure').empty();
       $('.dotted').removeClass('active');
 
-      $('.dotted:eq(' + ((method == 'year') ? 0 : 1) + ')').addClass('active');
+      $('.dotted:eq(' + ((method == 'year') ? 0 : 1)  + ')').addClass('active'); // костыль ужасный, знаю
 
       var albums = gallery.albums.sort(gallery.albums.get(), method);
 
@@ -82,12 +93,13 @@ var gallery =
 
         $('.tabs figure').append('<div></div>');
 
-        for (var b in albums[a])
+        for (var b = albums[a].length - 1; b >= 0; b--)
         {
           $('.tabs figure div:last').append(compileText(templates['galleryAlbumLink'],
           {
             'id': albums[a][b][0],
-            'title': albums[a][b][1].split(' | ')[(sortAlbumMethod(method) == 1) ? 0 : 1],
+            'title': albums[a][b][1].split(' | ')[(gallery.albums.sortMethod(method) == 1) ? 0 : 1] +
+                     ((albums[a][b][1].split(' | ')[2]) ? ' | ' + albums[a][b][1].split(' | ')[2] : ''),
             'fullTitle': albums[a][b][1],
             'img': albums[a][b][2]
           }));
@@ -97,61 +109,66 @@ var gallery =
       $('.tabs').tabs();
     }
   },
+
   photos:
   {
-    showByAlbum: function(parameters)
+    get: function(id)
     {
-      var p = inherit(parameters);
+      var rev = 0;
 
-      var id    = p.id,
-          title = p.title || '',
-          rev   = p.rev   || 0;
+      var request = 'photos.get?owner_id=' + config['vk']['groupId'] + '&album_id=' + id + '&rev=' + rev;
 
-      $.ajax(
-      { 
-        url: 'https://api.vk.com/method/photos.get?owner_id=' + config['groupId'] + '&album_id=' + id + '&rev=' + rev, 
-        dataType: 'jsonp',
-        success: function(data)
-        {
-          gallery.close('fast');
+      ajaxVK(request);
 
-          $('body').append(compileText(templates['gallery'],
-          {
-            'title': title
-          }));
+      var json = JSON.parse(localStorage.getItem(request));
 
-          for (var i in data.response)
-          {
-            var src = data.response[i]['src_xxbig']; // есть идеи, как по другому эту проверку реализовать?
-            if (!data.response[i]['src_xxbig'])
-            {
-              var src = data.response[i]['src_xbig'];
-              if (!data.response[i]['src_xbig']) 
-              {
-                var src = data.response[i]['src_big'];
-                if (!data.response[i]['src_big']) 
-                {
-                  var src = data.response[i]['src'];
-                };
-              };
-            };
+      var result = [];
 
-            $('.gallery.photo').append('<img src="' + src + '">');
-          };
+      for (var i in json.response.items)
+      {
+        var j = json.response.items[i];
 
-          $('.gallery.photo').fotorama();
+        var a = [];
 
-          log('Фотографий в album-' + id + ': ' + ++i);
-        }
-      });
+        for (var b in j)
+          if (b.match(/photo_/)) a.push(b.replace(/photo_/, ''));
+
+        var src = j['photo_' + a[a.length - 1]];
+
+        result.push(src);
+      };
+
+      return result;
+    },
+
+    show: function(id, title)
+    {
+      var photos = gallery.photos.get(id);
+
+      gallery.close('fast');
+
+      $('body').append(compileText(templates['gallery'],
+      {
+        'title': title
+      }));
+
+      for (var i in photos)
+      {
+        $('.gallery.photo').append('<img src="' + photos[i] + '">');
+      };
+
+      $('.gallery.photo').fotorama();
+
+      log('Фотографий в album-' + id + ': ' + ++i);
     }
   },
+
   close: function(speed)
   {
     $('.gallery, .fotorama--hidden').fadeOut(speed, function() {$(this).remove()});
 
     log('Закрыл галерею');
-  },
+  }
 };
 
 gallery.albums.show('year');

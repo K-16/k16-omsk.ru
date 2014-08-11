@@ -7,14 +7,15 @@
     },
     {
       "name": "Новости",
-      "url": "news"
+      "url": "news",
+      "scripts": ["pages/news.js"]
     },
     {
       "name": "История",
       "url": "history"
     },
     {
-      "name": "Учёба",
+      "name": "Учеба",
       "url": "education",
       "menu":
       [
@@ -48,14 +49,6 @@
         {
           "name": "Ночной Сбор",
           "url": "night"
-        },
-        {
-          "name": "Согра",
-          "url": "sogra"
-        },
-        {
-          "name": "Творческая дача",
-          "url": "summerhouse"
         }
       ]
     },
@@ -64,10 +57,6 @@
       "url": "people",
       "menu":
       [
-        {
-          "name": "Дети",
-          "url": "children"
-        },
         {
           "name": "Выпускники",
           "url": "graduates"
@@ -80,11 +69,13 @@
     },
     {
       "name": "Контакты",
-      "url": "contacts"
+      "url": "contacts",
+      "scripts": ["pages/map.js", "pages/widgets.js"]
     },
     {
       "name": "Фото",
-      "url": "photo"
+      "url": "photo",
+      "scripts": ["pages/gallery.js"]
     }
   ]
 }

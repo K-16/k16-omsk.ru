@@ -1,4 +1,4 @@
-function init() 
+function mapInit() 
 {
   var mapOptions = 
   {
@@ -18,8 +18,7 @@ function init()
 
   var map = new google.maps.Map(document.getElementById('map'), mapOptions);
 
-
-  var circle = // Выносить в конфиг?
+  var circle =
   {
     path: google.maps.SymbolPath.CIRCLE,
     fillColor: config['color']['white'],
@@ -49,9 +48,4 @@ function init()
   log('Загрузил карту с такими координатами (x, y): ' + config['map']['x'] + ', ' + config['map']['y']);
 };
 
-function loadMap() 
-{
-  $('#map').append(compileText(templates['script'], {'src': 'https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=true&callback=init'}));
-};
-
-$('body').ready(loadMap);
+$('#map').append(compileText(templates['script'], {'src': 'https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=true&callback=mapInit'}));

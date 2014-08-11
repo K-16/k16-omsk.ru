@@ -2,7 +2,7 @@
  * 
  * menu.less
  * ===============
- *  - Вёрстка меню первого и второго уровня
+ *  - Верстка меню первого и второго уровня
  *
 */
 
@@ -12,6 +12,7 @@
   top: 0;
   left: 0;
   .size(20%, 100%);
+  .text-select(none);
 
   .logo
   {
@@ -22,15 +23,17 @@
     background: url('../../img/logo.png') no-repeat;
     background-color: @COLOR_WHITE;
     background-size: 100% 100%;
-    
-    &:hover
-    {
-      .filter(hue-rotate(180deg));
-    };
+
     &:active
     {
       .resize(0.9);
-    };   
+    };
+
+    &.active
+    {
+      .resize(1);
+      cursor: default;
+    };
   };
 
   .item
@@ -46,7 +49,6 @@
     text-align: center;
     color: @COLOR_WHITE;
     background: @COLOR_BLUE;
-    text-shadow: none;
     .text-select(none);
     
     &:hover
@@ -63,6 +65,7 @@
     {
       color: @COLOR_BLUE;
       background: @COLOR_WHITE;
+      cursor: default;
 
       &:hover
       {
@@ -91,5 +94,11 @@
   .item-2
   {
     display: block;
+    .smoothing(@COLOR_BLUE);
+
+    &:hover
+    {
+      .smoothing(@COLOR_RED);
+    }
   };
 }

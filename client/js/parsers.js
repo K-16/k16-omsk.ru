@@ -5,7 +5,7 @@
  * Парсеры
  *  - createAuthor(). Обработка и вставка авторов цитат и их лиц.
  *  - setBoxEmbedWidth(). Установка заданного значения ширины у .box.embed'ов.
- *  - convertLinksToAjax(). Конвертирует ссылки для навигации по сайту (на Ajax'е).
+ *  - convertLinks(). Конвертирует ссылки для навигации по сайту (на Ajax'е).
  *  - setMenuItemActive(). Устанавливает активный пункт меню, в зависимости от адреса.
  *  - setTitle(). Устанавливает title страницы.
  *  - init(). Активирует все парсеры.
@@ -33,8 +33,22 @@ var parser =
       };
 
       $(this).after(result);
-      
-      log('<' + this.nodeName.toLowerCase() + '>: ' + author);
+    });
+  },
+
+  quotes: function()
+  {
+    $('.quotes').each(function()
+    {
+      $(this).prepend('«').append('»');
+    });
+  },
+
+  tags: function()
+  {
+    $('code.tag').each(function()
+    {
+      $(this).prepend('<').append('>');
     });
   },
 
@@ -46,7 +60,7 @@ var parser =
     });
   },
   
-  convertLinksToAjax: function()
+  convertLinks: function()
   {
     $('a').each(function()
     {
@@ -56,8 +70,6 @@ var parser =
       if (link && !link.match(regExp['externalLink'])) 
       {
         $(this).removeAttr('href').attr('onclick', 'nav(\'' + link.substr(template) + '\');');
-
-        log('Cконвертировал аттрибут href у <' + this.nodeName.toLowerCase() + '> из \'' + link + '\' в \'' + link.substr(template) + '\'');        
       }
       else if (!$(this).attr('onclick'))
       {
@@ -68,7 +80,7 @@ var parser =
 
   setMenuItemActive: function()
   {
-    $('.menu .item').each(function()
+    $('.menu .item, .menu .logo').each(function()
     {
       var link = $(this).attr('onclick');
 
@@ -131,15 +143,17 @@ var parser =
 
   newsText: function(text)
   {
-    return text.replace(regExp['newsVKProfileLink'], '<a href="http://vk.com/id$1">$2 $3</a>')
-//               .replace(regExp['textExternalLink'], '<a href="$1">$1</a>');
+    return text.replace(regExp['textExternalLink'], '<a href="$1">$1</a>')
+               .replace(regExp['newsVKProfileLink'], '<a href="http://vk.com/id$1">$2 $3</a>');
   },
 
   init: function()
   {
     this.createAuthor();
+    this.quotes();
+    this.tags();
     this.setBoxEmbedWidth();
-    this.convertLinksToAjax();
+    this.convertLinks();
     this.setMenuItemActive();
     this.setTitle();
 
