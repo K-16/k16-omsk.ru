@@ -1,0 +1,3 @@
+[submodule "html-contest-2014"]
+	path = html-contest-2014
+	url = git://github.com/K-16/html-contest-2014.git
