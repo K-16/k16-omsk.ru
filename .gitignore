@@ -1,8 +1,5 @@
 # Кэш картинок от Винды
 Thumbs.db
 
-# Скомпилированные файлы
-compiled.*
-
 # node
 node_modules
