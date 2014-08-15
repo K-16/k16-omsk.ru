@@ -144,7 +144,8 @@ var parser =
   newsText: function(text)
   {
     return text.replace(regExp['textExternalLink'], '<a href="$1">$1</a>')
-               .replace(regExp['newsVKProfileLink'], '<a href="http://vk.com/id$1">$2</a>');
+               .replace(regExp['newsVKProfileLink'], '<a href="http://vk.com/id$1">$2</a>')
+               .replace(/\n/g, '<br>');
   },
 
   init: function()

@@ -15,7 +15,7 @@ var regExp =
 {
   'externalLink': /((http|https|mailto):)/i,
   'funcNavValue': /'[a-z]+'/i,
-  'newsVKProfileLink': /\[id(\d+)\|(.*)\]/g, /** @example [id000|Name] */
+  'newsVKProfileLink': /\[id(\d+)\|([а-яёА-ЯЁa-zA-z0-9\s]+)\]/g, /** @example [id000|Name] */
   'textExternalLink': /((http|https):\/\/[\w\d\/.?=%\-_&;]+)/g, // ; — O_o
   'achievementsCategory': /\n[\W\w]+/
 };
