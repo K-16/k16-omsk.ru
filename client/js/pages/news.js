@@ -6,7 +6,7 @@ var news =
 
     var filter = p.filter || 'owner',
         offset = p.offset || 0,
-        count  = p.count  || 25;
+        count  = p.count  || 25; // может быть, через 10 лет, я сделаю подгрузку остальных, когда доходим до низа
 
     var result = [];
 

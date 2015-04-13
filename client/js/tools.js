@@ -73,18 +73,12 @@ function ajaxVK2(request, async) // В 6-ть утра в голову назв�
 
 function ajaxVK(request)
 {
-  if (localStorage.getItem(request) === undefined || localStorage.getItem(request) === null)
-  {
-    var speed = 'fast';
+  var speed = 'fast';
 
+  if (localStorage.getItem(request) === undefined || localStorage.getItem(request) === null || getCurrentPage() === 'news')
     ajaxVK2(request, false);
-
-    setTimeout(function() { $('.load').slideUp(speed).hide(speed); }, 1000);
-  }
   else
-  {
     ajaxVK2(request, true);
 
-    setTimeout(function() { $('.load').slideUp(speed).hide(speed); }, 1000);
-  };
+  setTimeout(function() { $('.load').slideUp(speed).hide(speed); }, 1000);
 };
