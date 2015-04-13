@@ -74,13 +74,8 @@ function ajaxVK2(request, async) // В 6-ть утра в голову назв�
 function ajaxVK(request)
 {
   var speed = 'fast';
-
-  if (localStorage.getItem(request) === undefined ||
-      localStorage.getItem(request) === null ||
-      getCurrentPage() === 'news') // на самом деле, это нужно переделать через коллбеки, убрать пхп к чёрту и всё такое, но мне лень, простите
-    ajaxVK2(request, false);
-  else
-    ajaxVK2(request, true);
+  
+  ajaxVK2(request, false); // на самом деле, это нужно переделать через коллбеки, убрать пхп к чёрту и всё такое, но мне лень, простите
 
   setTimeout(function() { $('.load').slideUp(speed).hide(speed); }, 1000);
 };
