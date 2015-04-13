@@ -75,7 +75,9 @@ function ajaxVK(request)
 {
   var speed = 'fast';
 
-  if (localStorage.getItem(request) === undefined || localStorage.getItem(request) === null || getCurrentPage() === 'news')
+  if (localStorage.getItem(request) === undefined ||
+      localStorage.getItem(request) === null ||
+      getCurrentPage() === 'news') // на самом деле, это нужно переделать через коллбеки, убрать пхп к чёрту и всё такое, но мне лень, простите
     ajaxVK2(request, false);
   else
     ajaxVK2(request, true);
