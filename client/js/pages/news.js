@@ -6,7 +6,7 @@ var news =
 
     var filter = p.filter || 'owner',
         offset = p.offset || 0,
-        count  = p.count  || 100;
+        count  = p.count  || 25;
 
     var result = [];
 

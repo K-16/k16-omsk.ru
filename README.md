@@ -5,6 +5,7 @@
 ## Как установить у себя?
  * Устанавливаем [node.js](http://nodejs.org/download)
  * Устанавливаем [grunt](http://gruntjs.com/getting-started)
+ * ```npm install```
  * Работаем
 
 ## Техническая информация
