@@ -19,6 +19,11 @@
     border-right: none;
   };
 
+  &.extend
+  {
+    width: calc(100% - 80px);
+  };
+
   &.embed
   {
     display: inline-block;
@@ -61,8 +66,8 @@
       &.active
       {
         color: @COLOR_WHITE;
-        background: darken(@COLOR_BLUE, 20%);
-        border-color: darken(@COLOR_BLUE, 20%);
+        background: darken(@COLOR_BLUE, 10%);
+        border-color: darken(@COLOR_BLUE, 10%);
       };
     };
   };
