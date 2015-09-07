@@ -24,7 +24,7 @@ var achievements =
 
         var a = [];
 
-        for (var b in j)
+        for (var b in j) // это мы выбираем самое качественное фото из доступных
           if (b.match(/photo_/)) a.push(b.replace(/photo_/, ''));
 
         var photo = j['photo_' + a[a.length - 1]];

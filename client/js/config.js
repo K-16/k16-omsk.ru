@@ -14,6 +14,7 @@ var config =
   {
     'groupId': '-1088622',
     'achievementsAlbumId': '194971509',
+    'mainAlbumId': '219881429',
     'apiVersion': '5.7'
   },
 
