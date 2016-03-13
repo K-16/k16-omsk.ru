@@ -1,4 +1,4 @@
-module.exports = function(grunt)
+module.exports = function(grunt) // gulp!!!))))0
 {
   var jsPath  = 'client/js/',
       cssPath = 'client/style/';
