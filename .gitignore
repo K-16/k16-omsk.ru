@@ -1,5 +1,6 @@
-# Кэш картинок от Винды
+# Кэш картинок от Винды и Мака
 Thumbs.db
+.DS_Store
 
 # node
 node_modules
