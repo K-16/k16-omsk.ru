@@ -16,7 +16,8 @@ function loadPage(url, ajax)
   var m = menu.get(),
       page;
 
-  if (url == getCurrentPage() && ajax) return;
+  if (url == getCurrentPage() && ajax)
+    return;
 
   m.success(function(a)
   {
@@ -61,7 +62,8 @@ function loadPage(url, ajax)
 
     $('.content').load(TEXT_URL + page, function()
     {
-      if (ajax) history.pushState(null, null, url);
+      if (ajax)
+        history.pushState({ url: url }, null, url);
 
       menu.generate.second();
       
@@ -73,6 +75,12 @@ function loadPage(url, ajax)
       log('Загрузил страницу: ' + url);
     });
   });
+};
+
+// Следим за кнопками вперёд / назад
+window.onpopstate = function(e)
+{
+  loadPage(e.state.url, false);
 };
 
 function loadErrorPage()

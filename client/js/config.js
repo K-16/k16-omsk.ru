@@ -28,7 +28,7 @@ var config =
 
   'debug':
   {
-    'enable': true,
+    'enable': false,
     'time': 'ms'
   },
 

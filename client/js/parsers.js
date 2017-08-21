@@ -112,7 +112,8 @@ var parser =
   setTitle: function()
   {
     var m = menu.get(),
-        name;
+        name,
+        url;
 
     m.success(function(a) 
     {
@@ -121,6 +122,7 @@ var parser =
         if (a.items[i]['url'] == getCurrentPage().split('/')[0])
         {
           name = a.items[i]['name'];
+          url = a.items[i]['url'];
 
           if (a.items[i]['menu'])
           {
@@ -129,13 +131,14 @@ var parser =
               if (a.items[i]['url'] + '/' + a.items[i]['menu'][b]['url'] == getCurrentPage())
               {
                 name = a.items[i]['menu'][b]['name'] + ' | ' + a.items[i]['name'];
+                url = a.items[i]['url'] + '/' + a.items[i]['menu'][b]['url'];
               };
             };
           };
         };
       };
 
-      $('title').text(name + ' | ' + config['siteName']);
+      document.title = name + ' | ' + config['siteName'];
 
       log('Заменил <title> страницы на ' + name);
     });
