@@ -136,6 +136,7 @@ var parser =
       };
 
       document.title = name + ' | ' + config['siteName'];
+      $('meta[property="og\\:title"]').attr('content', name + ' | ' + config['siteName']);
 
       log('Заменил <title> страницы на ' + name);
     });
