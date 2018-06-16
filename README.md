@@ -1,11 +1,12 @@
-Сайт К16
+Сайт К-16
 ========
-Новая версия сайта К16. Автор — [Сеня Пугач](https://github.com/upisfree).
+Новая версия сайта К-16. Автор — [Сеня Пугач](https://github.com/upisfree).
 
 ## Как установить у себя?
  * Устанавливаем [node.js](http://nodejs.org/download)
  * Устанавливаем [grunt](http://gruntjs.com/getting-started)
  * ```npm install```
+ * ```grunt```
  * Работаем
 
 ## Техническая информация

@@ -11,9 +11,14 @@
 
 var menu =
 {
+  _menu: '',
   get: function()
   {
-    return $.getJSON('menu.json');
+    if (menu._menu === '') {
+      menu._menu = $.getJSON('menu.json');
+    }
+
+    return menu._menu;
   },
   generate:
   {
