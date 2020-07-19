@@ -21,15 +21,7 @@ var achievements =
       for (var i in json.response.items)
       {
         var j = json.response.items[i];
-
-        var a = [];
-
-        for (var b in j) // это мы выбираем самое качественное фото из доступных
-          if (b.match(/photo_/)) a.push(b.replace(/photo_/, ''));
-
-        var photo = j['photo_' + a[a.length - 1]];
-
-        result.push([j['text'], photo]);
+        result.push([j['text'], j.sizes[j.sizes.length - 1].url]);
       };
 
       return result;
