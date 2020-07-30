@@ -127,15 +127,7 @@ var gallery =
       for (var i in json.response.items)
       {
         var j = json.response.items[i];
-
-        var a = [];
-
-        for (var b in j)
-          if (b.match(/photo_/)) a.push(b.replace(/photo_/, ''));
-
-        var src = j['photo_' + a[a.length - 1]];
-
-        result.push(src);
+        result.push(j.sizes[j.sizes.length - 1].url);
       };
 
       return result;
