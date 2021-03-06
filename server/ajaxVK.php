@@ -2,8 +2,8 @@
 
 $request = $_GET['request'];
 
-// https://oauth.vk.com/authorize?client_id=7543100&scope=photos,offline&response_type=token
-$url = 'https://api.vk.com/method/'.urldecode($request).'&access_token=0021cf6b23a659dc3692c4990cda63157767769c6ae24d2a67b28c293dc7fd24f2ee96f61855be0aaf179';
+// Используется сервисный токен: https://vk.com/dev/access_token?f=3.%20Сервисный%20ключ%20доступа
+$url = 'https://api.vk.com/method/'.urldecode($request).'&access_token=de26c5c9de26c5c9de26c5c90bde50059ddde26de26c5c9be65abd1723e36861107ae3b';  
 
 $response = file_get_contents($url);
 
