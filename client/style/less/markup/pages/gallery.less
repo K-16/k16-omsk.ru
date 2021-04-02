@@ -1,5 +1,5 @@
 /*
- * 
+ *
  * gallery.less
  * ===============
  *  - Верстка галерей
@@ -58,7 +58,7 @@
   z-index: 10;
 };
 
-.fotorama__thumb-border 
+.fotorama__thumb-border
 {
   border-color: @COLOR_BLUE;
   background-image: none;
@@ -96,3 +96,9 @@
     };
   };
 };
+
+@media screen and (max-width: @MOBILE) {
+  .fotorama {
+    margin: -184px 0;
+  }
+}

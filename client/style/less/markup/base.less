@@ -1,5 +1,5 @@
 /*
- * 
+ *
  * base.less
  * ===============
  *  - Базовая верстка страницы
@@ -20,6 +20,19 @@ body
   .insets(0, 0);
   .sansFont;
 
+  .notification {
+    position: fixed;
+    display: block;
+    left: 20%;
+    right: 0;
+    padding: 17px;
+    text-align: center;
+    background: #2e6086;
+    font-style: italic;
+    color: @COLOR_WHITE;
+    font-size: 1.25rem;
+  }
+
   .panel
   {
     .base(block, fixed);
@@ -30,9 +43,9 @@ body
     overflow: auto;
     background: @COLOR_WHITE;
 
-    .content 
-    { 
-      padding: 1% 60px; 
+    .content
+    {
+      padding: 1% 60px;
       .transition(@TRANSITION_SPEED);
 
       h2:nth-of-type(1) > span
@@ -49,3 +62,28 @@ body
     };
   };
 };
+
+@media screen and (max-width: @MOBILE) {
+  body {
+    .panel {
+      width: 100%;
+      left: 0;
+
+      .content {
+        padding: 0 2rem 4rem;
+
+        .main-title {
+          margin-top: 2rem;
+        }
+      }
+    }
+
+    .notification {
+      left: 0;
+      bottom: 0;
+      padding: 1rem;
+      width: auto;
+      font-size: 1rem;
+    }
+  }
+}

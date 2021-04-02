@@ -1,5 +1,5 @@
 /*
- * 
+ *
  * menu.js
  * ========
  * Класс меню.
@@ -81,7 +81,7 @@ var menu =
           }
           else if (a.items[i]['url'] == getCurrentPage())
           {
-            $('.content').prepend('<h2>' + a.items[i]['name'] + '</h2>');
+            $('.content').prepend('<h2 class="main-title">' + a.items[i]['name'] + '</h2>');
           };
         };
 
