@@ -11,6 +11,7 @@
   .base(block, fixed);
   top: 0;
   left: 0;
+  overflow-y: overlay;
   .size(20%, 100%);
   .text-select(none);
 
@@ -50,7 +51,7 @@
     padding-top: 1%;             /* Делаем надпись посередине по вертикали */
     line-height: 1.9;
     cursor: pointer;
-    font-size: 200%;
+    font-size: 1.5rem;
     font-weight: bold;
     text-align: center;
     color: @COLOR_WHITE;
@@ -109,7 +110,6 @@
     width: 80vw;
     left: -80vw;
     z-index: 10;
-    overflow-y: overlay;
     -webkit-transition: left @TRANSITION_SPEED, -webkit-transform @TRANSITION_SPEED;
     transition: left @TRANSITION_SPEED, transform @TRANSITION_SPEED;
 
