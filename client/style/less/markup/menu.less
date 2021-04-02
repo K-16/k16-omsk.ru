@@ -109,6 +109,8 @@
     width: 80vw;
     left: -80vw;
     z-index: 2;
+    -webkit-transition: left @TRANSITION_SPEED, -webkit-transform @TRANSITION_SPEED;
+    transition: left @TRANSITION_SPEED, transform @TRANSITION_SPEED;
 
     &-open-button {
       display: block;
@@ -119,6 +121,8 @@
       cursor: pointer;
       width: 2rem;
       height: 2rem;
+      -webkit-transition: left @TRANSITION_SPEED, -webkit-transform @TRANSITION_SPEED;
+      transition: left @TRANSITION_SPEED, transform @TRANSITION_SPEED;
 
       & svg {
         fill: @COLOR_BLUE;
