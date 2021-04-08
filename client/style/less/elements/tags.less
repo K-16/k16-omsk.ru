@@ -1,5 +1,5 @@
 /*
- * 
+ *
  * tags.less
  * =============
  *  - Теги
@@ -29,15 +29,15 @@ p
 };
 
 a
-{     
+{
   outline: none;
   cursor: pointer;
   text-decoration: none;
   color: @COLOR_BLUE;
   .transition(@TRANSITION_SPEED);
 
-  &:hover 
-  { 
+  &:hover
+  {
     color: @COLOR_RED;
   };
 
@@ -62,11 +62,11 @@ em
 {
   font-style: normal;
 
-  &.italic 
+  &.italic
   {
     font-style: italic;
   };
-  
+
   &.bold
   {
     font-weight: bold;
@@ -83,7 +83,7 @@ cite, em.block
 {
   display: block;
   font-style: normal;
-  margin: 30px 0px;  
+  margin: 30px 0px;
   padding-left: 20px;
   font-size: 105%;
   border-left: 5px solid @COLOR_BLUE;
@@ -92,7 +92,7 @@ cite, em.block
 blockquote
 {
   display: block;
-  position: relative;  
+  position: relative;
   margin: 30px;
   font-size: 125%;
 
@@ -128,7 +128,7 @@ blockquote
   display: block;
   text-align: right;
   font-size: 125%;
-  
+
   img
   {
     width: 100px;
@@ -191,9 +191,9 @@ ul ul,
 ol ul,
 ul ol
 {
-  margin: 0 0 0 40px; 
+  margin: 0 0 0 40px;
 };
-  
+
 li
 {
   position: relative;
@@ -221,7 +221,7 @@ ol li:before                /* Счетчик */
   font-weight: bold;
 };
 
-ul li:before 
+ul li:before
 {
   content: '';
   position: absolute;
@@ -230,7 +230,7 @@ ul li:before
   margin-top: -1em;
   background: @COLOR_BLUE;
   height: 2em;
-  width: 2em; 
+  width: 2em;
 };
 
 input
@@ -244,9 +244,9 @@ textarea
 {
   resize: none;
   width: 50%;
-  height: 200px; 
-  font-size: 85%;  
-  padding: 5px; 
+  height: 200px;
+  font-size: 85%;
+  padding: 5px;
 };
 
 input, textarea
@@ -266,3 +266,7 @@ select
 {
   .transition(@TRANSITION_SPEED);
 };
+
+@media screen and (max-width: @MOBILE) {
+  cite, em.block {margin: 0;}
+}

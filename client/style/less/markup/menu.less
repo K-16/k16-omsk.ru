@@ -1,5 +1,5 @@
 /*
- * 
+ *
  * menu.less
  * ===============
  *  - Верстка меню первого и второго уровня
@@ -11,18 +11,26 @@
   .base(block, fixed);
   top: 0;
   left: 0;
+  overflow-y: overlay;
   .size(20%, 100%);
   .text-select(none);
 
+  &-checkbox {
+    display: none;
+  }
+
+  &-open-button {
+    display: none;
+  }
+
   .logo
   {
-    .base(block, fixed);
-    top: 0;
-    left: 0;
-    .size(20%, 30%);
-    background: url('../../img/logo.png') no-repeat;
-    background-color: @COLOR_WHITE;
+    background: url(/client/img/logo.png) no-repeat;
+    background-color: #fff;
     background-size: 100% 100%;
+    display: block;
+    width: 100%;
+    min-height: 13rem;
 
     &:active
     {
@@ -39,26 +47,21 @@
   .item
   {
     .base(block, relative);
-    top: 30%;
-    .size(100%, 8.5%);     
+    .size(100%, 8.5%);
     padding-top: 1%;             /* Делаем надпись посередине по вертикали */
     line-height: 1.9;
     cursor: pointer;
-    font-size: 200%;
+    font-size: 1.5rem;
     font-weight: bold;
     text-align: center;
     color: @COLOR_WHITE;
     background: @COLOR_BLUE;
     .text-select(none);
-    
+
     &:hover
     {
       color: @COLOR_WHITE;
       background: darken(@COLOR_BLUE, 10%);
-    };
-    &:active
-    {
-      .resize(0.975);
     };
 
     &.active
@@ -69,8 +72,7 @@
 
       &:hover
       {
-        color: @COLOR_BLUE;        
-        background: inherit;
+        color: @COLOR_BLUE;
       };
       &:active
       {
@@ -101,4 +103,38 @@
       .smoothing(@COLOR_RED);
     }
   };
+}
+
+@media screen and (max-width: @MOBILE) {
+  .menu {
+    width: 80vw;
+    left: -80vw;
+    z-index: 10;
+    -webkit-transition: left @TRANSITION_SPEED, -webkit-transform @TRANSITION_SPEED;
+    transition: left @TRANSITION_SPEED, transform @TRANSITION_SPEED;
+
+    &-open-button {
+      display: block;
+      position: fixed;
+      top: 1rem;
+      left: 1rem;
+      z-index: 11;
+      cursor: pointer;
+      width: 2rem;
+      height: 2rem;
+      -webkit-transition: left @TRANSITION_SPEED, -webkit-transform @TRANSITION_SPEED;
+      transition: left @TRANSITION_SPEED, transform @TRANSITION_SPEED;
+
+      & svg {
+        fill: @COLOR_BLUE;
+      }
+    }
+
+    &-checkbox:checked~&-open-button {
+      left: 80vw;
+    }
+    &-checkbox:checked~.menu {
+      left: 0;
+    }
+  }
 }

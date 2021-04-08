@@ -1,5 +1,5 @@
 /*
- * 
+ *
  * objects.less
  * =============
  *  - Различные элементы
@@ -42,6 +42,14 @@
       margin-right: 0;
     };
   };
+
+  &-30 {
+    width: 30%;
+  }
+
+  &-25 {
+    width: 25%;
+  }
 };
 
 .tabs
@@ -72,7 +80,7 @@
     };
   };
 
-  figure > div 
+  figure > div
   {
     display: none;
     margin-top: 10px;
@@ -111,3 +119,7 @@
     vertical-align: middle;
   };
 };
+
+@media screen and (max-width: @MOBILE) {
+  .box {display: block; width: auto;}
+}
